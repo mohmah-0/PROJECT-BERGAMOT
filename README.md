@@ -16,3 +16,7 @@ About the game
 
 ## Specific features
  - Camera targeting the lead car
+
+
+## Assets
+ - https://kenney.nl/assets?q=3d
