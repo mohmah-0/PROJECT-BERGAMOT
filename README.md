@@ -16,6 +16,16 @@ About the game
 
 ## Specific features
  - Camera targeting the lead car
+ - If speed powerup and collide, car infront fly forward
+## Items
+ - Powerups:
+   - Speed
+   - Jump?
+ - Offensive items
+   - Drops:
+     - 
+   - Shoot: 
+ - Defensive items
 
 
 ## Assets
