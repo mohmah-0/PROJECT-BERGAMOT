@@ -6,6 +6,8 @@ Roles:
  - Level Designer:  
  - (Do we need more?)  
 
+Code Convention: CamelCase
+
 # Last come, First serve
 About the game
 
@@ -17,6 +19,7 @@ About the game
 ## Specific features
  - Camera targeting the lead car
  - If speed powerup and collide, car infront fly forward
+
 ## Items
  - Powerups:
    - Speed
