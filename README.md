@@ -1,9 +1,9 @@
 # PROJECT-BERGAMOT  
 Members: Alexander, Mohammed, Edwin and Emil  
 Roles:
- - Programmers: Everyone  
- - Designer:  
- - Level Designer:  
+ - Programmers: Everyone (Primary Mohammed and Emil)
+ - Designer: Alexander
+ - Producer: Edwin  
  - (Do we need more?)  
 
 Code Convention: CamelCase
