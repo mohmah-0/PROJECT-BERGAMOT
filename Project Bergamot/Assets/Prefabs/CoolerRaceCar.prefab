@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 715156825812150803}
   - component: {fileID: 715156825812150800}
   m_Layer: 0
-  m_Name: raceFuture
+  m_Name: CoolerRaceCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
