@@ -3726,7 +3726,6 @@ GameObject:
   - component: {fileID: 1390781690}
   - component: {fileID: 1390781689}
   - component: {fileID: 1390781692}
-  - component: {fileID: 1390781693}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3806,23 +3805,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390781688}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa752e7818a8310428173ddc81798962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathToFollow: {fileID: 1071708028}
-  speedTargetObject: {fileID: 1097369665}
-  offset: {x: 0, y: 8, z: 0}
-  smoothTurn: 0.125
-  speed: 0
---- !u!114 &1390781693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390781688}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0717720dc45db54eb7d1974574db74d, type: 3}
@@ -3830,10 +3812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leadcar: {fileID: 1097369665}
   FollowPath: {fileID: 1071708028}
-  offset: {x: 0, y: -8, z: 10}
-  damping: 1
-  distance: 0
-  path: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: -12, z: 15}
 --- !u!4 &1479005402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 86b76efaf3cfb2842a0f4ebae07e10bd, type: 3}
