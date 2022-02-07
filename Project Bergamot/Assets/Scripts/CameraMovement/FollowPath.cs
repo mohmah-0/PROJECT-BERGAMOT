@@ -11,20 +11,21 @@ public class FollowPath : MonoBehaviour
     public Vector3 offset;
     public float smoothTurn = 0.125f;
     float distanceTravelled;
+    public float speed;
 
 
     void Start()
     {
         transform.position = pathToFollow.path.GetPointAtDistance(speedTargetObject.position.x);
-        distanceTravelled = speedTargetObject.position.x-25;
+        distanceTravelled = (speedTargetObject.position - pathToFollow.path.GetPoint(0)).magnitude - 10;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //speed = Input.GetAxis("Vertical") > 0 ? speedTargetObject.velocity.magnitude : -speedTargetObject.velocity.magnitude;
 
-
-        distanceTravelled += speedTargetObject.velocity.magnitude * Time.deltaTime;
+        distanceTravelled += speed * Time.deltaTime;
         Vector3 targetpos = pathToFollow.path.GetPointAtDistance(distanceTravelled) + offset;
         Quaternion targetrot = pathToFollow.path.GetRotationAtDistance(distanceTravelled) * Quaternion.Euler(45, 0, 0);
 
