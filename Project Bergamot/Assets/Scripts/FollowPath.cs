@@ -23,7 +23,7 @@ public class FollowPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vertical = Input.GetAxis("Vertical");
+        //vertical = Input.GetAxis("Vertical"); had to comment out so that it wont spamm error messages. The error comes from using the old input system while we use the new one.
 
         distanceTravelled += vertical * speed * Time.deltaTime;
         Vector3 targetpos = pathToFollow.path.GetPointAtDistance(distanceTravelled) + offset;
