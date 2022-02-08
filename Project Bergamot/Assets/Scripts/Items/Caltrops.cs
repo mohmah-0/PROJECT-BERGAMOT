@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Caltrops : Item
 {
+    public override void DisplayItem()
+    {
+        throw new System.NotImplementedException();
+    }
+
     float distance = 3;
     public override void Use(GameObject car)
     {

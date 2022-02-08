@@ -15,6 +15,12 @@ public class Inventory : MonoBehaviour
             // item = null;
         }
     }
+
+    public void ItemCollect(Item newItem)
+    {
+        item = newItem;
+    }
+
     public void UseNitro()
     {
         StartCoroutine(Boost());

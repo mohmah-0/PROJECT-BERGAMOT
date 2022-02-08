@@ -13,7 +13,7 @@ public class ItemBox : MonoBehaviour
             return;
 
         Inventory inventory = other.transform.parent.GetComponent<Inventory>();
-        inventory.item = items[Random.Range(0, items.Length)];
+        inventory.ItemCollect(items[Random.Range(0, items.Length)]);
 
         StartCoroutine("BoxDestroy");
     }
@@ -26,6 +26,6 @@ public class ItemBox : MonoBehaviour
         partSys.Play();
 
         yield return new WaitForSeconds(2f);
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

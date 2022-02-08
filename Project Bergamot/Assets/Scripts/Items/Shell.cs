@@ -38,19 +38,26 @@ public class Shell : Item
 
     void OnColliderEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
-            return;
 
-        Rigidbody rb = other.transform.parent.GetComponent<Rigidbody>();
-        rb.velocity /= 4;
-        Destroy(gameObject);
     }
 
     void OnCollisionEnter(Collision col)
     {
-        Vector3 dir = Vector3.Reflect(lastVel.normalized, col.contacts[0].normal);
+        Collider other = col.collider;
+        if (other.CompareTag("Player"))
+        {
+            Rigidbody rb = other.transform.parent.GetComponent<Rigidbody>();
+            rb.velocity /= 4;
+            Destroy(gameObject);
+        }
+        
+        else if (other.CompareTag("Wall"))
+        {
+            Vector3 dir = Vector3.Reflect(lastVel.normalized, col.contacts[0].normal);
+
+            rb.velocity = dir * speed;
+        }
             
-        rb.velocity = dir * speed;
     }
 
     IEnumerator Kill()
