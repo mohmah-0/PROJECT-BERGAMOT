@@ -5,27 +5,32 @@ using PathCreation;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Rigidbody leadcar;
+    public GameManager gameManager;
     public PathCreator FollowPath;
     public Vector3 offset;
     float damping = 1f;
+    GameObject leadCar;
 
     Vector3 pathPoint;
 
+    private void Start()
+    {
+    }
     // Update is called once per frame
     void Update()
     {
+        leadCar = gameManager.getLeadCar();
 
         float currentAngle = transform.eulerAngles.y;
-        float desiredAngle = leadcar.transform.eulerAngles.y;
+        float desiredAngle = leadCar.transform.eulerAngles.y;
         float angle = Mathf.LerpAngle(currentAngle, desiredAngle, damping);
 
-        pathPoint = FollowPath.path.GetClosestPointOnPath(leadcar.position);
+        pathPoint = FollowPath.path.GetClosestPointOnPath(leadCar.transform.position);
         
-        Quaternion rotation = Quaternion.Slerp(FollowPath.path.GetRotationAtDistance(FollowPath.path.GetClosestDistanceAlongPath(leadcar.position)),Quaternion.Euler(0f, angle, 0f),0.125f);
+        Quaternion rotation = Quaternion.Slerp(FollowPath.path.GetRotationAtDistance(FollowPath.path.GetClosestDistanceAlongPath(leadCar.transform.position)),Quaternion.Euler(0f, angle, 0f),0.125f);
         transform.position = pathPoint - (rotation * offset);
 
-        transform.LookAt(leadcar.transform.position);
+        transform.LookAt(leadCar.transform.position);
 
     }
 }
