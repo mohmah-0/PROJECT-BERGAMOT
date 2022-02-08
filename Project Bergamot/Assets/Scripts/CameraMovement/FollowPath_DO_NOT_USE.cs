@@ -7,29 +7,29 @@ public class FollowPath : MonoBehaviour
 {
 
     public PathCreator pathToFollow;
-    public Rigidbody speedTargetObject; //Will be used when car mechanics is done!
+    public GameObject speedTargetObject; //Will be used when car mechanics is done!
+    public float speed = 5;
     public Vector3 offset;
     public float smoothTurn = 0.125f;
     float distanceTravelled;
-    public float speed;
 
+    float vertical;
 
     void Start()
     {
-        transform.position = pathToFollow.path.GetPointAtDistance(speedTargetObject.position.x);
-        distanceTravelled = (speedTargetObject.position - pathToFollow.path.GetPoint(0)).magnitude - 10;
+        transform.position = pathToFollow.path.GetPointAtDistance(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //speed = Input.GetAxis("Vertical") > 0 ? speedTargetObject.velocity.magnitude : -speedTargetObject.velocity.magnitude;
+        //vertical = Input.GetAxis("Vertical"); had to comment out so that it wont spamm error messages. The error comes from using the old input system while we use the new one.
 
-        distanceTravelled += speed * Time.deltaTime;
+        distanceTravelled += vertical * speed * Time.deltaTime;
         Vector3 targetpos = pathToFollow.path.GetPointAtDistance(distanceTravelled) + offset;
         Quaternion targetrot = pathToFollow.path.GetRotationAtDistance(distanceTravelled) * Quaternion.Euler(45, 0, 0);
 
         transform.position = targetpos;
-        transform.rotation = Quaternion.Slerp(targetrot, speedTargetObject.rotation, smoothTurn);
+        transform.rotation = Quaternion.Lerp(transform.rotation ,targetrot, smoothTurn);
     }
 }
