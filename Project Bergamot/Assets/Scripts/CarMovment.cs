@@ -9,7 +9,7 @@ public class CarMovment : MonoBehaviour
     private Transform[] meshes = new Transform[4];
     private Transform wheels, wheelColliders;
 
-    public float friction = 2, drifting = 1.5f;
+    public float friction = 2, drifting = 1f, acceleration = 100;
 
     Vector3 tempPosition;
     Quaternion tempRotation;
@@ -33,7 +33,7 @@ public class CarMovment : MonoBehaviour
     void FixedUpdate()
     {
         WheelMovments();//uppdating wheel movments every frame
-        changingFrictions();
+        changingHandlingValues();
     }
 
 
@@ -48,7 +48,7 @@ public class CarMovment : MonoBehaviour
     }
 
 
-    void changingFrictions()
+    void changingHandlingValues()
     {
         if(friction != 2 || drifting != 1.5f)
         {
@@ -73,8 +73,8 @@ public class CarMovment : MonoBehaviour
         Debug.Log("tryckte  " + i.ReadValue<float>());
 
 
-        colliders[2].motorTorque = i.ReadValue<float>() * 150f;
-        colliders[3].motorTorque = i.ReadValue<float>() * 100f;
+        colliders[2].motorTorque = i.ReadValue<float>() * acceleration * 1.5f;
+        colliders[3].motorTorque = i.ReadValue<float>() * acceleration;
     }
 
 
@@ -84,8 +84,8 @@ public class CarMovment : MonoBehaviour
         Debug.Log("tryckte  " + i.ReadValue<float>());
 
 
-        colliders[2].motorTorque = -i.ReadValue<float>() * 150;
-        colliders[3].motorTorque = -i.ReadValue<float>() * 100;
+        colliders[2].motorTorque = -i.ReadValue<float>() * acceleration * 1.5f;
+        colliders[3].motorTorque = -i.ReadValue<float>() * acceleration;
     }
 
 
