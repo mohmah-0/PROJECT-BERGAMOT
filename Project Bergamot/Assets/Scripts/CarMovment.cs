@@ -7,6 +7,8 @@ public class CarMovment : MonoBehaviour
     private WheelCollider[] collider = new WheelCollider[4];
     private Transform[] meshes = new Transform[4];
 
+    public float speed = 1;
+
     Vector3 tempPosition;
     Quaternion tempRotation;
 
@@ -49,7 +51,7 @@ public class CarMovment : MonoBehaviour
         collider[1].steerAngle = Input.GetAxis("Horizontal") * 30;
 
 
-        collider[2].motorTorque = Input.GetAxis("Vertical") * 1500;
-        collider[3].motorTorque = Input.GetAxis("Vertical") * 1000;
+        collider[2].motorTorque = Input.GetAxis("Vertical") * 1500 * speed;
+        collider[3].motorTorque = Input.GetAxis("Vertical") * 1500 * speed;
     }
 }
