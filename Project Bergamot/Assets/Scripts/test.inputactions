@@ -1,0 +1,74 @@
+{
+    "name": "test",
+    "maps": [
+        {
+            "name": "Movment",
+            "id": "e6ef5b41-a621-481c-b7f5-005256ebb87f",
+            "actions": [
+                {
+                    "name": "Decelerate",
+                    "type": "Value",
+                    "id": "a60b4137-71d7-4097-8557-a7a2e94d1cde",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Acelerate",
+                    "type": "Value",
+                    "id": "e2e7ea75-c285-47c1-ab18-b834a2f4f662",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Steering",
+                    "type": "Value",
+                    "id": "b5f0d78a-bd55-4c58-ad1a-082ed1f1dbb5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "be16027a-ccc3-4d48-a1bb-05ea1ca5fe71",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Decelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "439661b4-2f60-42b6-9e56-94d6bb928b44",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Acelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bd4e711e-d82c-44a5-b5eb-7b6043e7c80c",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steering",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
