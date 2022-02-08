@@ -23,6 +23,6 @@ public class Caltrops : Item
 
         Rigidbody rb = other.transform.parent.GetComponent<Rigidbody>();
         rb.velocity /= 4;
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

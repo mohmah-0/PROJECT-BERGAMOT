@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && item != null)
         {
             item.Use(gameObject);
-            item = null;
+            // item = null;
         }
     }
     public void UseNitro()
