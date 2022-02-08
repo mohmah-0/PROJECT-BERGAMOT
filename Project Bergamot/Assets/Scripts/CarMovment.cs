@@ -9,6 +9,8 @@ public class CarMovment : MonoBehaviour
     private Transform[] meshes = new Transform[4];
     private Transform wheels, wheelColliders;
 
+    public float friction = 2, drifting = 1.5f;
+
     Vector3 tempPosition;
     Quaternion tempRotation;
 
@@ -31,7 +33,7 @@ public class CarMovment : MonoBehaviour
     void FixedUpdate()
     {
         WheelMovments();//uppdating wheel movments every frame
-
+        changingFrictions();
     }
 
 
@@ -42,6 +44,25 @@ public class CarMovment : MonoBehaviour
         {
             colliders[i].GetWorldPose(out tempPosition, out tempRotation);
             meshes[i].SetPositionAndRotation(tempPosition, tempRotation);
+        }
+    }
+
+
+    void changingFrictions()
+    {
+        if(friction != 2 || drifting != 1.5f)
+        {
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                WheelFrictionCurve wheelFriction = colliders[i].forwardFriction;
+                wheelFriction.stiffness = friction;
+                colliders[i].forwardFriction = wheelFriction;
+
+                wheelFriction = colliders[i].sidewaysFriction;
+                wheelFriction.extremumSlip = drifting;
+                colliders[i].sidewaysFriction = wheelFriction;
+
+            }
         }
     }
 
