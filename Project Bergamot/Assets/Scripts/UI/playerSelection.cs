@@ -10,10 +10,11 @@ public class playerSelection : MonoBehaviour
 
     public void showSelectedInSlot()
     {
-        Debug.Log(playerCellPrefab, this);
         Image carCellImage = carCellPrefab.transform.Find("Model").GetComponent<Image>();
         Image selectedCarImage = playerCellPrefab.transform.Find("Image").GetComponent<Image>();
+       
         selectedCarImage.sprite = carCellImage.sprite;
         Debug.Log("selected image: " + selectedCarImage.sprite);
+        Debug.Log("playerCell: " + playerCellPrefab.name);
     }
 }
