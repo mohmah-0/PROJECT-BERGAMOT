@@ -7,18 +7,19 @@ public class Inventory : MonoBehaviour
 {
     public Item item;
 
-    void Update()
+    public void UseItem()
     {
-        if (Input.GetButtonDown("Fire1") && item != null)
-        {
-            item.Use(gameObject);
-            // item = null;
-        }
+        if (item == null)
+            return;
+
+        item.Use(gameObject);
+        item = null;
     }
 
     public void ItemCollect(Item newItem)
     {
         item = newItem;
+        item.DisplayItem(gameObject);
     }
 
     public void UseNitro()
@@ -28,9 +29,9 @@ public class Inventory : MonoBehaviour
 
     public IEnumerator Boost()
     {
-        GetComponent<CarMovment>().speed = 3;
+        GetComponent<CarMovmentNI>().speed = 3;
         yield return new WaitForSeconds(1);
 
-        GetComponent<CarMovment>().speed = 1;
+        GetComponent<CarMovmentNI>().speed = 1;
     }
 }

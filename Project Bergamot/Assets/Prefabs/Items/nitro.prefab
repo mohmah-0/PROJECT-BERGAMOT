@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1047304764173230483}
   - component: {fileID: 2984814991658341721}
   - component: {fileID: 7715633198860965841}
+  - component: {fileID: -3363216170532297447}
   m_Layer: 0
   m_Name: nitro
   m_TagString: Untagged
@@ -52,7 +53,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -95,3 +95,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ca94d1657e7664dbde4286b575f61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &-3363216170532297447
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633504517454165132}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 12b466b862283314ab36d810ce2540de, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
