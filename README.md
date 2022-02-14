@@ -26,7 +26,6 @@ About the game
    - Jump?
  - Offensive items
    - Drops:
-     - 
    - Shoot: 
  - Defensive items
 
