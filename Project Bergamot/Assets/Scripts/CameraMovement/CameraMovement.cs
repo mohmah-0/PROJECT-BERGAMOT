@@ -9,7 +9,7 @@ public class CameraMovement : MonoBehaviour
     public PathCreator FollowPath;
     public Vector3 offset;
     float damping = 1f;
-    GameObject leadCar;
+    Rigidbody leadCar;
 
     Vector3 pathPoint;
 
@@ -19,7 +19,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        leadCar = gameManager.getLeadCar();
+        leadCar = gameManager.getLeadCar().transform.GetChild(0).GetComponent<Rigidbody>();
 
         float currentAngle = transform.eulerAngles.y;
         float desiredAngle = leadCar.transform.eulerAngles.y;

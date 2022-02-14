@@ -56,11 +56,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2068577072927208982}
+  - component: {fileID: 4277902561538226229}
   - component: {fileID: 3179390722294146538}
   - component: {fileID: 7374833967051081919}
+  - component: {fileID: -2055158379053749901}
   m_Layer: 0
   m_Name: RegularRaceCar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +75,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068577072927208983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.31, y: 0.501, z: 4.56}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6668844013955594312}
@@ -81,6 +83,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4277902561538226229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca3634b8fb9fc2408b0fb1d35a5ef0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3179390722294146538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,12 +179,26 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: b5f0d78a-bd55-4c58-ad1a-082ed1f1dbb5
-    m_ActionName: Movment/Steering[/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]
-  m_NeverAutoSwitchControlSchemes: 0
+    m_ActionName: Movment/Steering[/XInputControllerWindows/leftStick]
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movment
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-2055158379053749901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbc78849d2ccb94cab1a34511d2d9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 0
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1 &3661984357627778435
 GameObject:
   m_ObjectHideFlags: 0
