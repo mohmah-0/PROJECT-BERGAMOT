@@ -5,8 +5,13 @@ using UnityEngine.UI;
 
 public class playerSelection : MonoBehaviour
 {
+
     public GameObject playerCellPrefab;
     public GameObject carCellPrefab;
+    public GameObject carPrefab;
+
+    public static int selectedIndex;
+    public int carIndex;
 
     public void showSelectedInSlot()
     {
@@ -16,5 +21,13 @@ public class playerSelection : MonoBehaviour
         selectedCarImage.sprite = carCellImage.sprite;
         Debug.Log("selected image: " + selectedCarImage.sprite);
         Debug.Log("playerCell: " + playerCellPrefab.name);
+
+        saveCarIndex(); 
+    }
+
+    void saveCarIndex()
+    {
+        selectedIndex = carIndex;
+        Debug.Log(selectedIndex);
     }
 }
