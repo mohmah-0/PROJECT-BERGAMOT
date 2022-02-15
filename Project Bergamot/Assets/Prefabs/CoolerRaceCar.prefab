@@ -446,9 +446,10 @@ GameObject:
   - component: {fileID: 4177195885661209284}
   - component: {fileID: 6981259193831492122}
   - component: {fileID: 5714003224584177557}
+  - component: {fileID: 5558778568032999150}
   m_Layer: 0
   m_Name: CoolerRaceCar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -481,6 +482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ad7fb39ae4fc0468829e75604f5e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friction: 2
+  drifting: 1
+  acceleration: 100
 --- !u!114 &5714003224584177557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,6 +563,20 @@ MonoBehaviour:
   m_DefaultActionMap: Movment
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5558778568032999150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177195885661209291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbc78849d2ccb94cab1a34511d2d9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 0
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1 &4177195885811453978
 GameObject:
   m_ObjectHideFlags: 0

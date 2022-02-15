@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,14 @@ public class GameManager : MonoBehaviour
 
     public GameObject getLeadCar()
     {
-        return cars[0];
+
+        try
+        {
+            return cars[0];
+        }catch(Exception e)
+        {
+            Debug.Log("Inga bilar");
+            return null;
+        }
     }
 }

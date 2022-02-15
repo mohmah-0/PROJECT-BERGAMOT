@@ -31,6 +31,7 @@ public class CameraMovement : MonoBehaviour
         transform.position = pathPoint - (rotation * offset);
 
         transform.LookAt(leadCar.transform.position);
+        Debug.Log("något" + leadCar.transform.position);
 
     }
 }

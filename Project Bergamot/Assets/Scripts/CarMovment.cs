@@ -70,7 +70,6 @@ public class CarMovment : MonoBehaviour
     public void accelerate(InputAction.CallbackContext i)
     {
 
-        Debug.Log("tryckte  " + i.ReadValue<float>());
 
 
         colliders[2].motorTorque = i.ReadValue<float>() * acceleration * 1.5f;
@@ -81,7 +80,6 @@ public class CarMovment : MonoBehaviour
     public void decelerate(InputAction.CallbackContext i)
     {
 
-        Debug.Log("tryckte  " + i.ReadValue<float>());
 
 
         colliders[2].motorTorque = -i.ReadValue<float>() * acceleration * 1.5f;
@@ -92,7 +90,6 @@ public class CarMovment : MonoBehaviour
     public void steer(InputAction.CallbackContext i)
     {
 
-        Debug.Log("tryckte  " + i.ReadValue<Vector2>());
         colliders[0].steerAngle = i.ReadValue<Vector2>().x * 30;
         colliders[1].steerAngle = i.ReadValue<Vector2>().x * 30;
 
