@@ -8,6 +8,7 @@ public class CarMovment : MonoBehaviour
     private WheelCollider[] colliders = new WheelCollider[4];
     private Transform[] meshes = new Transform[4];
     private Transform wheels, wheelColliders;
+    public bool EnteredGoal = false;
 
     public float friction = 2, drifting = 1f, acceleration = 100;
 
@@ -71,9 +72,12 @@ public class CarMovment : MonoBehaviour
     {
 
 
+        if (!EnteredGoal)// just to stop players from continuing after reach goal
+        {
+            colliders[2].motorTorque = i.ReadValue<float>() * acceleration * 1.5f;
+            colliders[3].motorTorque = i.ReadValue<float>() * acceleration;
+        }
 
-        colliders[2].motorTorque = i.ReadValue<float>() * acceleration * 1.5f;
-        colliders[3].motorTorque = i.ReadValue<float>() * acceleration;
     }
 
 
@@ -81,17 +85,22 @@ public class CarMovment : MonoBehaviour
     {
 
 
-
-        colliders[2].motorTorque = -i.ReadValue<float>() * acceleration * 1.5f;
-        colliders[3].motorTorque = -i.ReadValue<float>() * acceleration;
+        if (!EnteredGoal)
+        {
+            colliders[2].motorTorque = -i.ReadValue<float>() * acceleration * 1.5f;
+            colliders[3].motorTorque = -i.ReadValue<float>() * acceleration;
+        }
     }
 
 
     public void steer(InputAction.CallbackContext i)
     {
 
-        colliders[0].steerAngle = i.ReadValue<Vector2>().x * 30;
-        colliders[1].steerAngle = i.ReadValue<Vector2>().x * 30;
+        if (!EnteredGoal)
+        {
+            colliders[0].steerAngle = i.ReadValue<Vector2>().x * 30;
+            colliders[1].steerAngle = i.ReadValue<Vector2>().x * 30;
+        }
 
     }
 }
