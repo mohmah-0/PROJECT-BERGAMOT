@@ -79,7 +79,7 @@
                     "id": "f815e3a6-4149-498f-8be5-1076c7469428",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -88,7 +88,7 @@
                     "id": "a13ccedd-529b-4e86-9687-03ffd8221701",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -97,7 +97,7 @@
                     "id": "cae3f650-8632-496c-a065-6bf067532684",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -106,7 +106,7 @@
                     "id": "94e44eea-f0bb-4bd0-983f-53a53f6e6f38",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
@@ -115,21 +115,10 @@
                     "name": "",
                     "id": "39ef1aac-a77c-4804-9be5-fab4bcdca1f0",
                     "path": "<Gamepad>/dpad/left",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7b698853-a8ec-49d7-9e64-1e5a8c44a3b0",
-                    "path": "<Gamepad>/dpad/right",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -152,6 +141,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64060185-f96c-4f16-8594-910e7df43ea5",
+                    "path": "<XInputController>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
