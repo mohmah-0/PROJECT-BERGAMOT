@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Car", menuName = "Create Car")]
-
-//Scripptable object for creating new Car object
 public class createCar : ScriptableObject
 {
     public Sprite carImage;

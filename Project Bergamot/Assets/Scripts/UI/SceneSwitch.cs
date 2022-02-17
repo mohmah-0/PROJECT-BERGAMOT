@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
 {
-    //SceneManager 
-    //Switching scene from the menu to the game
     public void playUI_BTN()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

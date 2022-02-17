@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class carDisplay : MonoBehaviour
 {
-    //will Later change to using the Scripptable object
-
     public List<createCar> carList = new List<createCar>();
     public GameObject carCellPrefab;
 
