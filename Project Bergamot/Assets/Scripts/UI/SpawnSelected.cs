@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnSelected : MonoBehaviour
 {
     //Note the carAr is in ordered
+
     public GameObject[] carAr; //create child object to the empty game object
     private int pickedCarIndex1; //p1 seleceted car 
     private int pickedCarIndex2; //p2 selected car

@@ -5,7 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerSpawnAction : MonoBehaviour
 {
+    public static PlayerInputManager currentPlayerInputMananger, pastPlayerInputMananger;
     public Transform[] spawnPoints;
+
+
+    private void Start()
+    {
+        gameObject.GetComponent<PlayerInputManager>().playerPrefab = pastPlayerInputMananger.playerPrefab;
+    }
+
+
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         Debug.Log("Player " + playerInput.playerIndex + " joined the game!");
