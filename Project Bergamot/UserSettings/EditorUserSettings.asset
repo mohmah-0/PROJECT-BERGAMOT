@@ -18,12 +18,15 @@ EditorUserSettings:
       value: 224247031146467a090a032c036c6f11021f3b382929323f3f66382be3ed2434e7f479dae43f31392a4dc03e0e3b022bb23a050af50e070e1f1ab31b1ff6040a
       flags: 0
     RecentlyUsedScenePath-4:
+<<<<<<< HEAD
       value: 22424703114646680e0b0227036c6c0417050c072926337e38271427fb
       flags: 0
     RecentlyUsedScenePath-5:
       value: 22424703114646680e0b0227036c761e3116152f623d28393930
       flags: 0
     RecentlyUsedScenePath-6:
+=======
+>>>>>>> parent of 2a88268 (Merge pull request #18 from mohmah-0/edwin)
       value: 22424703114646680e0b0227036c72110638162f623d28393930
       flags: 0
     vcSharedLogLevel:
