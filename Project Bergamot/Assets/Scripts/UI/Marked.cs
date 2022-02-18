@@ -32,10 +32,12 @@ public class Marked : MonoBehaviour
         if(whichButton == buttons.Count - 1)//the last button on the canvas list which is "start" button
         {
             //somehow transfer the players controll together with thier chosen cars to the next scene and go to next scene
+            Debug.Log("pressed start");
         }
         else
         {
             //whateer should happen when player selected the car on button that is on the index "whichButton" - 1 on the button list
+            Debug.Log("pressed car nr: " + whichButton);
         }
     }
 
