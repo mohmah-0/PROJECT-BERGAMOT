@@ -18,8 +18,11 @@ public class Inventory : MonoBehaviour
 
     public void ItemCollect(Item newItem)
     {
-        item = newItem;
-        item.DisplayItem(gameObject);
+        if (item == null)
+        {
+            item = newItem;
+            item.DisplayItem(gameObject);
+        }
     }
 
     public void UseNitro()
