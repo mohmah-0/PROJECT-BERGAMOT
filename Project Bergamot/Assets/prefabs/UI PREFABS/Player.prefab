@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 15156326735374212}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,6 +149,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 271ce06e-d8d8-4664-be28-1d9ea11c3a91
     m_ActionName: UI/Press[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 15156326735374212}
+        m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
+        m_MethodName: test
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 11e868e2-ca09-4c97-9fc9-59471481953b
+    m_ActionName: test/New action[/XInputControllerWindows/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -166,3 +182,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6319eb8c01b7c6343bd92d21c06dd7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  select: 0

@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Marked : MonoBehaviour
 {
+    public static GameObject camera;
     public static List<GameObject> playerObject = new List<GameObject>();//try swiching to the players script it self
     public static List<GameObject> buttons = new List<GameObject>();
 
@@ -33,11 +36,19 @@ public class Marked : MonoBehaviour
         {
             //somehow transfer the players controll together with thier chosen cars to the next scene and go to next scene
             Debug.Log("pressed start");
+            for(int i = 0; i < playerObject.Count; i++)
+            {
+                SceneSwitch.DontDestroyOnLoad(playerObject[i]);
+                playerObject[i].GetComponent<PlayerScript>().changeScene();
+            }
+            SceneManager.LoadScene(1);
+
         }
         else
         {
             //whateer should happen when player selected the car on button that is on the index "whichButton" - 1 on the button list
             Debug.Log("pressed car nr: " + whichButton);
+            whichPlayer.GetComponent<PlayerScript>().select = whichButton;
         }
     }
 
