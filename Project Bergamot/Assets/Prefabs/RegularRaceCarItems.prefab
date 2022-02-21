@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 0dfa6aa21494878479e8e255003a0a50, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: b8dd28fe7a1e1404e9cfd301bc2d6123, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -896,8 +896,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 0c78b37c-1b56-4d8c-b94a-2208a1db7760
-    m_ActionName: Player/Use Item[/Keyboard/space]
+    m_ActionId: a965a673-f210-45f0-9288-4552af1553e5
+    m_ActionName: Player/UseItem[/Keyboard/space,/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

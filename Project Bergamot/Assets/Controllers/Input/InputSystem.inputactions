@@ -24,9 +24,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Use Item",
+                    "name": "UseItem",
                     "type": "Button",
-                    "id": "0c78b37c-1b56-4d8c-b94a-2208a1db7760",
+                    "id": "a965a673-f210-45f0-9288-4552af1553e5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -124,23 +124,23 @@
                 },
                 {
                     "name": "",
-                    "id": "eed17dd3-8e47-42f6-90a0-f588e4ef3fa1",
+                    "id": "0b739d42-27b6-4d4d-a45e-7476a20e479a",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Use Item",
+                    "action": "UseItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "caa209ec-78d3-48c3-b13f-4cd971e1dcf0",
+                    "id": "fd63e2e5-d767-4424-8abc-a22d99bab637",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "Use Item",
+                    "action": "UseItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
