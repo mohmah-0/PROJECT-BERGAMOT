@@ -18,7 +18,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        leadCar = CrossChecking.cars[0].carObject.transform.GetChild(0).gameObject;
+        leadCar = CrossChecking.cars[0].carObject.transform.GetChild(0).GetComponent<Rigidbody>();
 
         float currentAngle = transform.eulerAngles.y;
         float desiredAngle = leadCar.transform.eulerAngles.y;
