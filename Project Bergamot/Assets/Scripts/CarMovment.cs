@@ -8,6 +8,9 @@ public class CarMovment : MonoBehaviour
     private WheelCollider[] colliders = new WheelCollider[4];
     private Transform[] meshes = new Transform[4];
     private Transform wheels, wheelColliders;
+    public bool EnteredGoal = false;
+
+    public float friction = 2, drifting = 1f, acceleration = 100;
 
     Vector3 tempPosition;
     Quaternion tempRotation;
@@ -31,7 +34,7 @@ public class CarMovment : MonoBehaviour
     void FixedUpdate()
     {
         WheelMovments();//uppdating wheel movments every frame
-
+        changingHandlingValues();
     }
 
 
@@ -46,34 +49,58 @@ public class CarMovment : MonoBehaviour
     }
 
 
+    void changingHandlingValues()
+    {
+        if(friction != 2 || drifting != 1.5f)
+        {
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                WheelFrictionCurve wheelFriction = colliders[i].forwardFriction;
+                wheelFriction.stiffness = friction;
+                colliders[i].forwardFriction = wheelFriction;
+
+                wheelFriction = colliders[i].sidewaysFriction;
+                wheelFriction.extremumSlip = drifting;
+                colliders[i].sidewaysFriction = wheelFriction;
+
+            }
+        }
+    }
+
+
     public void accelerate(InputAction.CallbackContext i)
     {
 
-        Debug.Log("tryckte  " + i.ReadValue<float>());
 
+        if (!EnteredGoal)// just to stop players from continuing after reach goal
+        {
+            colliders[2].motorTorque = i.ReadValue<float>() * acceleration * 1.5f;
+            colliders[3].motorTorque = i.ReadValue<float>() * acceleration;
+        }
 
-        colliders[2].motorTorque = i.ReadValue<float>() * 150f;
-        colliders[3].motorTorque = i.ReadValue<float>() * 100f;
     }
 
 
     public void decelerate(InputAction.CallbackContext i)
     {
 
-        Debug.Log("tryckte  " + i.ReadValue<float>());
 
-
-        colliders[2].motorTorque = -i.ReadValue<float>() * 150;
-        colliders[3].motorTorque = -i.ReadValue<float>() * 100;
+        if (!EnteredGoal)
+        {
+            colliders[2].motorTorque = -i.ReadValue<float>() * acceleration * 1.5f;
+            colliders[3].motorTorque = -i.ReadValue<float>() * acceleration;
+        }
     }
 
 
     public void steer(InputAction.CallbackContext i)
     {
 
-        Debug.Log("tryckte  " + i.ReadValue<Vector2>());
-        colliders[0].steerAngle = i.ReadValue<Vector2>().x * 30;
-        colliders[1].steerAngle = i.ReadValue<Vector2>().x * 30;
+        if (!EnteredGoal)
+        {
+            colliders[0].steerAngle = i.ReadValue<Vector2>().x * 30;
+            colliders[1].steerAngle = i.ReadValue<Vector2>().x * 30;
+        }
 
     }
 }

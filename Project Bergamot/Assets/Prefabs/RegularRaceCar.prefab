@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 4277902561538226229}
   - component: {fileID: 3179390722294146538}
   - component: {fileID: 7374833967051081919}
-  - component: {fileID: -2055158379053749901}
+  - component: {fileID: 6614622222384459215}
   m_Layer: 0
   m_Name: RegularRaceCar
   m_TagString: Player
@@ -107,6 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ad7fb39ae4fc0468829e75604f5e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  friction: 2
+  drifting: 1
+  acceleration: 100
 --- !u!114 &7374833967051081919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +188,7 @@ MonoBehaviour:
   m_DefaultActionMap: Movment
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &-2055158379053749901
+--- !u!114 &6614622222384459215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -461,7 +464,7 @@ GameObject:
   - component: {fileID: 2068577071761000686}
   m_Layer: 0
   m_Name: RigidBody
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
