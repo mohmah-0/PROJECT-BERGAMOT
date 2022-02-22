@@ -8,7 +8,7 @@ public class CameraMovement : MonoBehaviour
     public PathCreator FollowPath;
     public Vector3 offset;
     float damping = 1f;
-    GameObject leadCar;
+    Rigidbody leadCar;
 
     Vector3 pathPoint;
 
