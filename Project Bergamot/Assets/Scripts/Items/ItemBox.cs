@@ -9,7 +9,7 @@ public class ItemBox : MonoBehaviour
     public Item[] items;
     void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag("PlayerHitbox"))
             return;
         Debug.Log("YES");
 

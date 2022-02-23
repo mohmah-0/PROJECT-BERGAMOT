@@ -75,7 +75,7 @@ public class CarMovment : MonoBehaviour
 
         if (!EnteredGoal)// just to stop players from continuing after reach goal
         {
-            colliders[2].motorTorque = i.ReadValue<float>() * acceleration * 1.5f * speed;
+            colliders[2].motorTorque = i.ReadValue<float>() * acceleration * speed;
             colliders[3].motorTorque = i.ReadValue<float>() * acceleration * speed;
         }
 

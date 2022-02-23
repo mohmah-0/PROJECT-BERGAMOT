@@ -18,7 +18,7 @@ public class Caltrops : Item
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag("PlayerHitbox"))
             return;
 
         Rigidbody rb = other.transform.parent.GetComponent<Rigidbody>();

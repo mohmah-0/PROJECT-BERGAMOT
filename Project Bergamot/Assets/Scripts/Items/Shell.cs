@@ -44,7 +44,7 @@ public class Shell : Item
     void OnCollisionEnter(Collision col)
     {
         Collider other = col.collider;
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerHitbox"))
         {
             Rigidbody rb = other.transform.parent.GetComponent<Rigidbody>();
             rb.velocity /= 4;
