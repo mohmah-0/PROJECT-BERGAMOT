@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Projectile
+  - checkPoint
   layers:
   - Default
   - TransparentFX
@@ -13,9 +14,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - body
+  - wheels
+  - Player
   - 
   - 
   - 
