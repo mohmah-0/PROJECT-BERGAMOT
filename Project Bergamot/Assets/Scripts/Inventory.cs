@@ -6,13 +6,14 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public Item item;
+    [SerializeField] GameObject RBGameObject;
 
     public void UseItem()
     {
         if (item == null)
             return;
 
-        item.Use(gameObject);
+        item.Use(RBGameObject);
         item = null;
     }
 
@@ -21,7 +22,7 @@ public class Inventory : MonoBehaviour
         if (item == null)
         {
             item = newItem;
-            item.DisplayItem(gameObject);
+            item.DisplayItem(RBGameObject);
         }
     }
 
@@ -32,9 +33,9 @@ public class Inventory : MonoBehaviour
 
     public IEnumerator Boost()
     {
-        GetComponent<CarMovmentNI>().speed = 3;
+        GetComponent<CarMovment>().speed = 3;
         yield return new WaitForSeconds(1);
 
-        GetComponent<CarMovmentNI>().speed = 1;
+        GetComponent<CarMovment>().speed = 1;
     }
 }

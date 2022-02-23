@@ -11,8 +11,9 @@ public class ItemBox : MonoBehaviour
     {
         if (!other.CompareTag("Player"))
             return;
+        Debug.Log("YES");
 
-        Inventory inventory = other.transform.parent.GetComponent<Inventory>();
+        Inventory inventory = other.transform.parent.parent.GetComponent<Inventory>();
         inventory.ItemCollect(items[Random.Range(0, items.Length)]);
 
         StartCoroutine("BoxDestroy");

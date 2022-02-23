@@ -11,6 +11,7 @@ public class CarMovment : MonoBehaviour
     public bool EnteredGoal = false;
 
     public float friction = 2, drifting = 1f, acceleration = 100;
+    public float speed = 1;
 
     Vector3 tempPosition;
     Quaternion tempRotation;
@@ -74,8 +75,8 @@ public class CarMovment : MonoBehaviour
 
         if (!EnteredGoal)// just to stop players from continuing after reach goal
         {
-            colliders[2].motorTorque = i.ReadValue<float>() * acceleration * 1.5f;
-            colliders[3].motorTorque = i.ReadValue<float>() * acceleration;
+            colliders[2].motorTorque = i.ReadValue<float>() * acceleration * 1.5f * speed;
+            colliders[3].motorTorque = i.ReadValue<float>() * acceleration * speed;
         }
 
     }

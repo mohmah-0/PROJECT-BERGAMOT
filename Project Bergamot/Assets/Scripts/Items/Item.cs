@@ -19,7 +19,7 @@ public abstract class Item : MonoBehaviour
 
     public IEnumerator DisplayAnim(GameObject item)
     {
-        item.tag = "";
+        item.tag = "Untagged";
         item.GetComponent<Animator>().enabled = true;
         yield return new WaitForSeconds(3);
         item.GetComponent<Animator>().enabled = false;

@@ -6,6 +6,6 @@ public class Nitro : Item
 {
     public override void Use(GameObject car)
     {
-        car.GetComponent<Inventory>().UseNitro();
+        car.transform.parent.GetComponent<Inventory>().UseNitro();
     }
 }
