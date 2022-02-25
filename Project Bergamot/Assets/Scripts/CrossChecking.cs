@@ -37,6 +37,14 @@ public class CrossChecking : MonoBehaviour
         cars.Add(new Car(car.gameObject));
     }
 
+    public void DestroyCar(GameObject car)
+    {
+        int index = car.name[6] - '0';//Get car index from name of gameobject
+        Destroy(car);
+        cars.RemoveAt(index);
+        Debug.Log(index);
+    }
+
     bool hasCar2PassedCar1(Car car1, Car car2)
     {
         if((car1.currentCheckpoint > car2.currentCheckpoint) || ((car1.currentCheckpoint == car2.currentCheckpoint) && (car1.checkpointDistance() < car2.checkpointDistance())))

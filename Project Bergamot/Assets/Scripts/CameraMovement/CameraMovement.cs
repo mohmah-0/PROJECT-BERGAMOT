@@ -12,12 +12,16 @@ public class CameraMovement : MonoBehaviour
 
     Vector3 pathPoint;
 
+
     private void Start()
     {
     }
     // Update is called once per frame
     void Update()
     {
+        if (CrossChecking.cars.Count == 0)
+            return;
+
         leadCar = CrossChecking.cars[0].carObject.transform.GetChild(0).gameObject;
 
         float currentAngle = transform.eulerAngles.y;
