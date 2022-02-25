@@ -3995,7 +3995,6 @@ GameObject:
   - component: {fileID: 1082879983}
   - component: {fileID: 1082879982}
   - component: {fileID: 1082879985}
-  - component: {fileID: 1082879984}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4015,6 +4014,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279ff47d4801a65488e40b720831943b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoints:
+  - {fileID: 95709829}
+  - {fileID: 1927617407}
+  - {fileID: 1351861390}
+  - {fileID: 1760853171}
   playerPrefab: []
 --- !u!4 &1082879983
 Transform:
@@ -4030,23 +4034,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1082879984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082879981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41dd693a8ef015740b70e1822b6b7374, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoints:
-  - {fileID: 95709829}
-  - {fileID: 1927617407}
-  - {fileID: 1351861390}
-  - {fileID: 1760853171}
 --- !u!114 &1082879985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4062,25 +4049,13 @@ MonoBehaviour:
   m_NotificationBehavior: 2
   m_MaxPlayerCount: 4
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 1
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerSpawnAction, Assembly-CSharp
+      - m_Target: {fileID: 1082879982}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: OnPlayerJoined
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 699365083}
-        m_TargetAssemblyTypeName: CrossChecking, Assembly-CSharp
-        m_MethodName: applyCrossChecking
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4104,7 +4079,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 253996144719337801, guid: b8dd28fe7a1e1404e9cfd301bc2d6123, type: 3}
+    m_Reference: {fileID: -2786673918320563848, guid: 8bf6b62561c3da143abffd7562b46d71, type: 3}
   m_PlayerPrefab: {fileID: 2068577072927208983, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
