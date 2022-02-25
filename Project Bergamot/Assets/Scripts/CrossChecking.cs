@@ -32,7 +32,7 @@ public class CrossChecking : MonoBehaviour
     }
 
 
-    public void applyCrossChecking(PlayerInput car)//this is for applying crosschecking for the spawned call
+    public static void applyCrossChecking(PlayerInput car)//this is for applying crosschecking for the spawned call
     {
         cars.Add(new Car(car.gameObject));
     }
