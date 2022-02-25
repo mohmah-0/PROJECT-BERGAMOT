@@ -10,7 +10,7 @@ public class CarMovment : MonoBehaviour
     private Transform wheels, wheelColliders;
     public bool EnteredGoal = false;
 
-    public float friction = 2, drifting = 1.5f, acceleration = 100, topSpeed = 250;
+    public float friction = 2, drifting = 1.5f, acceleration = 100, topSpeed = 275;
 
     Vector3 tempPosition;
     Quaternion tempRotation;
@@ -130,7 +130,7 @@ public class CarMovment : MonoBehaviour
         if (i.started)
         {
             Debug.Log("trycker");
-            drifting = 1.5f;
+            drifting = 2.5f;
         }else if (i.canceled)
         {
             Debug.Log("släppte");
