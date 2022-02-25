@@ -4,24 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ny UI scen.unity
-    guid: e4ba36224cae1644296069cc09c44d85
+    path: Assets/Scenes/StartMenu.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/SelectionScene.unity
+    guid: 32400c71176b5dd40ae3ce31f8d778bd
   - enabled: 1
     path: Assets/Scenes/MapOne.unity
     guid: a9b9bfe7c3e7a8044aad40163cbfd935
-  - enabled: 0
-    path: Assets/Scenes/StartMenu.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/SelectionScreen.unity
-    guid: 30ae17a448635a249bbcc8e8e71b8611
-  - enabled: 0
-    path: Assets/Scenes/TestmultiplayerSelection.unity
-    guid: 32400c71176b5dd40ae3ce31f8d778bd
-  - enabled: 0
-    path: Assets/Scenes/TestInGame.unity
-    guid: 62c84b097ec12e942b894b557eba9aad
+  m_configObjects: {}
+=======
+  m_Scenes: []
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 60594440bd9317644a53f2b49b9398a2, type: 2}
+>>>>>>> parent of 2a88268 (Merge pull request #18 from mohmah-0/edwin)
