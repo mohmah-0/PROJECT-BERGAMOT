@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 7374833967051081919}
   - component: {fileID: 6614622222384459215}
   - component: {fileID: 8494734363644511442}
+  - component: {fileID: 343830967876957679}
   m_Layer: 0
   m_Name: RegularRaceCarItems
   m_TagString: Player
@@ -222,6 +223,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   RBGameObject: {fileID: 6325216481594335986}
+--- !u!114 &343830967876957679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6a5f121fc1a6342a72ae40c9cd8213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 3
 --- !u!1 &3661984357627778435
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +565,7 @@ GameObject:
   - component: {fileID: 7356747453699224678}
   m_Layer: 6
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: PlayerHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

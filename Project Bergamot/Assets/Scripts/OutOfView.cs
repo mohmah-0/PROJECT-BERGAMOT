@@ -6,14 +6,7 @@ public class OutOfView : MonoBehaviour
 {
 
     [SerializeField] GameObject[] cars;
-    CrossChecking crossCheck;
     float startTime = 10;
-    // Start is called before the first frame update
-    void Start()
-    {
-        crossCheck = GameObject.FindGameObjectWithTag("CrossChecking").GetComponent<CrossChecking>();
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +16,7 @@ public class OutOfView : MonoBehaviour
         {
             if (!IsVisible(car) && startTime < 0)
             {
-                crossCheck.DestroyCar(car.transform.parent.parent.gameObject);
+                car.transform.parent.parent.GetComponent<Lives>().OutOfView();
             }
         }
     }
