@@ -7,6 +7,9 @@ TagManager:
   - Wall
   - Projectile
   - checkPoint
+  - PlayerHitbox
+  - PlayerManager
+  - CrossChecking
   layers:
   - Default
   - TransparentFX
