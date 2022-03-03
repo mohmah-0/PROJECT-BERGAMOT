@@ -6,7 +6,7 @@ public class OutOfView : MonoBehaviour
 {
 
     [SerializeField] GameObject[] cars;
-    float startTime = 10;
+    float startTime = 3;
     // Update is called once per frame
     void Update()
     {
