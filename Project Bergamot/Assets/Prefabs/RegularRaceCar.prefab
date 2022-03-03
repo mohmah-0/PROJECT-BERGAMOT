@@ -176,6 +176,34 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e74b7ec8-d5cd-4f5e-a5e7-9f63dc47c94d
     m_ActionName: Movment/Use Item
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3179390722294146538}
+        m_TargetAssemblyTypeName: CarMovment, Assembly-CSharp
+        m_MethodName: accelerate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3179390722294146538}
+        m_TargetAssemblyTypeName: CarMovment, Assembly-CSharp
+        m_MethodName: steer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0766da44-0c63-4598-bc2c-2ed8556db33a
+    m_ActionName: Movment/TEMP![/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movment
