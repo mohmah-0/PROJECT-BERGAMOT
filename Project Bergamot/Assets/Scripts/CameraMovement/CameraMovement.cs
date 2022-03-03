@@ -8,7 +8,7 @@ public class CameraMovement : MonoBehaviour
     public PathCreator FollowPath;
     public Vector3 offset;
     float damping = 1f;
-    Rigidbody leadCar;
+    GameObject leadCar;
 
     Vector3 pathPoint;
 
@@ -18,7 +18,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        leadCar = CrossChecking.cars[0].carObject.transform.GetChild(0).GetComponent<Rigidbody>();
+        leadCar = CrossChecking.cars[0].carObject.transform.GetChild(0).gameObject;
 
         float currentAngle = transform.eulerAngles.y;
         float desiredAngle = leadCar.transform.eulerAngles.y;

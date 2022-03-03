@@ -75,7 +75,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068577072927208983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 49.31, y: 0.501, z: 4.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6668844013955594312}
@@ -182,8 +182,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: b5f0d78a-bd55-4c58-ad1a-082ed1f1dbb5
-    m_ActionName: Movment/Steering[/XInputControllerWindows/leftStick]
-  m_NeverAutoSwitchControlSchemes: 1
+    m_ActionName: Movment/Steering[/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movment
   m_SplitScreenIndex: -1
