@@ -10,8 +10,8 @@ public class CarMovment : MonoBehaviour
     private Transform wheels, wheelColliders;
     public bool EnteredGoal = false;
 
-    public float friction = 2, drifting = 1f, acceleration = 100;
-    public float speed = 1;
+    
+    public float friction = 2, drifting = 1.5f, acceleration = 100, topSpeed = 250;
 
     Vector3 tempPosition;
     Quaternion tempRotation;
@@ -52,7 +52,7 @@ public class CarMovment : MonoBehaviour
 
     void changingHandlingValues()
     {
-        if(friction != 2 || drifting != 1.5f)
+        /*if (friction != 2 || drifting != 1.5f)
         {
             for (int i = 0; i < colliders.Length; i++)
             {
@@ -65,7 +65,20 @@ public class CarMovment : MonoBehaviour
                 colliders[i].sidewaysFriction = wheelFriction;
 
             }
+        }*/
+
+        for (int i = 0; i < colliders.Length; i++)//tas bort efter hittat rätt värden
+        {
+            WheelFrictionCurve wheelFriction = colliders[i].forwardFriction;
+            wheelFriction.stiffness = friction;
+            colliders[i].forwardFriction = wheelFriction;
+
+            wheelFriction = colliders[i].sidewaysFriction;
+            wheelFriction.extremumSlip = drifting;
+            colliders[i].sidewaysFriction = wheelFriction;
+
         }
+
     }
 
 
@@ -73,10 +86,17 @@ public class CarMovment : MonoBehaviour
     {
 
 
-        if (!EnteredGoal)// just to stop players from continuing after reach goal
+        if (!EnteredGoal && colliders[2].rpm <= topSpeed)// just to stop players from continuing after reach goal
         {
-            colliders[2].motorTorque = i.ReadValue<float>() * acceleration * speed;
-            colliders[3].motorTorque = i.ReadValue<float>() * acceleration * speed;
+            colliders[2].motorTorque = i.ReadValue<float>() * acceleration;
+            colliders[3].motorTorque = i.ReadValue<float>() * acceleration;
+            colliders[2].brakeTorque = 0;
+            colliders[3].brakeTorque = 0;
+        }
+        else
+        {
+            colliders[2].brakeTorque = colliders[2].rpm - topSpeed;
+            colliders[3].brakeTorque = colliders[2].rpm - topSpeed;
         }
 
     }
@@ -88,7 +108,7 @@ public class CarMovment : MonoBehaviour
 
         if (!EnteredGoal)
         {
-            colliders[2].motorTorque = -i.ReadValue<float>() * acceleration * 1.5f;
+            colliders[2].motorTorque = -i.ReadValue<float>() * acceleration;
             colliders[3].motorTorque = -i.ReadValue<float>() * acceleration;
         }
     }
@@ -103,5 +123,19 @@ public class CarMovment : MonoBehaviour
             colliders[1].steerAngle = i.ReadValue<Vector2>().x * 30;
         }
 
+    }
+
+
+    public void drift(InputAction.CallbackContext i)
+    {
+        if (i.started)
+        {
+            Debug.Log("trycker");
+            drifting = 1.5f;
+        }else if (i.canceled)
+        {
+            Debug.Log("släppte");
+            drifting = 0.2f;
+        }
     }
 }

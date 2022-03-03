@@ -33,9 +33,9 @@ public class Inventory : MonoBehaviour
 
     public IEnumerator Boost()
     {
-        GetComponent<CarMovment>().speed = 3;
+        GetComponent<CarMovment>().acceleration = 3;
         yield return new WaitForSeconds(1);
 
-        GetComponent<CarMovment>().speed = 1;
+        GetComponent<CarMovment>().acceleration = 1;
     }
 }
