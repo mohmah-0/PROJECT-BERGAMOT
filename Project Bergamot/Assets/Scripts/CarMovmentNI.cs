@@ -5,8 +5,10 @@ using UnityEngine.InputSystem;
 
 public class CarMovmentNI : MonoBehaviour
 {
-    private WheelCollider[] collider = new WheelCollider[4];
+    private WheelCollider[] wheelCollider = new WheelCollider[4];
     private Transform[] meshes = new Transform[4];
+
+    public float speed = 1;
 
     Vector3 tempPosition;
     Quaternion tempRotation;
@@ -20,10 +22,10 @@ public class CarMovmentNI : MonoBehaviour
         meshes[2] = transform.Find("wheels").Find("wheel_backLeft");
         meshes[3] = transform.Find("wheels").Find("wheel_backRight");
 
-        collider[0] = transform.Find("wheelColliders").Find("wheel_frontLeft").GetComponent<WheelCollider>();
-        collider[1] = transform.Find("wheelColliders").Find("wheel_frontRight").GetComponent<WheelCollider>();
-        collider[2] = transform.Find("wheelColliders").Find("wheel_backLeft").GetComponent<WheelCollider>();
-        collider[3] = transform.Find("wheelColliders").Find("wheel_backRight").GetComponent<WheelCollider>();
+        wheelCollider[0] = transform.Find("wheelColliders").Find("wheel_frontLeft").GetComponent<WheelCollider>();
+        wheelCollider[1] = transform.Find("wheelColliders").Find("wheel_frontRight").GetComponent<WheelCollider>();
+        wheelCollider[2] = transform.Find("wheelColliders").Find("wheel_backLeft").GetComponent<WheelCollider>();
+        wheelCollider[3] = transform.Find("wheelColliders").Find("wheel_backRight").GetComponent<WheelCollider>();
     }
 
     // Update is called once per frame
@@ -43,9 +45,9 @@ public class CarMovmentNI : MonoBehaviour
     private void WheelMovments()
     {
 
-        for (int i = 0; i < collider.Length; i++)
+        for (int i = 0; i < wheelCollider.Length; i++)
         {
-            collider[i].GetWorldPose(out tempPosition, out tempRotation);
+            wheelCollider[i].GetWorldPose(out tempPosition, out tempRotation);
             meshes[i].SetPositionAndRotation(tempPosition, tempRotation);
         }
     }
@@ -53,11 +55,11 @@ public class CarMovmentNI : MonoBehaviour
 
     void PlayerControll()
     {
-        collider[0].steerAngle = movementInput.x * 30;
-        collider[1].steerAngle = movementInput.x * 30;
-
-
-        collider[2].motorTorque = movementInput.y * 1500;
-        collider[3].motorTorque = movementInput.y * 1000;
+        wheelCollider[0].steerAngle = movementInput.x * 30;
+        wheelCollider[1].steerAngle = movementInput.x * 30;
+        
+        
+        wheelCollider[2].motorTorque = movementInput.y * 1500 * speed;
+        wheelCollider[3].motorTorque = movementInput.y * 1500 * speed;
     }
 }
