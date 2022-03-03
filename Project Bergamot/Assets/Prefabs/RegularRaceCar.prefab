@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca3634b8fb9fc2408b0fb1d35a5ef0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
 --- !u!114 &3179390722294146538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,9 +108,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ad7fb39ae4fc0468829e75604f5e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnteredGoal: 0
+  accelerating: 0
+  decelerating: 0
   friction: 2
-  drifting: 1
   acceleration: 100
+  accelerationPower: 0
 --- !u!114 &7374833967051081919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +187,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b5f0d78a-bd55-4c58-ad1a-082ed1f1dbb5
     m_ActionName: Movment/Steering[/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e74b7ec8-d5cd-4f5e-a5e7-9f63dc47c94d
+    m_ActionName: Movment/Use Item[/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movment

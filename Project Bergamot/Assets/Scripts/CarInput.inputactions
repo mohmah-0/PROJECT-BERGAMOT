@@ -25,17 +25,26 @@
                 },
                 {
                     "name": "Steer right",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "c48e9626-d96c-42fd-afce-5e17c9697df2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Steer left",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "58c6a611-8b2b-464a-a955-ac024fed44fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Drift",
+                    "type": "Button",
+                    "id": "44f829fc-def5-4900-8fdf-baeb305fbe6f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -46,7 +55,7 @@
                 {
                     "name": "",
                     "id": "50c7333e-1a4a-4918-b965-2c78b616d26d",
-                    "path": "",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -57,7 +66,7 @@
                 {
                     "name": "",
                     "id": "44e06236-0a43-4656-8209-baf369ae305d",
-                    "path": "",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -68,7 +77,7 @@
                 {
                     "name": "",
                     "id": "8b83ff6f-8fbd-4c44-9ad5-b1badb17bea8",
-                    "path": "",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -79,11 +88,22 @@
                 {
                     "name": "",
                     "id": "76bf47f2-3801-498b-ad85-b81f52e8fe44",
-                    "path": "",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Steer left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe7affca-a878-4cc2-ace6-55fb82270cd7",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
