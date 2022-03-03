@@ -21,8 +21,7 @@ public class timerCount : MonoBehaviour
         if(currentTime >= 0)
         {
             currentTime -= 1 * Time.deltaTime;
-            timerUI.text = currentTime.ToString("0");
-            Debug.Log(currentTime);    
+            timerUI.text = currentTime.ToString("0");    
             if(currentTime <= 5)
             {
                 timerUI.color = Color.red;

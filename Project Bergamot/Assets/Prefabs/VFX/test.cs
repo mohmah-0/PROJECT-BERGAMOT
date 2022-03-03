@@ -9,7 +9,7 @@ public class test : MonoBehaviour
     void Start()
     {
         soundFile = GetComponent<AudioSource>();
-        soundFile.PlayDelayed(5.5f);
+        soundFile.PlayDelayed(4.5f);
     }
 
     // Update is called once per frame

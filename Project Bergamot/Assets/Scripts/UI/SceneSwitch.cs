@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
 {
-    public void playUI_BTN()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+     public GameObject mainCanvas;
+     public GameObject settingCanvas;
 
     public void backUI_BTN()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+       
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void startGame_BTN()
@@ -21,9 +20,14 @@ public class SceneSwitch : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void openSetting()
+    {    
+        mainCanvas.SetActive(false);
+        settingCanvas.SetActive(true);
+    }
+
     public void exitGame()
     {
-        Debug.Log("Pressed");
         Application.Quit();
     }
 }
