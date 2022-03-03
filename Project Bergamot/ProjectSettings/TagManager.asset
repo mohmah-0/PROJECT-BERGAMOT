@@ -7,7 +7,6 @@ TagManager:
   - Wall
   - Projectile
   - checkPoint
-  - Button
   layers:
   - Default
   - TransparentFX

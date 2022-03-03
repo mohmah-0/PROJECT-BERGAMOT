@@ -2,28 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-    public Transform[] spawnPoints;
+    GameObject[] cars;
 
-
-    public void OnPlayerJoined(PlayerInput playerInput)
+    // Start is called before the first frame update
+    void Start()
     {
-        resetToSpawnPosition(playerInput);
-        CrossChecking.applyCrossChecking(playerInput);//also enables camera to work on it
-
+        cars = GameObject.FindGameObjectsWithTag("Player");
     }
 
-
-    void resetToSpawnPosition(PlayerInput playerInput)
+    // Update is called once per frame
+    void Update()
     {
-
-        Debug.Log("Player " + playerInput.playerIndex + " joined the game!");
-
-        playerInput.gameObject.GetComponent<PlayerDetails>().playerID = playerInput.playerIndex + 1;
-
-        playerInput.gameObject.GetComponent<PlayerDetails>().startPos = spawnPoints[playerInput.playerIndex].position;
     }
 }

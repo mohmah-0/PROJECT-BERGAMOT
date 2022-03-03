@@ -482,7 +482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ad7fb39ae4fc0468829e75604f5e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnteredGoal: 0
   friction: 2
   drifting: 1
   acceleration: 100
@@ -513,7 +512,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3179390722294146538, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
+      - m_Target: {fileID: 6981259193831492122}
         m_TargetAssemblyTypeName: CarMovment, Assembly-CSharp
         m_MethodName: decelerate
         m_Mode: 0
@@ -529,7 +528,7 @@ MonoBehaviour:
     m_ActionName: Movment/Decelerate[/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3179390722294146538, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
+      - m_Target: {fileID: 6981259193831492122}
         m_TargetAssemblyTypeName: CarMovment, Assembly-CSharp
         m_MethodName: accelerate
         m_Mode: 0
@@ -545,7 +544,7 @@ MonoBehaviour:
     m_ActionName: Movment/Acelerate[/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3179390722294146538, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
+      - m_Target: {fileID: 6981259193831492122}
         m_TargetAssemblyTypeName: CarMovment, Assembly-CSharp
         m_MethodName: steer
         m_Mode: 0
@@ -559,50 +558,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b5f0d78a-bd55-4c58-ad1a-082ed1f1dbb5
     m_ActionName: Movment/Steering[/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4f6bfaab-8532-4460-b691-5f2564414424
-    m_ActionName: Movment/spawn?[/XInputControllerWindows/buttonEast,/XInputControllerWindows1/buttonEast]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3179390722294146538, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-        m_TargetAssemblyTypeName: CarMovment, Assembly-CSharp
-        m_MethodName: drift
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 0e71daf1-d61d-4158-aef4-498e7f61bbe9
-    m_ActionName: Movment/Drift[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f815e3a6-4149-498f-8be5-1076c7469428
-    m_ActionName: UI/Left[/XInputControllerWindows/dpad/left,/XInputControllerWindows1/dpad/left]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a13ccedd-529b-4e86-9687-03ffd8221701
-    m_ActionName: UI/Right[/XInputControllerWindows/dpad/right,/XInputControllerWindows1/dpad/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: cae3f650-8632-496c-a065-6bf067532684
-    m_ActionName: UI/Up[/XInputControllerWindows/dpad/up,/XInputControllerWindows1/dpad/up]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 94e44eea-f0bb-4bd0-983f-53a53f6e6f38
-    m_ActionName: UI/Down[/XInputControllerWindows/dpad/down,/XInputControllerWindows1/dpad/down]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 271ce06e-d8d8-4664-be28-1d9ea11c3a91
-    m_ActionName: UI/Press[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 11e868e2-ca09-4c97-9fc9-59471481953b
-    m_ActionName: test/New action[/XInputControllerWindows/buttonNorth,/XInputControllerWindows1/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movment
