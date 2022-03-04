@@ -8,7 +8,7 @@ Roles:
 
 Code Convention: CamelCase
 
-# Last come, First serve
+# Rally Maniac
 About the game
 
 ## Core game pillars
