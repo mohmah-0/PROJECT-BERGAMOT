@@ -8,10 +8,10 @@ public class CarMovment : MonoBehaviour
     private WheelCollider[] colliders = new WheelCollider[4];
     private Transform[] meshes = new Transform[4];
     private Transform wheels, wheelColliders;
-    public bool EnteredGoal = false;
+    public bool EnteredGoal = false, accelerating = false, decelerating = false;
 
-    public float friction = 2, drifting = 1f, acceleration = 100;
-    public float speed = 1;
+
+    public float accelerationPower = 0, decelerationPower = 0, topSpeed = 600, steeringPower = 0; //ta bort acceleration och fixa dens refferenser
 
     Vector3 tempPosition;
     Quaternion tempRotation;
@@ -35,7 +35,9 @@ public class CarMovment : MonoBehaviour
     void FixedUpdate()
     {
         WheelMovments();//uppdating wheel movments every frame
-        changingHandlingValues();
+        uppdateAcceleration();
+        uppdateSteering();
+
     }
 
 
@@ -50,34 +52,20 @@ public class CarMovment : MonoBehaviour
     }
 
 
-    void changingHandlingValues()
-    {
-        if(friction != 2 || drifting != 1.5f)
-        {
-            for (int i = 0; i < colliders.Length; i++)
-            {
-                WheelFrictionCurve wheelFriction = colliders[i].forwardFriction;
-                wheelFriction.stiffness = friction;
-                colliders[i].forwardFriction = wheelFriction;
-
-                wheelFriction = colliders[i].sidewaysFriction;
-                wheelFriction.extremumSlip = drifting;
-                colliders[i].sidewaysFriction = wheelFriction;
-
-            }
-        }
-    }
-
-
     public void accelerate(InputAction.CallbackContext i)
     {
 
-
-        if (!EnteredGoal)// just to stop players from continuing after reach goal
+        if (i.performed)// just to stop players from continuing after reach goal
         {
-            colliders[2].motorTorque = i.ReadValue<float>() * acceleration * speed;
-            colliders[3].motorTorque = i.ReadValue<float>() * acceleration * speed;
+            accelerating = true;
+            accelerationPower = i.ReadValue<float>();
         }
+        else if(i.canceled)
+        {
+            accelerating = false;
+            accelerationPower = 0;
+        }
+
 
     }
 
@@ -86,22 +74,113 @@ public class CarMovment : MonoBehaviour
     {
 
 
-        if (!EnteredGoal)
+
+        if (i.performed)// just to stop players from continuing after reach goal
         {
-            colliders[2].motorTorque = -i.ReadValue<float>() * acceleration * 1.5f;
-            colliders[3].motorTorque = -i.ReadValue<float>() * acceleration;
+            decelerating = true;
+            decelerationPower = i.ReadValue<float>();
         }
+        else if (i.canceled)
+        {
+            decelerating = false;
+            decelerationPower = 0;
+        }
+
     }
 
 
     public void steer(InputAction.CallbackContext i)
     {
 
-        if (!EnteredGoal)
-        {
-            colliders[0].steerAngle = i.ReadValue<Vector2>().x * 30;
-            colliders[1].steerAngle = i.ReadValue<Vector2>().x * 30;
-        }
+        steeringPower = i.ReadValue<Vector2>().x * Mathf.Pow((Mathf.Abs(colliders[0].rpm) + 15) / 100, -0.5f) * 15;  // * 45 * (steeringSensetivety - colliders[0].rpm) / steeringSensetivety;
+        
+    }
 
+
+    public void drift(InputAction.CallbackContext i)
+    {
+        WheelFrictionCurve temp = colliders[2].sidewaysFriction;
+
+        if (i.started)
+        {
+            temp.stiffness = 2f;
+            colliders[2].sidewaysFriction = temp;
+            colliders[3].sidewaysFriction = temp;
+        }
+        else if (i.canceled)
+        {
+            temp.stiffness = 3f;
+            colliders[2].sidewaysFriction = temp;
+            colliders[3].sidewaysFriction = temp;
+
+        }
+    }
+
+
+    float calculateMotorTourqe(float wheelRpm)
+    {
+        if((wheelRpm < topSpeed) && (wheelRpm >= 0))
+        {
+            return Mathf.Pow((topSpeed - wheelRpm), 2) * 0.005f;
+        }
+        else if(wheelRpm < topSpeed)
+        {
+            return topSpeed;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+
+    void uppdateAcceleration()
+    {
+        if (EnteredGoal)// just to stop players from continuing after reach goal
+        {
+            colliders[2].motorTorque = 0;
+            colliders[3].motorTorque = 0;
+
+            colliders[2].brakeTorque = Mathf.Abs(colliders[2].rpm);
+            colliders[3].brakeTorque = Mathf.Abs(colliders[3].rpm);
+        }
+        else if (accelerating && !decelerating)
+        {
+            colliders[2].motorTorque = accelerationPower * calculateMotorTourqe(colliders[2].rpm);//0.005f/(0.005f*(currentAcceleration+0.9f))
+            colliders[3].motorTorque = accelerationPower * calculateMotorTourqe(colliders[3].rpm);
+            colliders[2].brakeTorque = 0;
+            colliders[3].brakeTorque = 0;
+
+        }
+        else if(!accelerating && decelerating)
+        {
+            colliders[2].motorTorque = -decelerationPower * calculateMotorTourqe(-colliders[2].rpm);//0.005f/(0.005f*(currentAcceleration+0.9f))
+            colliders[3].motorTorque = -decelerationPower * calculateMotorTourqe(-colliders[3].rpm);
+            colliders[2].brakeTorque = 0;
+            colliders[3].brakeTorque = 0;
+        }
+        else
+        {
+            colliders[2].motorTorque = 0;
+            colliders[3].motorTorque = 0;
+
+            colliders[2].brakeTorque = Mathf.Abs(colliders[2].rpm);
+            colliders[3].brakeTorque = Mathf.Abs(colliders[3].rpm);
+        }
+    }
+
+
+    void uppdateSteering()
+    {
+        if (EnteredGoal)// just to stop players from continuing after reach goal
+        {
+            colliders[0].steerAngle = 0;
+            colliders[1].steerAngle = 0;
+        }
+        else
+        {
+            colliders[0].steerAngle = steeringPower;
+            colliders[1].steerAngle = steeringPower;
+        }
     }
 }
