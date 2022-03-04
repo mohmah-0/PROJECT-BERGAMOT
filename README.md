@@ -8,7 +8,7 @@ Roles:
 
 Code Convention: CamelCase
 
-# Last come, First serve
+# Rally Maniac
 About the game
 
 ## Core game pillars
@@ -34,3 +34,4 @@ About the game
  - https://kenney.nl/assets?q=3d
  - https://assetstore.unity.com/packages/tools/utilities/b-zier-path-creator-136082
  - https://icons8.com/icons/set/return-policy
+ - https://assetstore.unity.com/packages/2d/textures-materials/sky/free-stylized-skybox-212257
