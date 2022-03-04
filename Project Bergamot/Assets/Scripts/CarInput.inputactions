@@ -24,19 +24,10 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Steer right",
+                    "name": "Steer",
                     "type": "Value",
                     "id": "c48e9626-d96c-42fd-afce-5e17c9697df2",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Steer left",
-                    "type": "Value",
-                    "id": "58c6a611-8b2b-464a-a955-ac024fed44fa",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Stick",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -76,34 +67,23 @@
                 },
                 {
                     "name": "",
-                    "id": "8b83ff6f-8fbd-4c44-9ad5-b1badb17bea8",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Steer right",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "76bf47f2-3801-498b-ad85-b81f52e8fe44",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Steer left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "fe7affca-a878-4cc2-ace6-55fb82270cd7",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Drift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "697fdfce-dc75-4ae7-82aa-6bca85b80b16",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
