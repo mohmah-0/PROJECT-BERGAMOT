@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Lives : MonoBehaviour
 {
-    [SerializeField] int lives = 30;
+    [SerializeField] int lives = 3;
     public bool hasRespawned = true;
     public void OutOfView()
     {
         if (lives > 0 && hasRespawned)
         {
             lives--;
-            GameObject leadCar = CrossChecking.cars[0].carObject.transform.GetChild(0).gameObject;
+            GetComponent<PlayerUI>().RemoveLastImage();
             hasRespawned = false;
             StartCoroutine(GetComponent<Respawn>().CarRespawn());
         }
+        else if (lives <= 0)
+            GameObject.FindGameObjectWithTag("CrossChecking").GetComponent<CrossChecking>().DestroyCar(gameObject);
     }
 }

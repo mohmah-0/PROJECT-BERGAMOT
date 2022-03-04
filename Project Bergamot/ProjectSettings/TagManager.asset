@@ -12,6 +12,7 @@ TagManager:
   - CrossChecking
   - Path
   - RespawnPoint
+  - Canvas
   layers:
   - Default
   - TransparentFX

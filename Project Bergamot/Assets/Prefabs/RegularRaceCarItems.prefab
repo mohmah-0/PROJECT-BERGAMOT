@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 8494734363644511442}
   - component: {fileID: 343830967876957679}
   - component: {fileID: 1979261785522265211}
+  - component: {fileID: 8766748982608717414}
   m_Layer: 0
   m_Name: RegularRaceCarItems
   m_TagString: Player
@@ -236,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6a5f121fc1a6342a72ae40c9cd8213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 30
+  lives: 3
   hasRespawned: 1
 --- !u!114 &1979261785522265211
 MonoBehaviour:
@@ -250,6 +251,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a88b8ed038ccf4418db03ac8756e953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8766748982608717414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcaffb43afeaf7246b24c82c41eb62be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helmets:
+  - {fileID: 21300000, guid: 153cde298fbdfe94c956b5452f770c7e, type: 3}
+  - {fileID: 21300000, guid: 70460c9b5d7ef464bb0215f015edeb0b, type: 3}
+  - {fileID: 21300000, guid: e71d57aa55685ed4d98d26ff9b50f952, type: 3}
+  - {fileID: 21300000, guid: 69bfbec482d41774f8c91e07886d8a8c, type: 3}
+  helmetObj: []
 --- !u!1 &3661984357627778435
 GameObject:
   m_ObjectHideFlags: 0

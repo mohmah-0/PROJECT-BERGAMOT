@@ -42,7 +42,7 @@ public class CrossChecking : MonoBehaviour
         int index = car.name[6] - '0';//Get car index from name of gameobject
         Destroy(car);
         cars.RemoveAt(index);
-        Debug.Log(index);
+        Debug.Log("Player " + index + " is out");
     }
 
     bool hasCar2PassedCar1(Car car1, Car car2)
