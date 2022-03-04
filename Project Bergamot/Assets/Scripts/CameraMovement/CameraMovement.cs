@@ -9,6 +9,11 @@ public class CameraMovement : MonoBehaviour
     private PathCreator FollowPath;
     [SerializeField, Tooltip("The camera offset to the car and track.")]
     private Vector3 offset;
+
+    [Space]
+
+    [SerializeField, Tooltip("Crosschecking handler script")]
+    private CrossCheckHandler crossCheckHandler;
     
     private float damping = 1f;
     private GameObject leadCar;
@@ -18,9 +23,15 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CrossChecking.cars.Count != 0)
+        if (CrossChecking.cars.Count != 0 || crossCheckHandler.getLeadCar() != null)
         {
-            leadCar = CrossChecking.cars[0].carObject.transform.GetChild(0).gameObject;
+            if(crossCheckHandler.getLeadCar() != null)
+            {
+                leadCar = crossCheckHandler.getLeadCar().transform.GetChild(0).gameObject;
+            } else
+            {
+                leadCar = CrossChecking.cars[0].carObject.transform.GetChild(0).gameObject;
+            }
 
             float currentAngle = transform.eulerAngles.y;
             float desiredAngle = leadCar.transform.eulerAngles.y;
