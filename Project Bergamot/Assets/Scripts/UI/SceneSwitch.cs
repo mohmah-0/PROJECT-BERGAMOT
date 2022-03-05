@@ -26,6 +26,12 @@ public class SceneSwitch : MonoBehaviour
         settingCanvas.SetActive(true);
     }
 
+    public void settingReturn()
+    {
+        settingCanvas.SetActive(false);
+        mainCanvas.SetActive(true);
+    }
+
     public void exitGame()
     {
         Application.Quit();
