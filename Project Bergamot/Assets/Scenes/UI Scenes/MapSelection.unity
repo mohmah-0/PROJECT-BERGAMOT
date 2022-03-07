@@ -334,9 +334,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e320c0635bef447b5fe8498b269f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapName: 
   loadingScreen: {fileID: 735811582}
   loadingSlider: {fileID: 735811581}
+  selectRandom:
+  - MapOne
+  - StartMenu
+  - SelectionScreen
+  - LoadingTest
+  timerHolder: {fileID: 1455006428}
 --- !u!4 &896449530
 Transform:
   m_ObjectHideFlags: 0
@@ -512,6 +517,11 @@ Transform:
 --- !u!1 &1097681272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6811116844053377671, guid: 4ec341a4caa12334c809c46a6af2e475, type: 3}
+  m_PrefabInstance: {fileID: 6811116842956258303}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1455006428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6811116842998341976, guid: 4ec341a4caa12334c809c46a6af2e475, type: 3}
   m_PrefabInstance: {fileID: 6811116842956258303}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6811116842956258303
