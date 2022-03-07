@@ -19,9 +19,10 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        Debug.Log(other.name);
+        if(other.transform.parent.parent.tag == "Player")
         {
-            GetComponentInParent<CrossCheckHandler>().onCollide(id);
+            transform.parent.GetComponent<CrossCheckHandler>().onCollide(id, other.transform.parent.parent.gameObject);
         }
     }
 }

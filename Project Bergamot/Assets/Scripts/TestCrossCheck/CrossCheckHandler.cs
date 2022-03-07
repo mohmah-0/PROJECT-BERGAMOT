@@ -15,8 +15,6 @@ public class CrossCheckHandler : MonoBehaviour
     [Space]
 
     [SerializeField, Tooltip("Current Checkpoint")]
-    private int currentCheckPoint = 0;
-    [SerializeField, Tooltip("Current Checkpoint")]
     private int Currentlap = 0;
 
     [Space]
@@ -26,7 +24,7 @@ public class CrossCheckHandler : MonoBehaviour
 
 
     private GameObject[] cars;
-    private GameObject[] checkpoints;
+    public GameObject[] checkpoints;
     private float pathDist = 0;
     private float CheckpointAmount = 0;
     // Start is called before the first frame update
@@ -44,23 +42,9 @@ public class CrossCheckHandler : MonoBehaviour
 
             GameObject newCheckPoint = (GameObject)Instantiate(Checkpoint, currentPointpos, currentPointRot, this.transform);
             newCheckPoint.transform.Rotate(-90, 180, 0);
-            newCheckPoint.GetComponent<CheckPoint>().setID(i);
-
-            if(newCheckPoint != null)
-            {
-                Debug.Log("This is not null");
-            }
-            if(newCheckPoint.GetComponent<CheckPoint>() != null)
-            {
-                Debug.Log("Script aint null");
-            }
-            if(newCheckPoint.GetComponent<MeshRenderer>() != null)
-            {
-                Debug.Log("Mesh works!");
-            }
-
-            checkpoints[i] = newCheckPoint;
+            newCheckPoint.GetComponent<CheckPoint>().setID(i+1);
         }
+        checkpoints = GameObject.FindGameObjectsWithTag("checkPoint");
 
         checkpoints[0].gameObject.GetComponent<MeshRenderer>().enabled = true;
 
@@ -70,12 +54,15 @@ public class CrossCheckHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-        if(currentCheckPoint == CheckpointAmount)
+        //Debug.Log(cars.Length);
+        for(int i = 0; i < cars.Length-1; i++)
         {
-            currentCheckPoint = 0;
-            Currentlap += 1;
+            CarCheckPointData carData = cars[i].GetComponent<CarCheckPointData>();
+            if(carData.getCurrentCheckpoint() == checkpoints.Length-1)
+            {
+                carData.setCurrentCheckpoint(0);
+                carData.setCurrentLap(carData.getCurrentLap() + 1);
+            }
         }
     }
 
@@ -88,14 +75,26 @@ public class CrossCheckHandler : MonoBehaviour
         return null;
     }
 
-    public void onCollide(int id)
+    public void onCollide(int id, GameObject car)
     {
-        if (id == currentCheckPoint + 1)
+        if(car != null)
         {
-            checkpoints[id].gameObject.GetComponent<MeshRenderer>().enabled = true;
-            checkpoints[currentCheckPoint].gameObject.GetComponent<MeshRenderer>().enabled = false;
+            for(int i = 0; i < cars.Length; i++)
+            {
+                CarCheckPointData carData = cars[i].GetComponent<CarCheckPointData>();
+                if(cars[i] == car)
+                {
+                    if (id == carData.getCurrentCheckpoint() + 1)
+                    {
+                        checkpoints[id].gameObject.GetComponent<MeshRenderer>().enabled = true;
+                        checkpoints[carData.getCurrentCheckpoint()].gameObject.GetComponent<MeshRenderer>().enabled = false;
+                        carData.setCurrentCheckpoint(id);
+                        Debug.Log(carData.getCurrentCheckpoint() + " / " + (checkpoints.Length));
 
-            currentCheckPoint++;
+                        break;
+                    }
+                }
+            }
         }
     }
 
