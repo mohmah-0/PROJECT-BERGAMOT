@@ -9,6 +9,7 @@ public class mapManager : MonoBehaviour
     private string mapName;
     public GameObject loadingScreen;
     public Slider loadingSlider;
+    public string[] selectRandom;
 
     public void mapSelected(string mapName)
     {
@@ -18,6 +19,12 @@ public class mapManager : MonoBehaviour
     public void loadLevel(string name)
     {
         StartCoroutine(LoadAsync(name));
+    }
+
+    public void RandomizeMap()
+    {
+        string ranMapSelector = selectRandom[Random.Range(0, selectRandom.Length)];
+        mapSelected(ranMapSelector);
     }
 
     IEnumerator LoadAsync(string name)
