@@ -58,7 +58,7 @@ public class CrossChecking : MonoBehaviour
             {
                 if (cars[i].currentCheckpoint == cars[i].checkPoints.Count - 1)
                 {
-                    cars[i].carObject.GetComponent<CarMovment>().EnteredGoal = true;
+                    //cars[i].carObject.GetComponent<CarMovment>().EnteredGoal = true;  avkomentera för att aktivera mål
                 }
                 else
                 {
