@@ -26,7 +26,9 @@ public class ItemBox : MonoBehaviour
         lid.enabled = false;
         partSys.Play();
 
-        yield return new WaitForSeconds(2f);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(5f);
+        GetComponent<BoxCollider>().enabled = true;
+        GetComponent<Renderer>().enabled = true;
+        lid.enabled = true;
     }
 }

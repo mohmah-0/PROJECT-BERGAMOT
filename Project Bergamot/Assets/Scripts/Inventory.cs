@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour
 
         item.Use(RBGameObject);
         item = null;
+        Destroy(GetComponent<PlayerUI>().borderItem.transform.GetChild(0).gameObject);
     }
 
     public void ItemCollect(Item newItem)
@@ -23,6 +24,7 @@ public class Inventory : MonoBehaviour
         {
             item = newItem;
             item.DisplayItem(RBGameObject);
+            GetComponent<PlayerUI>().AddImage(newItem.Icon, GetComponent<PlayerUI>().borderItem.transform);
         }
     }
 

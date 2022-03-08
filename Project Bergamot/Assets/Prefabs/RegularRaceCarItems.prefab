@@ -269,6 +269,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e71d57aa55685ed4d98d26ff9b50f952, type: 3}
   - {fileID: 21300000, guid: 69bfbec482d41774f8c91e07886d8a8c, type: 3}
   helmetObj: []
+  itemBorder: {fileID: 21300000, guid: b73c373797feff84eb672e8cbba6cc2a, type: 3}
+  itemIcons:
+  - {fileID: 21300000, guid: 012bd1490236fe84ea4125c427b118c8, type: 3}
+  - {fileID: 21300000, guid: 02e50ec6e98d706439e2a573ff28f603, type: 3}
+  - {fileID: 21300000, guid: 5f428af420ccbe645840141ceeb1130f, type: 3}
+  - {fileID: 21300000, guid: 782f418271f261247a95a0828b9b6250, type: 3}
 --- !u!1 &3661984357627778435
 GameObject:
   m_ObjectHideFlags: 0
