@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 3179390722294146538}
   - component: {fileID: 7374833967051081919}
   - component: {fileID: 6614622222384459215}
+  - component: {fileID: 7174515448246646800}
   m_Layer: 0
   m_Name: RegularRaceCar
   m_TagString: Player
@@ -176,34 +177,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e74b7ec8-d5cd-4f5e-a5e7-9f63dc47c94d
     m_ActionName: Movment/Use Item
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3179390722294146538}
-        m_TargetAssemblyTypeName: CarMovment, Assembly-CSharp
-        m_MethodName: accelerate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3179390722294146538}
-        m_TargetAssemblyTypeName: CarMovment, Assembly-CSharp
-        m_MethodName: steer
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 0766da44-0c63-4598-bc2c-2ed8556db33a
-    m_ActionName: Movment/TEMP![/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movment
@@ -223,6 +196,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   startPos: {x: 0, y: 0, z: 0}
+--- !u!114 &7174515448246646800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc7631e9f4bb1c45b8bd61491bda3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCheckpoint: 0
+  currentLap: 0
 --- !u!1 &3661984357627778435
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +472,7 @@ GameObject:
   - component: {fileID: 2068577071761000686}
   m_Layer: 0
   m_Name: RigidBody
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

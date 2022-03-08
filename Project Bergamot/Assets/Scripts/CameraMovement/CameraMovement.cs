@@ -23,15 +23,9 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CrossChecking.cars.Count != 0 || crossCheckHandler.getLeadCar() != null)
+        if (crossCheckHandler.getLeadCar() != null)
         {
-            if(crossCheckHandler.getLeadCar() != null)
-            {
-                leadCar = crossCheckHandler.getLeadCar().transform.GetChild(0).gameObject;
-            } else
-            {
-                leadCar = CrossChecking.cars[0].carObject.transform.GetChild(0).gameObject;
-            }
+            leadCar = crossCheckHandler.getLeadCar().transform.GetChild(0).gameObject;
 
             float currentAngle = transform.eulerAngles.y;
             float desiredAngle = leadCar.transform.eulerAngles.y;
@@ -51,4 +45,9 @@ public class CameraMovement : MonoBehaviour
         }
 
     }
+    public void zoomCamera(int multiplyer)
+    {
+        offset = new Vector3(offset.x, offset.y + multiplyer, offset.z - (0.5f * multiplyer));
+    }
 }
+

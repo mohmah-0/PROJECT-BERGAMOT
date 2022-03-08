@@ -7,6 +7,10 @@ public class CheckPoint : MonoBehaviour
     [SerializeField]
     private int id = 0;
 
+    [SerializeField]
+    public bool goal = false;
+
+
     public void setID(int id)
     {
         this.id = id;
@@ -19,10 +23,9 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         if(other.transform.parent.parent.tag == "Player")
         {
-            transform.parent.GetComponent<CrossCheckHandler>().onCollide(id, other.transform.parent.parent.gameObject);
+            transform.parent.GetComponent<CrossCheckHandler>().onCollide(id, other.transform.parent.parent.gameObject, goal);
         }
     }
 }
