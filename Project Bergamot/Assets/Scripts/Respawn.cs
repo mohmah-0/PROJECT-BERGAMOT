@@ -18,6 +18,7 @@ public class Respawn : MonoBehaviour
 
     private void Update()
     {
+        if (GameObject.FindGameObjectWithTag("RespawnPoint") != null)
         respawnPoint = GameObject.FindGameObjectWithTag("RespawnPoint").transform.position;
     }
 
