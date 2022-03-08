@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class timerCount : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 3f;
+    public float startingTime = 20f;
 
     [SerializeField] Text timerUI;
     mapManager MapManager;
