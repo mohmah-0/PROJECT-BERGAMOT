@@ -67,8 +67,8 @@
                 },
                 {
                     "name": "",
-                    "id": "439661b4-2f60-42b6-9e56-94d6bb928b44",
-                    "path": "<Gamepad>/rightTrigger",
+                    "id": "e705b8a3-537a-4d9c-8a55-a994bf9e2c42",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -78,8 +78,8 @@
                 },
                 {
                     "name": "",
-                    "id": "e705b8a3-537a-4d9c-8a55-a994bf9e2c42",
-                    "path": "<Keyboard>/w",
+                    "id": "7687828e-6793-4d0d-94ba-59de3d155088",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

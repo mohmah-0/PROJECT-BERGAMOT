@@ -59,6 +59,11 @@ GameObject:
   - component: {fileID: 3179390722294146538}
   - component: {fileID: 7374833967051081919}
   - component: {fileID: 6614622222384459215}
+  - component: {fileID: 7174515448246646800}
+  - component: {fileID: -2376780608429921205}
+  - component: {fileID: 7629084875844893312}
+  - component: {fileID: -1543232936929584631}
+  - component: {fileID: 3594760914979893254}
   m_Layer: 0
   m_Name: RegularRaceCar
   m_TagString: Player
@@ -95,10 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnteredGoal: 0
-  friction: 2
-  drifting: 1
-  acceleration: 100
-  speed: 1
+  accelerating: 0
+  decelerating: 0
+  accelerationPower: 0
+  decelerationPower: 0
+  topSpeed: 600
+  steeringPower: 0
 --- !u!114 &7374833967051081919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,9 +180,21 @@ MonoBehaviour:
     m_ActionId: b5f0d78a-bd55-4c58-ad1a-082ed1f1dbb5
     m_ActionName: Movment/Steering[/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -2376780608429921205}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e74b7ec8-d5cd-4f5e-a5e7-9f63dc47c94d
-    m_ActionName: Movment/Use Item[/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest]
+    m_ActionName: Movment/Use Item
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movment
@@ -195,6 +214,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   startPos: {x: 0, y: 0, z: 0}
+--- !u!114 &7174515448246646800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc7631e9f4bb1c45b8bd61491bda3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCheckpoint: 0
+  currentLap: 0
+--- !u!114 &-2376780608429921205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3430009f6bf234f44b14d2b872a8c5bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  RBGameObject: {fileID: 6325216481594335986}
+--- !u!114 &7629084875844893312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6a5f121fc1a6342a72ae40c9cd8213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 3
+  hasRespawned: 1
+--- !u!114 &-1543232936929584631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a88b8ed038ccf4418db03ac8756e953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3594760914979893254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcaffb43afeaf7246b24c82c41eb62be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helmets:
+  - {fileID: 21300000, guid: 153cde298fbdfe94c956b5452f770c7e, type: 3}
+  - {fileID: 21300000, guid: 70460c9b5d7ef464bb0215f015edeb0b, type: 3}
+  - {fileID: 21300000, guid: e71d57aa55685ed4d98d26ff9b50f952, type: 3}
+  - {fileID: 21300000, guid: 69bfbec482d41774f8c91e07886d8a8c, type: 3}
+  helmetObj: []
+  itemBorder: {fileID: 21300000, guid: b73c373797feff84eb672e8cbba6cc2a, type: 3}
+  itemIcon: {fileID: 0}
+  borderItem: {fileID: 0}
 --- !u!1 &3661984357627778435
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +551,7 @@ GameObject:
   - component: {fileID: 2068577071761000686}
   m_Layer: 0
   m_Name: RigidBody
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
