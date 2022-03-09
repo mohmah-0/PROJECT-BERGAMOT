@@ -9,9 +9,10 @@ public class CarMovment : MonoBehaviour
     private Transform[] meshes = new Transform[4];
     private Transform wheels, wheelColliders;
     public bool EnteredGoal = false, accelerating = false, decelerating = false;
+    InputAction.CallbackContext accelerationPower, decelerationPower;
 
 
-    public float accelerationPower = 0, decelerationPower = 0, topSpeed = 600, steeringPower = 0; //ta bort acceleration och fixa dens refferenser
+    public float topSpeed = 600, steeringPower = 0; //ta bort acceleration och fixa dens refferenser
 
     Vector3 tempPosition;
     Quaternion tempRotation;
@@ -58,12 +59,11 @@ public class CarMovment : MonoBehaviour
         if (i.performed)// just to stop players from continuing after reach goal
         {
             accelerating = true;
-            accelerationPower = i.ReadValue<float>();
+            accelerationPower = i;
         }
         else if(i.canceled)
         {
             accelerating = false;
-            accelerationPower = 0;
         }
 
 
@@ -78,12 +78,11 @@ public class CarMovment : MonoBehaviour
         if (i.performed)// just to stop players from continuing after reach goal
         {
             decelerating = true;
-            decelerationPower = i.ReadValue<float>();
+            decelerationPower = i;
         }
         else if (i.canceled)
         {
             decelerating = false;
-            decelerationPower = 0;
         }
 
     }
@@ -146,16 +145,19 @@ public class CarMovment : MonoBehaviour
         }
         else if (accelerating && !decelerating)
         {
-            colliders[2].motorTorque = accelerationPower * calculateMotorTourqe(colliders[2].rpm);//0.005f/(0.005f*(currentAcceleration+0.9f))
-            colliders[3].motorTorque = accelerationPower * calculateMotorTourqe(colliders[3].rpm);
+            topSpeed = 600 * accelerationPower.ReadValue<float>();
+            colliders[2].motorTorque = calculateMotorTourqe(colliders[2].rpm);//0.005f/(0.005f*(currentAcceleration+0.9f))
+            colliders[3].motorTorque = calculateMotorTourqe(colliders[3].rpm);
             colliders[2].brakeTorque = 0;
             colliders[3].brakeTorque = 0;
+            Debug.Log(colliders[2].motorTorque + "  hårdhet: " + accelerationPower.ReadValue<float>());
 
         }
         else if(!accelerating && decelerating)
         {
-            colliders[2].motorTorque = -decelerationPower * calculateMotorTourqe(-colliders[2].rpm);//0.005f/(0.005f*(currentAcceleration+0.9f))
-            colliders[3].motorTorque = -decelerationPower * calculateMotorTourqe(-colliders[3].rpm);
+            topSpeed = 600 * decelerationPower.ReadValue<float>();
+            colliders[2].motorTorque = -calculateMotorTourqe(-colliders[2].rpm);//0.005f/(0.005f*(currentAcceleration+0.9f))
+            colliders[3].motorTorque = -calculateMotorTourqe(-colliders[3].rpm);
             colliders[2].brakeTorque = 0;
             colliders[3].brakeTorque = 0;
         }

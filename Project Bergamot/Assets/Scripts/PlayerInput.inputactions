@@ -1,5 +1,5 @@
 {
-    "name": "CarInput",
+    "name": "PlayerInput",
     "maps": [
         {
             "name": "Player controll",
