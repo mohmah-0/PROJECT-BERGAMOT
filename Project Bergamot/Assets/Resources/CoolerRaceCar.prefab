@@ -447,6 +447,8 @@ GameObject:
   - component: {fileID: 6981259193831492122}
   - component: {fileID: 5714003224584177557}
   - component: {fileID: 5558778568032999150}
+  - component: {fileID: -3721555971453503608}
+  - component: {fileID: 7167293436212425331}
   m_Layer: 0
   m_Name: CoolerRaceCar
   m_TagString: Player
@@ -482,9 +484,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ad7fb39ae4fc0468829e75604f5e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friction: 2
-  drifting: 1
-  acceleration: 100
+  EnteredGoal: 0
+  accelerating: 0
+  decelerating: 0
+  topSpeed: 600
+  steeringPower: 0
 --- !u!114 &5714003224584177557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 8bf6b62561c3da143abffd7562b46d71, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: ac59ea77ccacee14b8b5c8ab9b5b148a, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -511,56 +515,40 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6981259193831492122}
-        m_TargetAssemblyTypeName: CarMovment, Assembly-CSharp
-        m_MethodName: decelerate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a60b4137-71d7-4097-8557-a7a2e94d1cde
-    m_ActionName: Movment/Decelerate[/XInputControllerWindows/leftTrigger]
+      m_Calls: []
+    m_ActionId: ad4d3eb3-b7a3-4579-9dfc-f53cbf42072e
+    m_ActionName: Player controll/Drive forward[/XInputControllerWindows/rightTrigger,/XInputControllerWindows1/rightTrigger]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6981259193831492122}
-        m_TargetAssemblyTypeName: CarMovment, Assembly-CSharp
-        m_MethodName: accelerate
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: e2e7ea75-c285-47c1-ab18-b834a2f4f662
-    m_ActionName: Movment/Acelerate[/XInputControllerWindows/rightTrigger]
+      m_Calls: []
+    m_ActionId: 2f890fc4-954c-4b98-910a-a5b64ff12292
+    m_ActionName: Player controll/Drive back[/XInputControllerWindows/leftTrigger,/XInputControllerWindows1/leftTrigger]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6981259193831492122}
-        m_TargetAssemblyTypeName: CarMovment, Assembly-CSharp
-        m_MethodName: steer
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: b5f0d78a-bd55-4c58-ad1a-082ed1f1dbb5
-    m_ActionName: Movment/Steering[/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]
+      m_Calls: []
+    m_ActionId: c48e9626-d96c-42fd-afce-5e17c9697df2
+    m_ActionName: Player controll/Steer[/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 44f829fc-def5-4900-8fdf-baeb305fbe6f
+    m_ActionName: Player controll/Drift[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ea41eef1-361a-44c4-a9ff-502b01c8d64c
+    m_ActionName: UI Controll/Go right[/XInputControllerWindows/dpad/right,/XInputControllerWindows1/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a0e0b134-7890-41a6-aadb-25950b28ca06
+    m_ActionName: UI Controll/Go Left[/XInputControllerWindows/dpad/left,/XInputControllerWindows1/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cce52b0a-303a-4c1b-aae3-ba44aa520902
+    m_ActionName: UI Controll/Go down[/XInputControllerWindows/dpad/down,/XInputControllerWindows1/dpad/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 35877f44-05d7-4189-ac20-867daafb9ba2
+    m_ActionName: UI Controll/Go up[/XInputControllerWindows/dpad/up,/XInputControllerWindows1/dpad/up]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Movment
+  m_DefaultActionMap: Player controll
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &5558778568032999150
@@ -577,6 +565,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   startPos: {x: 0, y: 0, z: 0}
+--- !u!114 &-3721555971453503608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177195885661209291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc7631e9f4bb1c45b8bd61491bda3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCheckpoint: 0
+  currentLap: 0
+--- !u!114 &7167293436212425331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177195885661209291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3430009f6bf234f44b14d2b872a8c5bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  RBGameObject: {fileID: 4177195886607516154}
 --- !u!1 &4177195885811453978
 GameObject:
   m_ObjectHideFlags: 0
