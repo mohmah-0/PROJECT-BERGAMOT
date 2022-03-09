@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class SceneSwitch : MonoBehaviour
 {
-     public GameObject mainCanvas;
-     public GameObject settingCanvas;
+    public GameObject mainCanvas;
+    public GameObject settingCanvas;
 
     public void backUI_BTN()
     {
@@ -23,7 +24,7 @@ public class SceneSwitch : MonoBehaviour
     public void openSetting()
     {    
         mainCanvas.SetActive(false);
-        settingCanvas.SetActive(true);
+        settingCanvas.SetActive(true);        
     }
 
     public void settingReturn()
