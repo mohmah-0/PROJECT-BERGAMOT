@@ -19703,7 +19703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RespawnPoint: {fileID: 3621649153494225979, guid: b08b95a826ca9f944b3e10f29d15ff7d, type: 3}
   FollowPath: {fileID: 28112860}
-  offset: {x: 0, y: -0.5, z: 3}
+  offset: {x: 0, y: -0.2, z: 3}
   crossCheckHandler: {fileID: 699365085}
 --- !u!1001 &1971916964
 PrefabInstance:

@@ -26,7 +26,7 @@ public class RespawnPoints : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             GameObject point = Instantiate(RespawnPoint, transform);
-            point.transform.localPosition = new Vector3(-2 + i, 0, 0);
+            point.transform.localPosition = new Vector3(-3 + i * 1.5f, 0, 0) ;
             point.name = "point" + i;
         }
     }
@@ -47,7 +47,8 @@ public class RespawnPoints : MonoBehaviour
             Quaternion rotation = Quaternion.Slerp(FollowPath.path.GetRotationAtDistance(FollowPath.path.GetClosestDistanceAlongPath(leadCar.transform.position)), Quaternion.Euler(0f, angle, 0f), 0.125f);
             transform.position = pathPoint - (rotation * offset);
 
-            transform.LookAt(leadCar.transform.position);
+            Vector3 lookAtPos = pathPoint - (rotation * offset - new Vector3(0, 0, -0.1f));
+            transform.LookAt(pathPoint);
         }
         else
         {
