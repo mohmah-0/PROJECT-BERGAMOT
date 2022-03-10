@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     bool previousIsTopRow = true, isTopRow = true;
     List<GameObject> currentButtonRow;//använd bara för kolla storlek(osäker om annat funkar)
     public GameObject playerCar;
+    public CarMovment playerCarMovment;
 
     // Start is called before the first frame update
     void Start()
@@ -130,6 +131,24 @@ public class PlayerScript : MonoBehaviour
                 Marked.pressButton(selectedButton);
             }
         }
+    }
+
+
+    public void carDriveForward(InputAction.CallbackContext action)//only used by Player controll scheme
+    {
+        playerCarMovment.accelerate(action);
+    }
+    public void carDriveBack(InputAction.CallbackContext action)//only used by Player controll scheme
+    {
+        playerCarMovment.decelerate(action);
+    }
+    public void carSteering(InputAction.CallbackContext action)//only used by Player controll scheme
+    {
+        playerCarMovment.steer(action);
+    }
+    public void carPressedX(InputAction.CallbackContext action)//only used by Player controll scheme
+    {
+        playerCarMovment.drift(action);
     }
 
 
