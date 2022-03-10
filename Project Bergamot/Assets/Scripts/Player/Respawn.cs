@@ -26,7 +26,6 @@ public class Respawn : MonoBehaviour
 
     public IEnumerator CarRespawn()
     {
-        
         while (flashTime > 0)//Keeps the respawning car in the correct spot
         {
             
@@ -55,6 +54,7 @@ public class Respawn : MonoBehaviour
             renderer.enabled = true;
         }
         GetComponent<Lives>().hasRespawned = true;
+        Debug.Log("YES");
 
         yield return null;
     }
@@ -64,22 +64,22 @@ public class Respawn : MonoBehaviour
     {
         flashTime -= Time.deltaTime*20;
 
-        if (Mathf.RoundToInt(flashTime) % 2 == 0)
-        {
-            transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
-            foreach (Renderer renderer in wheelRenderers)
-            {
-                renderer.enabled = false;
-            }
-        }
+        //if (Mathf.RoundToInt(flashTime) % 2 == 0)
+        //{
+        //    transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
+        //    foreach (Renderer renderer in wheelRenderers)
+        //    {
+        //        renderer.enabled = false;
+        //    }
+        //}
 
-        else
-        {
-            transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = true;
-            foreach (Renderer renderer in wheelRenderers)
-            {
-                renderer.enabled = true;
-            }
-        }
+        //else
+        //{
+        //    transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = true;
+        //    foreach (Renderer renderer in wheelRenderers)
+        //    {
+        //        renderer.enabled = true;
+        //    }
+        //}
     }
 }

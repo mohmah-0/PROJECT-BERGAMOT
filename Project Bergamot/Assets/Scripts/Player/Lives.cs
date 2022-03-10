@@ -8,18 +8,20 @@ public class Lives : MonoBehaviour
     public bool hasRespawned = true;
     public void OutOfView()
     {
+        lives--;
+        FindObjectOfType<CrossCheckHandler>().onOutOfBounds(gameObject);
         if (lives > 0 && hasRespawned)
         {
-            lives--;
             GetComponent<PlayerUI>().RemoveLastImage();
-            hasRespawned = false;
             StartCoroutine(GetComponent<Respawn>().CarRespawn());
+            hasRespawned = false;
         }
-        else if (lives <= 0)
+        if (lives <= 0)
         {
+            Destroy(gameObject);
+            GetComponent<PlayerUI>().RemoveLastImage();
             Destroy(GetComponent<PlayerUI>().borderItem);
             FindObjectOfType<OutOfView>().cars.RemoveAt(GetComponent<PlayerDetails>().playerID - 1);
-            Destroy(gameObject);
         }
     }
 }

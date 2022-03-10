@@ -150,7 +150,7 @@ public class CarMovment : MonoBehaviour
             colliders[3].motorTorque = calculateMotorTourqe(colliders[3].rpm);
             colliders[2].brakeTorque = 0;
             colliders[3].brakeTorque = 0;
-            Debug.Log(colliders[2].motorTorque + "  hårdhet: " + accelerationPower.ReadValue<float>());
+            //Debug.Log(colliders[2].motorTorque + "  hårdhet: " + accelerationPower.ReadValue<float>());
 
         }
         else if(!accelerating && decelerating)

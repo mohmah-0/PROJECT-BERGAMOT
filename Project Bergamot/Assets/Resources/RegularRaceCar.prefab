@@ -102,8 +102,6 @@ MonoBehaviour:
   EnteredGoal: 0
   accelerating: 0
   decelerating: 0
-  accelerationPower: 0
-  decelerationPower: 0
   topSpeed: 600
   steeringPower: 0
 --- !u!114 &7374833967051081919
@@ -196,6 +194,26 @@ MonoBehaviour:
     m_ActionId: 44f829fc-def5-4900-8fdf-baeb305fbe6f
     m_ActionName: Player controll/Drift[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth,/XInputControllerWindows2/buttonSouth]
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ea41eef1-361a-44c4-a9ff-502b01c8d64c
+    m_ActionName: UI Controll/Go right[/XInputControllerWindows/dpad/right,/XInputControllerWindows1/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a0e0b134-7890-41a6-aadb-25950b28ca06
+    m_ActionName: UI Controll/Go Left[/XInputControllerWindows/dpad/left,/XInputControllerWindows1/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cce52b0a-303a-4c1b-aae3-ba44aa520902
+    m_ActionName: UI Controll/Go down[/XInputControllerWindows/dpad/down,/XInputControllerWindows1/dpad/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 35877f44-05d7-4189-ac20-867daafb9ba2
+    m_ActionName: UI Controll/Go up[/XInputControllerWindows/dpad/up,/XInputControllerWindows1/dpad/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6b140fad-ae74-46b2-b329-63bf199b0221
+    m_ActionName: UI Controll/Pressing X[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -2376780608429921205}
         m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
@@ -209,8 +227,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: e74b7ec8-d5cd-4f5e-a5e7-9f63dc47c94d
-    m_ActionName: Movment/Use Item
+    m_ActionId: a921dca0-0297-43fe-94b2-e24b08409d36
+    m_ActionName: Player controll/UseItem[/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest,/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player controll
