@@ -9,15 +9,24 @@ public class mapManager : MonoBehaviour
     private string mapName;
     public GameObject loadingScreen;
     public Slider loadingSlider;
+    public string[] selectRandom;
 
     public void mapSelected(string mapName)
     {
         SceneManager.LoadScene(mapName);
+        Destroy(GameObject.Find("BackgroundMusic"));
     }
 
     public void loadLevel(string name)
     {
         StartCoroutine(LoadAsync(name));
+        Destroy(GameObject.Find("BackgroundMusic"));
+    }
+
+    public void RandomizeMap()
+    {
+        string ranMapSelector = selectRandom[Random.Range(0, selectRandom.Length)];
+        mapSelected(ranMapSelector);
     }
 
     IEnumerator LoadAsync(string name)

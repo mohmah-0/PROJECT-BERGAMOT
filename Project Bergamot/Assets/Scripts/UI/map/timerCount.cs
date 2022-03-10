@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class timerCount : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 10f;
+    public float startingTime = 20f;
 
     [SerializeField] Text timerUI;
+    mapManager MapManager;
 
     void Start()
     {
-        currentTime = startingTime;    
+        currentTime = startingTime;
+        MapManager = GameObject.Find("MapManager").GetComponent<mapManager>();
     }
 
     void Update()
@@ -29,9 +31,9 @@ public class timerCount : MonoBehaviour
         }
         else
         {
-            //Randomize the selection map 
-            Debug.Log("Reached the end: " + currentTime);
-            //currentTime = 0;
+            MapManager.RandomizeMap();
+            this.GetComponent<timerCount>().enabled = false;
         }
+
     }
 }

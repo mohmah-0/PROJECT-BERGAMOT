@@ -7,7 +7,10 @@ TagManager:
   - Wall
   - Projectile
   - checkPoint
-  - Container
+  - ButtonTopRow
+  - ButtonBottomRow
+  - PlayerHitbox
+  - Canvas
   layers:
   - Default
   - TransparentFX

@@ -4,23 +4,21 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/UI Scenes/LoadingTest.unity
-    guid: 37763d2b0e6adf34684c80f0bbb4cf23
   - enabled: 1
     path: Assets/Scenes/UI Scenes/StartMenu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/UI Scenes/SelectionScreen.unity
-    guid: 32400c71176b5dd40ae3ce31f8d778bd
+    path: Assets/Scenes/UI Scenes/ny UI scen.unity
+    guid: e4ba36224cae1644296069cc09c44d85
   - enabled: 1
     path: Assets/Scenes/UI Scenes/MapSelection.unity
     guid: 98e2a5541405f9c43917bada87fd28de
   - enabled: 1
-    path: Assets/Scenes/MapOne.unity
+    path: Assets/Scenes/SceneLevels/MapOne.unity
     guid: a9b9bfe7c3e7a8044aad40163cbfd935
-
+  - enabled: 1
+    path: Assets/Scenes/SceneLevels/MapTwo.unity
+    guid: 286332ac21e3fa14cb2f645f3b6816e3
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 60594440bd9317644a53f2b49b9398a2, type: 2}
