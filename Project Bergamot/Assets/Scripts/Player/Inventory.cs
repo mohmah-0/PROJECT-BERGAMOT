@@ -8,6 +8,10 @@ public class Inventory : MonoBehaviour
     public Item item;
     [SerializeField] GameObject RBGameObject;
 
+    private void Awake()
+    {
+        RBGameObject = transform.GetChild(0).gameObject;
+    }
     public void UseItem()
     {
         if (item == null)
@@ -26,18 +30,5 @@ public class Inventory : MonoBehaviour
             item.DisplayItem(RBGameObject);
             GetComponent<PlayerUI>().AddImage(newItem.Icon, GetComponent<PlayerUI>().borderItem.transform);
         }
-    }
-
-    public void UseNitro()
-    {
-        StartCoroutine(Boost());
-    }
-
-    public IEnumerator Boost()
-    {
-        GetComponent<CarMovment>().topSpeed = GetComponent<CarMovment>().topSpeed * 2;
-        yield return new WaitForSeconds(1);
-
-        GetComponent<CarMovment>().topSpeed = GetComponent<CarMovment>().topSpeed / 2;
     }
 }

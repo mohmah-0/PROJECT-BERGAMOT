@@ -11,7 +11,6 @@ public class ItemBox : MonoBehaviour
     {
         if (!other.CompareTag("PlayerHitbox"))
             return;
-        Debug.Log("YES");
 
         Inventory inventory = other.transform.parent.parent.GetComponent<Inventory>();
         inventory.ItemCollect(items[Random.Range(0, items.Length)]);
@@ -21,12 +20,15 @@ public class ItemBox : MonoBehaviour
 
     IEnumerator BoxDestroy()
     {
+        //Makes box inactive
         GetComponent<BoxCollider>().enabled = false;
         GetComponent<Renderer>().enabled = false;
         lid.enabled = false;
         partSys.Play();
+        FindObjectOfType<AudioManager>().Play("BoxOpen");
 
         yield return new WaitForSeconds(5f);
+        //reactivates box
         GetComponent<BoxCollider>().enabled = true;
         GetComponent<Renderer>().enabled = true;
         lid.enabled = true;
