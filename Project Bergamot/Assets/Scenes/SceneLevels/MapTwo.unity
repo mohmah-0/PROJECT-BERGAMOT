@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1708983132}
-  m_IndirectSpecularColor: {r: 0.63564366, g: 0.8427265, b: 0.84578127, a: 1}
+  m_IndirectSpecularColor: {r: 0.3548554, g: 0.6652502, b: 0.6695178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: e77edeb2da57f92448ffe9c95e2d59b5, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: b5596ec8e90f009498c490b3fcc42740, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -5766,7 +5766,6 @@ MonoBehaviour:
   Checkpoint: {fileID: 7016661381544671200, guid: aee319aabee4e3a43b098e8e4393be0b, type: 3}
   SpawnPointHolder: {fileID: 1360160479}
   CheckpointDistance: 40
-  leadCar: {fileID: 0}
 --- !u!1 &705860370 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 26cfbeb631bf4ab4098289ba1ac243cb, type: 3}
