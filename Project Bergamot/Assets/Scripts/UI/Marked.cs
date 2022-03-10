@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = gul, player 4 =grön
@@ -11,6 +12,7 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
     public static List<int>[] topRowButtonMarkings, bottomRowButtonMarkings;
     public static Color[] playerColors = { Color.red, Color.blue, Color.yellow, Color.green, new Color(0, 0, 0, 0) };
     public static GameObject[] carTypes;
+    static int hostTopRowSelectedButton;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,10 +33,18 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
 
         if (isTopRow)
         {
-
+            
             if(previousButton >= 0)
             {
-                removeMark(previousButton, previousIsTopRow, playerColor);
+                if (previousIsTopRow == false)//goes up from bottom row buttons
+                {
+                    removeMark(previousButton, previousIsTopRow, playerColor);
+                    removeMark(hostTopRowSelectedButton, true, playerColor);
+                }
+                else
+                {
+                    removeMark(previousButton, previousIsTopRow, playerColor);
+                }
                 topRowButtonMarkings[whichButton].Add(playerColor);
                 uppdateMark(whichButton, isTopRow);
             }
@@ -44,12 +54,19 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
                 uppdateMark(whichButton, isTopRow);
             }
         }
-        else
+        else//if bottom row now
         {
-            //if bottom row
+            
             if (previousButton >= 0)
             {
-                removeMark(previousButton, previousIsTopRow, playerColor);
+                if(previousIsTopRow == true)//goes down from top Row Buttons
+                {
+                    hostTopRowSelectedButton = previousButton;
+                }
+                else
+                {
+                    removeMark(previousButton, previousIsTopRow, playerColor);
+                }
                 bottomRowButtonMarkings[whichButton].Add(playerColor);
                 uppdateMark(whichButton, isTopRow);
             }
@@ -119,7 +136,15 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
 
     public static void pressButton(int whichButton)//endast host bör ha åtkomst
     {
-        //om host Spelaren trycker fortsätt
+        Debug.Log(SceneManager.GetActiveScene().buildIndex);
+        if(whichButton == 0)//pressed on start
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else if(whichButton == 1)//pressed on back
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }//add else if in case we get more buttons
 
     }
 
@@ -162,6 +187,14 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
             tempPlayerCar.SetActive(false);
             return tempPlayerCar;
         }
+    }
+
+
+    public static void resetAllMarkers()//dont use this unless you want to do car selection all ove again.
+    {
+        //resett everything as if we just came from star menu.
+        //PlayerScript.resetAllPlayers();...
+
     }
 
 }

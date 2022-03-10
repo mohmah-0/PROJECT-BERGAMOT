@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         playerColor = GetComponent<PlayerInput>().playerIndex;
         Marked.playerObject.Add(gameObject);
         currentButtonRow = Marked.buttonsTopRow;
@@ -124,14 +125,16 @@ public class PlayerScript : MonoBehaviour
     {
         if (action.performed)
         {
-            if(isTopRow == true)
-            {
-                //playerCar = Marked.changeCar(selectedButton, gameObject, playerCar);
-            }
-            else
+            if(isTopRow == false)
             {
                 Marked.pressButton(selectedButton);
             }
         }
+    }
+
+
+    public static void resetAllPlayers()//dont use this unless you want to do car selection all over again.(should be used from marked)
+    {
+        //resett everything in all PlayerScripts and not Marked
     }
 }
