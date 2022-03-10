@@ -18,15 +18,19 @@ public class CrossCheckHandler : MonoBehaviour
     private float CheckpointDistance = 40.0f;
 
 
+    //CarsData
     private GameObject[] cars;
+    private GameObject leadCar;
     
+    //CheckpointData
     private GameObject[] checkpoints;
     private List<int> nextCheckPointList;
 
+    //PathData
     private float pathDist = 0;
     private float CheckpointAmount = 0;
 
-    public GameObject leadCar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,18 +38,21 @@ public class CrossCheckHandler : MonoBehaviour
         CheckpointAmount = pathDist / CheckpointDistance;
         float CheckpointOffset = TrackPath.path.GetClosestDistanceAlongPath(SpawnPointHolder.transform.position)+5;
 
+        //Sets up the checkpoints
         for(int i = 0; i < CheckpointAmount; i++)
         {
             Vector3 currentPointpos = TrackPath.path.GetPointAtDistance((CheckpointDistance * i) + CheckpointOffset) + new Vector3(0, 3, 0);
             Quaternion currentPointRot = TrackPath.path.GetRotationAtDistance((CheckpointDistance * i) + CheckpointOffset);
             Quaternion targetRot = new Quaternion(90, currentPointRot.y, currentPointRot.z, currentPointRot.w);
 
-            GameObject newCheckPoint = (GameObject)Instantiate(Checkpoint, currentPointpos, currentPointRot, this.transform);
+            GameObject newCheckPoint = Instantiate(Checkpoint, currentPointpos, currentPointRot, this.transform);
             newCheckPoint.transform.Rotate(-90, 180, 0);
             newCheckPoint.GetComponent<CheckPoint>().setID(i);
         }
         checkpoints = GameObject.FindGameObjectsWithTag("checkPoint");
         checkpoints[0].GetComponent<CheckPoint>().goal = true;
+
+        //Sets up the next checkpoint system for all the cars Also finds the cars
         nextCheckPointList = new List<int>();
         cars = GameObject.FindGameObjectsWithTag("Player");
         for(int i = 0; i < cars.Length; i++)
@@ -53,13 +60,14 @@ public class CrossCheckHandler : MonoBehaviour
             nextCheckPointList.Add(0);
         }
 
-
+        //Sets the leadcar to the first car joined
         leadCar = cars[0];
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Temporarly added. pre-adding cars has not been setup yet.
         cars = GameObject.FindGameObjectsWithTag("Player");
         if(nextCheckPointList.Count < cars.Length)
         {
@@ -68,13 +76,15 @@ public class CrossCheckHandler : MonoBehaviour
                 nextCheckPointList.Add(0);
             }
         }
+
         int highestlap = 0;
         int highestCheckPoint = 0;
         float longestDistance = 0.0f;
 
+        //Collects the data from the cars, which is the furthest dist etc.
         for(int i = 0; i < cars.Length; i++)
         {
-            CarCheckPointData carData = cars[i].GetComponent<CarCheckPointData>();
+            CarCheckPointData carData = cars[i].GetComponent<CarCheckPointData>(); //This gets the Car's data for the crosschecking system.
             if(carData.getCurrentLap() >= highestlap)
             {
                 highestlap = carData.getCurrentLap();
@@ -89,6 +99,7 @@ public class CrossCheckHandler : MonoBehaviour
             }
         }
 
+        //Checks which car that is in the lead
         for (int i = 0; i < cars.Length; i++)
         {
             CarCheckPointData carData = cars[i].GetComponent<CarCheckPointData>();
@@ -105,6 +116,9 @@ public class CrossCheckHandler : MonoBehaviour
         }
     }
 
+    /*
+     * This returns the car in lead.
+     */
     public GameObject getLeadCar()
     {
         if(cars != null)
@@ -114,6 +128,9 @@ public class CrossCheckHandler : MonoBehaviour
         return null;
     }
 
+    /*
+     * This handles the Collition with checkpoints.
+     */
     public void onCollide(int id, GameObject car, bool goal)
     {
 
@@ -145,6 +162,36 @@ public class CrossCheckHandler : MonoBehaviour
                     //break;
                 }
             }
+        }
+    }
+
+    /*
+     * When a car goes out of screen it should get the leadcar's data
+     * so it does not miss any checkpoints and destroy the system.
+     */
+    public void onOutOfBounds(GameObject car)
+    {
+        int currentLeaderIndex = 0;
+        int targetCarIndex = 0;
+
+        for(int i = 0; i < cars.Length;i++)
+        {
+            if(leadCar == cars[i])
+                currentLeaderIndex = i;
+            if(car == cars[i])
+                targetCarIndex = i;
+        }
+
+        CarCheckPointData leadCarData = cars[currentLeaderIndex].GetComponent<CarCheckPointData>();
+        CarCheckPointData targetCarData = cars[targetCarIndex].GetComponent<CarCheckPointData>();
+
+        if (currentLeaderIndex != targetCarIndex)
+        {
+            targetCarData.setCurrentCheckpoint(leadCarData.getCurrentCheckpoint());
+            targetCarData.setCurrentLap(leadCarData.getCurrentLap());
+
+            nextCheckPointList[targetCarIndex] = nextCheckPointList[currentLeaderIndex];
+
         }
     }
 }
