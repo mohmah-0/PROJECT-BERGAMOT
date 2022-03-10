@@ -6,24 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
 {
-     public GameObject mainCanvas;
-     public GameObject settingCanvas;
+    public GameObject mainCanvas;
+    public GameObject settingCanvas;
+    public Animator transitionAnimator;
 
     public void backUI_BTN()
     {
-       
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        FadeToLevel(SceneManager.GetActiveScene().buildIndex - 1);
+       //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void startGame_BTN()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void openSetting()
     {    
         mainCanvas.SetActive(false);
-        settingCanvas.SetActive(true);
+        settingCanvas.SetActive(true); 
     }
 
     public void settingReturn()
@@ -35,5 +37,18 @@ public class SceneSwitch : MonoBehaviour
     public void exitGame()
     {
         Application.Quit();
+    }
+
+    void FadeToLevel(int mapIndex)
+    {   
+        StartCoroutine(delaySec(mapIndex));
+       // SceneManager.LoadSceneAsync(sceneName);
+    }
+
+    IEnumerator delaySec(int mapIndex)
+    {
+        transitionAnimator.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(.75f);
+        SceneManager.LoadSceneAsync(mapIndex);
     }
 }

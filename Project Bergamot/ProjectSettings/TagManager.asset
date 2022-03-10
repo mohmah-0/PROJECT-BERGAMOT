@@ -12,6 +12,8 @@ TagManager:
   - CrossChecking
   - Path
   - RespawnPoint
+  - ButtonTopRow
+  - ButtonBottomRow
   - Canvas
   layers:
   - Default
