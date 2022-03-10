@@ -14,11 +14,13 @@ public class mapManager : MonoBehaviour
     public void mapSelected(string mapName)
     {
         SceneManager.LoadScene(mapName);
+        Destroy(GameObject.Find("BackgroundMusic"));
     }
 
     public void loadLevel(string name)
     {
         StartCoroutine(LoadAsync(name));
+        Destroy(GameObject.Find("BackgroundMusic"));
     }
 
     public void RandomizeMap()

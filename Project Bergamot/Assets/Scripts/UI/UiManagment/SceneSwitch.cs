@@ -12,13 +12,13 @@ public class SceneSwitch : MonoBehaviour
 
     public void backUI_BTN()
     {
-        FadeToLevel("StartMenu");
+        FadeToLevel(SceneManager.GetActiveScene().buildIndex - 1);
        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void startGame_BTN()
     {
-        FadeToLevel("MapSelection");
+        FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -39,16 +39,16 @@ public class SceneSwitch : MonoBehaviour
         Application.Quit();
     }
 
-    void FadeToLevel(string sceneName)
+    void FadeToLevel(int mapIndex)
     {   
-        StartCoroutine(delaySec(sceneName));
+        StartCoroutine(delaySec(mapIndex));
        // SceneManager.LoadSceneAsync(sceneName);
     }
 
-    IEnumerator delaySec(string sceneName)
+    IEnumerator delaySec(int mapIndex)
     {
         transitionAnimator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(.75f);
-        SceneManager.LoadSceneAsync(sceneName);
+        SceneManager.LoadSceneAsync(mapIndex);
     }
 }
