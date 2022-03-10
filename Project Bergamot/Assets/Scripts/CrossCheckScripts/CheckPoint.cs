@@ -23,9 +23,11 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.parent.parent.tag == "Player")
+        //Needs to get from the "body" part to the main car part. Body has the collider.
+        Transform collidedCar = other.transform.parent.parent;
+        if(collidedCar.tag == "Player")
         {
-            transform.parent.GetComponent<CrossCheckHandler>().onCollide(id, other.transform.parent.parent.gameObject, goal);
+            transform.parent.GetComponent<CrossCheckHandler>().onCollide(id, collidedCar.gameObject, goal);
         }
     }
 }
