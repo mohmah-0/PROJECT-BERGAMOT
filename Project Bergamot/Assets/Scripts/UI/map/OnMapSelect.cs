@@ -22,8 +22,6 @@ public class OnMapSelect : MonoBehaviour,ISelectHandler,IDeselectHandler
 
     public void OnSelect(BaseEventData eventData)
     {
-        Debug.Log(this.gameObject.name + " was selected");
-        Debug.Log("eventdata " + eventData);
         currentMapText.text = this.buttonText.text;
         mapDisplayer.SetActive(true);
         if(this.gameObject.name == "Map1Btn") { animator.SetBool("map1", true); } 
@@ -32,7 +30,6 @@ public class OnMapSelect : MonoBehaviour,ISelectHandler,IDeselectHandler
     }
     public void OnDeselect(BaseEventData eventData)
     {
-        Debug.Log(this.gameObject.name + " was Deselected");
         mapDisplayer.SetActive(false);
         if (this.gameObject.name == "Map1Btn") { animator.SetBool("map1", false); }
         else if (this.gameObject.name == "Map2Btn") { animator.SetBool("map2", false); }
