@@ -5,12 +5,11 @@ using UnityEngine;
 public class OutOfView : MonoBehaviour
 {
 
-    [SerializeField] GameObject[] cars;
+    public List<GameObject> cars;
     float startTime = 3;
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        cars = GameObject.FindGameObjectsWithTag("PlayerHitbox");
         startTime -= Time.deltaTime;
         foreach (GameObject car in cars)
         {

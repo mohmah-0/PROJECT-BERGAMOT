@@ -16,6 +16,10 @@ public class Lives : MonoBehaviour
             StartCoroutine(GetComponent<Respawn>().CarRespawn());
         }
         else if (lives <= 0)
+        {
+            Destroy(GetComponent<PlayerUI>().borderItem);
+            FindObjectOfType<OutOfView>().cars.RemoveAt(GetComponent<PlayerDetails>().playerID - 1);
             Destroy(gameObject);
+        }
     }
 }
