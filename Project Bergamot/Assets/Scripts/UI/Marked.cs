@@ -174,9 +174,13 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
     {
         for(int i = 0; i < playerObject.Count; i++)
         {
+            PlayerScript tempScript = playerObject[i].GetComponent<PlayerScript>();
             playerObject[i].GetComponent<PlayerScript>().playerCarMovment = playerObject[i].transform.GetComponentInChildren<CarMovment>(true);
+
             playerObject[i].GetComponent<PlayerInput>().SwitchCurrentActionMap("Player controll");
+            playerObject[i].GetComponent<PlayerInput>().enabled = false;
         }
+
     }
 
     public static GameObject changeCar(int whichButton, GameObject whichPlayer, GameObject playerCurrentCar)

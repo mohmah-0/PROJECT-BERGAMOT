@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CarMovment : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class CarMovment : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("värld:  " + SceneManager.GetActiveScene().name);
         wheels = transform.Find("RigidBody").Find("wheels");
         meshes[0] = wheels.Find("wheel_frontLeft");
         meshes[1] = wheels.Find("wheel_frontRight");
@@ -30,7 +32,28 @@ public class CarMovment : MonoBehaviour
         colliders[1] = wheelColliders.Find("wheel_frontRight").GetComponent<WheelCollider>();
         colliders[2] = wheelColliders.Find("wheel_backLeft").GetComponent<WheelCollider>();
         colliders[3] = wheelColliders.Find("wheel_backRight").GetComponent<WheelCollider>();
+        transform.parent.GetComponent<PlayerInput>().enabled = true;
+        Debug.Log("klar");
+
+        Debug.Log("klar 2");
+        //switching controlls from ui controlls to car controll.
+
+        GameObject[] tempAllPlayers = GameObject.FindGameObjectsWithTag("Player controller");
+        for (int i = 0; i < tempAllPlayers.Length; i++)
+        {
+            tempAllPlayers[i].transform.GetChild(0).gameObject.SetActive(true);
+        }
+
+
+        //GameObject[] tempAllPlayers = GameObject.FindGameObjectsWithTag("Player controller");
+        for (int i = 0; i < tempAllPlayers.Length; i++)
+        {
+
+            GameObject.FindGameObjectWithTag("Player Mananger").GetComponent<PlayerSpawnAction>().OnPlayerJoined(tempAllPlayers[i].GetComponent<PlayerInput>());
+        }
     }
+
+    
 
     // Update is called once per frame
     void FixedUpdate()
@@ -135,6 +158,7 @@ public class CarMovment : MonoBehaviour
 
     void uppdateAcceleration()
     {
+
         if (EnteredGoal)// just to stop players from continuing after reach goal
         {
             colliders[2].motorTorque = 0;

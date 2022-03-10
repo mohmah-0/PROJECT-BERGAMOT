@@ -11,6 +11,8 @@ TagManager:
   - ButtonBottomRow
   - PlayerHitbox
   - Canvas
+  - Player controller
+  - Player Mananger
   layers:
   - Default
   - TransparentFX
