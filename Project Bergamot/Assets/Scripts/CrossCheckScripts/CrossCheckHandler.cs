@@ -19,7 +19,7 @@ public class CrossCheckHandler : MonoBehaviour
 
 
     //CarsData
-    [SerializeField]private GameObject[] cars;
+    public GameObject[] cars;
     public GameObject leadCar;
     
     //CheckpointData

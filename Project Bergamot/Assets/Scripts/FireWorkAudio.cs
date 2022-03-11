@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireWorkAudio : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
         StartCoroutine(PlaySound());
     }

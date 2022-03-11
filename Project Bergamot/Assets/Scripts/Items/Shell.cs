@@ -18,7 +18,7 @@ public class Shell : Item
         Instantiate(gameObject, new Vector3(x, y, z), Quaternion.Euler(0, car.transform.eulerAngles.y, 0));
     }
 
-    float speed = 10;
+    float speed = 20;
     Rigidbody rb;
     Vector3 lastVel;
     void Awake()
