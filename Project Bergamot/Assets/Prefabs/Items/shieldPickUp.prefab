@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e644ef47172691c459adf1b720428fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 782f418271f261247a95a0828b9b6250, type: 3}
   shield: {fileID: 4565915123413106114, guid: 1c9c5aadaf121cd4b896580775109269, type: 3}
 --- !u!95 &-8881174771321310810
 Animator:

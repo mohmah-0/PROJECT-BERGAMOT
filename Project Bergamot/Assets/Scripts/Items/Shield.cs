@@ -10,6 +10,7 @@ public class Shield : Item
     {
         GameObject shield = Instantiate(gameObject, car.transform);
         shield.GetComponent<Animator>().enabled = true;
+        FindObjectOfType<AudioManager>().Play("ShieldActivate");
     }
 
     void OnTriggerEnter(Collider other)
@@ -17,6 +18,7 @@ public class Shield : Item
         if (!other.CompareTag("Projectile"))
             return;
 
+        FindObjectOfType<AudioManager>().Play("ShieldBreak");
         Destroy(other.gameObject);
         StartCoroutine(DestroyShield());
     }

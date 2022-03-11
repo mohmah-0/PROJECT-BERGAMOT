@@ -19,8 +19,8 @@ public class CrossCheckHandler : MonoBehaviour
 
 
     //CarsData
-    private GameObject[] cars;
-    private GameObject leadCar;
+    [SerializeField]private GameObject[] cars;
+    public GameObject leadCar;
     
     //CheckpointData
     private GameObject[] checkpoints;
@@ -69,6 +69,10 @@ public class CrossCheckHandler : MonoBehaviour
     {
         //Temporarly added. pre-adding cars has not been setup yet.
         cars = GameObject.FindGameObjectsWithTag("Player");
+
+        if (cars.Length == 0)
+            return;
+
         if(nextCheckPointList.Count < cars.Length)
         {
             for (int i = 0; i < cars.Length; i++)

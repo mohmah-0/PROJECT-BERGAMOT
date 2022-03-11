@@ -62,7 +62,7 @@ public class Shell : Item
 
     IEnumerator Kill()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
 }
