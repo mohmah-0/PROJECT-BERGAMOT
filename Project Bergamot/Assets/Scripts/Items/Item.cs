@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public abstract class Item : MonoBehaviour
 {
+    public Sprite Icon;
     public abstract void Use(GameObject car);
     public void DisplayItem(GameObject car)
     {

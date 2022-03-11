@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Project Bergamot/Assets/Prefabs/Items/Sphere.prefab.meta
+guid: 9ed74faee0271e848a8507396ff777db
+=======
 guid: aee319aabee4e3a43b098e8e4393be0b
+>>>>>>> main:Project Bergamot/Assets/Prefabs/CrossCheck/Checkpoint.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

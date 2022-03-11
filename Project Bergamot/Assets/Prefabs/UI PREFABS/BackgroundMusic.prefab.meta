@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Project Bergamot/Assets/Prefabs/AudioManager.prefab.meta
+guid: 849dd5cf5a48d8c41a6e7b37801555db
+=======
 guid: 774da80ed1b0f374da8445c205167c48
+>>>>>>> main:Project Bergamot/Assets/Prefabs/UI PREFABS/BackgroundMusic.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

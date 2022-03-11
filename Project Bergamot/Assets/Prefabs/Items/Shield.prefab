@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f6ae6aba928290489c880e90790ecb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 782f418271f261247a95a0828b9b6250, type: 3}
   partSys: {fileID: 7131830822188460636}
 --- !u!95 &-3110946903341506612
 Animator:
