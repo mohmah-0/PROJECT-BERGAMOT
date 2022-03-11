@@ -14,14 +14,17 @@ public class Lives : MonoBehaviour
         {
             GetComponent<PlayerUI>().RemoveLastImage();
             StartCoroutine(GetComponent<Respawn>().CarRespawn());
-            hasRespawned = false;
         }
         if (lives <= 0)
         {
-            Destroy(gameObject);
+            FindObjectOfType<PodiumPlacements>().UpdateList(GetComponent<PlayerDetails>());
+
+
             GetComponent<PlayerUI>().RemoveLastImage();
             Destroy(GetComponent<PlayerUI>().borderItem);
             FindObjectOfType<OutOfView>().cars.RemoveAt(GetComponent<PlayerDetails>().playerID - 1);
+   
+            Destroy(gameObject);
         }
     }
 }

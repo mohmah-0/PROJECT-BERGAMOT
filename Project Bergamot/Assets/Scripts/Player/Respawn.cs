@@ -26,10 +26,12 @@ public class Respawn : MonoBehaviour
 
     public IEnumerator CarRespawn()
     {
+        GetComponent<Lives>().hasRespawned = false;
+        GetComponent<CarMovment>().respawning = true;
         while (flashTime > 0)//Keeps the respawning car in the correct spot
         {
             
-            transform.GetChild(0).rotation = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0);
+            transform.GetChild(0).rotation = Quaternion.Euler(-15, Camera.main.transform.rotation.eulerAngles.y, 0);
             transform.GetChild(0).GetComponent<Rigidbody>().velocity = Vector3.zero;
             transform.GetChild(1).GetComponent<Rigidbody>().velocity = Vector3.zero;
 
@@ -44,8 +46,8 @@ public class Respawn : MonoBehaviour
         //set all values back to default
         flashTime = 60;
 
-        Vector3 leadVel = GameObject.FindGameObjectWithTag("CrossChecking").GetComponent<CrossCheckHandler>().leadCar.transform.GetChild(0).GetComponent<Rigidbody>().velocity;
-        transform.GetChild(0).GetComponent<Rigidbody>().velocity = leadVel;
+        Rigidbody leadRB = FindObjectOfType<CrossCheckHandler>().leadCar.transform.GetChild(0).GetComponent<Rigidbody>();
+        transform.GetChild(0).GetComponent<Rigidbody>().velocity = leadRB.velocity;
 
         transform.GetChild(0).GetChild(0).GetComponent<Collider>().enabled = true;
         transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = true;
@@ -56,6 +58,8 @@ public class Respawn : MonoBehaviour
         GetComponent<Lives>().hasRespawned = true;
         Debug.Log("YES");
 
+        yield return new WaitForSeconds(1);
+        GetComponent<CarMovment>().respawning = false;
         yield return null;
     }
 

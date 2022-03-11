@@ -65,6 +65,17 @@
                 },
                 {
                     "name": "",
+                    "id": "df9b438e-2298-446d-8516-f4813fcfd29c",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drive forward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "44e06236-0a43-4656-8209-baf369ae305d",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",

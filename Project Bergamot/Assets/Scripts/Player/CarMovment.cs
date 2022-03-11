@@ -13,6 +13,7 @@ public class CarMovment : MonoBehaviour
 
 
     public float topSpeed = 600, steeringPower = 0; //ta bort acceleration och fixa dens refferenser
+    public bool respawning = false;
 
     Vector3 tempPosition;
     Quaternion tempRotation;
@@ -68,6 +69,7 @@ public class CarMovment : MonoBehaviour
 
 
     }
+
 
 
     public void decelerate(InputAction.CallbackContext i)
@@ -166,8 +168,11 @@ public class CarMovment : MonoBehaviour
             colliders[2].motorTorque = 0;
             colliders[3].motorTorque = 0;
 
+            if (!respawning)
+            {
             colliders[2].brakeTorque = Mathf.Abs(colliders[2].rpm);
             colliders[3].brakeTorque = Mathf.Abs(colliders[3].rpm);
+            }
         }
     }
 
