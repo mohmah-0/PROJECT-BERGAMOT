@@ -454,7 +454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4177195885661209284
 Transform:
   m_ObjectHideFlags: 0
@@ -463,7 +463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4177195885661209291}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.35, y: 1, z: 5.64}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4177195886607516149}
@@ -486,6 +486,7 @@ MonoBehaviour:
   EnteredGoal: 0
   accelerating: 0
   decelerating: 0
+  readyForRace: 0
   topSpeed: 600
   steeringPower: 0
 --- !u!114 &5558778568032999150

@@ -41,7 +41,11 @@ public class mapManager : MonoBehaviour
             loadingSlider.value = loadingProgress;
             yield return null;
 
-
+            GameObject[] tempAllPlayers = GameObject.FindGameObjectsWithTag("Player controller");
+            for (int i = 0; i < tempAllPlayers.Length; i++)
+            {
+                tempAllPlayers[i].transform.GetChild(0).gameObject.SetActive(true);
+            }
 
         }
 

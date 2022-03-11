@@ -16,6 +16,8 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject c = GameObject.Find("b");
+        DontDestroyOnLoad(c);
         DontDestroyOnLoad(gameObject);
         playerColor = GetComponent<PlayerInput>().playerIndex;
         Marked.playerObject.Add(gameObject);
@@ -124,19 +126,22 @@ public class PlayerScript : MonoBehaviour
 
     public void pressedX(InputAction.CallbackContext action)
     {
+        Debug.Log(gameObject.name);
         if (action.performed)
         {
             if(isTopRow == false)
             {
                 Marked.pressButton(selectedButton);
             }
+            Debug.Log("happening2: " + gameObject.transform.GetChild(0).name);
         }
     }
 
 
     public void carDriveForward(InputAction.CallbackContext action)//only used by Player controll scheme
     {
-        playerCarMovment.accelerate(action);
+        //Debug.Log(GetComponent<PlayerInput>().playerIndex + "  -----------      " + GetComponent<PlayerInput>().GetDevice<TrackedDevice>().deviceId + "  -----------  " + GetComponent<PlayerInput>().GetDevice<TrackedDevice>().deviceId);
+        playerCarMovment.accelerate(action, gameObject);
     }
     public void carDriveBack(InputAction.CallbackContext action)//only used by Player controll scheme
     {
@@ -148,6 +153,7 @@ public class PlayerScript : MonoBehaviour
     }
     public void carPressedX(InputAction.CallbackContext action)//only used by Player controll scheme
     {
+        //Debug.Log("happening2: " + gameObject.transform.GetChild(0).name);
         playerCarMovment.drift(action);
     }
 

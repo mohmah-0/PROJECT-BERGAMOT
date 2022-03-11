@@ -8,14 +8,24 @@ public class PlayerSpawnAction : MonoBehaviour
 {
     public Transform[] spawnPoints;
 
-    
-
-    public void OnPlayerJoined(PlayerInput playerInput)///kolla här
+    void Start()//switching controlls from ui controlls to car controll for the recently transfered cars
     {
-        Debug.Log("Player " + playerInput.playerIndex + " joined the game!");
-        Debug.Log("existerar: " + playerInput.transform.GetComponentInChildren<PlayerDetails>().name);
-        playerInput.transform.GetComponentInChildren<PlayerDetails>().playerID = playerInput.playerIndex + 1;
+        GameObject[] tempAllPlayers = GameObject.FindGameObjectsWithTag("Player");
+        for(int i = 0; i < tempAllPlayers.Length; i++)
+        {
+            Debug.Log("playerobject: " + tempAllPlayers[i].gameObject.name + "");
+            CarMovment tempScript = tempAllPlayers[i].GetComponent<CarMovment>();
+            OnPlayerJoined(tempScript.setupCar());
+            tempScript.readyForRace = true;
+        }
+    }
 
-        playerInput.transform.GetComponentInChildren<PlayerDetails>().startPos = spawnPoints[playerInput.playerIndex].position;
+    public void OnPlayerJoined(PlayerInput playerInput)///positioning the car
+    {
+
+        playerInput.SwitchCurrentActionMap("Player controll");
+        
+        playerInput.transform.GetComponentInChildren<PlayerDetails>().playerID = playerInput.playerIndex + 1;
+        playerInput.transform.position = spawnPoints[playerInput.playerIndex].position;
     }
 }

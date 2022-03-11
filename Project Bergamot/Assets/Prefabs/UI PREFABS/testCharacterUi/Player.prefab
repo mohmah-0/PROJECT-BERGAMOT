@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4788715367284459684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 253.11441, y: 239.19461, z: -309.9731}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -203,7 +203,7 @@ MonoBehaviour:
     m_ActionName: UI Controll/Pressing X[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: UI Controll
+  m_DefaultActionMap: 60a5bda3-72ac-4f63-9360-600ba88b6d67
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &15156326735374212

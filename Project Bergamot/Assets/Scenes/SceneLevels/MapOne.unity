@@ -4836,8 +4836,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1418696711}
-  - component: {fileID: 1418696710}
   - component: {fileID: 1418696712}
+  - component: {fileID: 1418696710}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Player Mananger
@@ -4852,42 +4852,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418696709}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 2
-  m_MaxPlayerCount: 4
+  m_MaxPlayerCount: -1
   m_AllowJoining: 1
   m_JoinBehavior: 1
   m_PlayerJoinedEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1418696712}
-        m_TargetAssemblyTypeName: PlayerSpawnAction, Assembly-CSharp
-        m_MethodName: OnPlayerJoined
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CrossChecking, Assembly-CSharp
-        m_MethodName: applyCrossChecking
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_PlayerLeftEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -4897,12 +4873,12 @@ MonoBehaviour:
       m_Name: Join
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 7f81cfb2-c8ab-4c41-9c49-f66056ab32a3
+      m_Id: d355dbd2-c027-443d-9dfc-06a1f90da4d7
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 331026df-b8c3-42f3-8b16-af49a81b6715
+        m_Id: da94d3e5-6673-418d-83bd-d2e4f7cfa8ac
         m_Path: <Gamepad>/buttonSouth
         m_Interactions: 
         m_Processors: 
@@ -4910,8 +4886,8 @@ MonoBehaviour:
         m_Action: Join
         m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: 8534088307248236662, guid: 8bf6b62561c3da143abffd7562b46d71, type: 3}
-  m_PlayerPrefab: {fileID: 2068577072927208983, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 4788715367284459684, guid: 91beb4d0e8f123543a883f9a92e3149d, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1

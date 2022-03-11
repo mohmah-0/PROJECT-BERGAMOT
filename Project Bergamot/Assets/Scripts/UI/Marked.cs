@@ -137,10 +137,9 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
 
     public static void pressButton(int whichButton)//endast host bör ha åtkomst
     {
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);
         if(whichButton == 0)//pressed on start
         {
-            
+            GameObject.Find("b").GetComponent<PlayerInputManager>().DisableJoining();
             settingUpCarControl();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
@@ -175,10 +174,10 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
         for(int i = 0; i < playerObject.Count; i++)
         {
             PlayerScript tempScript = playerObject[i].GetComponent<PlayerScript>();
+            PlayerInput temp = playerObject[i].GetComponent<PlayerInput>();
             playerObject[i].GetComponent<PlayerScript>().playerCarMovment = playerObject[i].transform.GetComponentInChildren<CarMovment>(true);
-
-            playerObject[i].GetComponent<PlayerInput>().SwitchCurrentActionMap("Player controll");
             playerObject[i].GetComponent<PlayerInput>().enabled = false;
+            //playerObject[i].GetComponent<PlayerInput>().SwitchCurrentActionMap("Player controll");//"Player controll"
         }
 
     }
@@ -189,6 +188,7 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
         if (playerCurrentCar == null)
         {
             GameObject tempPlayerCar = Instantiate<GameObject>(carTypes[whichButton], whichPlayer.transform);
+            tempPlayerCar.name = tempPlayerCar.name + whichPlayer.GetComponent<PlayerInput>().playerIndex;
             tempPlayerCar.SetActive(false);
             return tempPlayerCar;
         }
@@ -200,6 +200,7 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
         {
             Destroy(whichPlayer.transform.Find(playerCurrentCar.name).gameObject);
             GameObject tempPlayerCar = Instantiate<GameObject>(carTypes[whichButton], whichPlayer.transform);
+            tempPlayerCar.name = tempPlayerCar.name + whichPlayer.GetComponent<PlayerInput>().playerIndex;
             tempPlayerCar.SetActive(false);
             return tempPlayerCar;
         }

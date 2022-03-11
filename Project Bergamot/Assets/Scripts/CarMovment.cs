@@ -9,7 +9,7 @@ public class CarMovment : MonoBehaviour
     private WheelCollider[] colliders = new WheelCollider[4];
     private Transform[] meshes = new Transform[4];
     private Transform wheels, wheelColliders;
-    public bool EnteredGoal = false, accelerating = false, decelerating = false;
+    public bool EnteredGoal = false, accelerating = false, decelerating = false, readyForRace = false;
     InputAction.CallbackContext accelerationPower, decelerationPower;
 
 
@@ -18,9 +18,10 @@ public class CarMovment : MonoBehaviour
     Vector3 tempPosition;
     Quaternion tempRotation;
 
-    private void Awake()
+
+    public PlayerInput setupCar()
     {
-        Debug.Log("värld:  " + SceneManager.GetActiveScene().name);
+        //Setting up the wheels(not relevant to the input system or anything)
         wheels = transform.Find("RigidBody").Find("wheels");
         meshes[0] = wheels.Find("wheel_frontLeft");
         meshes[1] = wheels.Find("wheel_frontRight");
@@ -32,35 +33,27 @@ public class CarMovment : MonoBehaviour
         colliders[1] = wheelColliders.Find("wheel_frontRight").GetComponent<WheelCollider>();
         colliders[2] = wheelColliders.Find("wheel_backLeft").GetComponent<WheelCollider>();
         colliders[3] = wheelColliders.Find("wheel_backRight").GetComponent<WheelCollider>();
-        transform.parent.GetComponent<PlayerInput>().enabled = true;
-        Debug.Log("klar");
-
-        Debug.Log("klar 2");
-        //switching controlls from ui controlls to car controll.
-
-        GameObject[] tempAllPlayers = GameObject.FindGameObjectsWithTag("Player controller");
-        for (int i = 0; i < tempAllPlayers.Length; i++)
-        {
-            tempAllPlayers[i].transform.GetChild(0).gameObject.SetActive(true);
-        }
 
 
-        //GameObject[] tempAllPlayers = GameObject.FindGameObjectsWithTag("Player controller");
-        for (int i = 0; i < tempAllPlayers.Length; i++)
-        {
+        //Setting up the scripts for inputsystem
+        //Debug.Log("player " + transform.parent.name + "  car: " + name);
+        transform.GetComponentInParent<PlayerScript>().playerCarMovment = GetComponent<CarMovment>();
+        PlayerInput tempInput = gameObject.GetComponentInParent<PlayerInput>();
+        tempInput.enabled = true;
 
-            GameObject.FindGameObjectWithTag("Player Mananger").GetComponent<PlayerSpawnAction>().OnPlayerJoined(tempAllPlayers[i].GetComponent<PlayerInput>());
-        }
+        return tempInput;
     }
-
     
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        WheelMovments();//uppdating wheel movments every frame
-        uppdateAcceleration();
-        uppdateSteering();
+        if (readyForRace)
+        {
+            WheelMovments();//uppdating wheel movments every frame
+            uppdateAcceleration();
+            uppdateSteering();
+        }
 
     }
 
@@ -76,15 +69,14 @@ public class CarMovment : MonoBehaviour
     }
 
 
-    public void accelerate(InputAction.CallbackContext i)
+    public void accelerate(InputAction.CallbackContext i, GameObject onject)
     {
-
         if (i.performed)// just to stop players from continuing after reach goal
         {
             accelerating = true;
             accelerationPower = i;
         }
-        else if(i.canceled)
+        else if (i.canceled)
         {
             accelerating = false;
         }
@@ -95,8 +87,6 @@ public class CarMovment : MonoBehaviour
 
     public void decelerate(InputAction.CallbackContext i)
     {
-
-
 
         if (i.performed)// just to stop players from continuing after reach goal
         {
@@ -174,7 +164,6 @@ public class CarMovment : MonoBehaviour
             colliders[3].motorTorque = calculateMotorTourqe(colliders[3].rpm);
             colliders[2].brakeTorque = 0;
             colliders[3].brakeTorque = 0;
-            Debug.Log(colliders[2].motorTorque + "  hårdhet: " + accelerationPower.ReadValue<float>());
 
         }
         else if(!accelerating && decelerating)
