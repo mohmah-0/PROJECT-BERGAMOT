@@ -14,6 +14,15 @@ public class ReturnMainMenu : MonoBehaviour
             s.source.Stop();
         }
         Destroy(FindObjectOfType<AudioManager>());
+
+        GameObject[] objectsInScene = FindObjectsOfType<GameObject>();
+        foreach (GameObject obj in objectsInScene)
+        {
+            if(obj.layer == 9)
+            {
+                Destroy(obj);
+            }
+        }
         SceneManager.LoadScene("StartMenu");
     }
 }

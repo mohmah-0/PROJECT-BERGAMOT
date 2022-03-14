@@ -16,7 +16,7 @@ public class SetPlayerColor : MonoBehaviour
             int id = car.GetComponent<PlayerDetails>().playerID;
             int cartype = (car.name.StartsWith("CoolerRaceCar")) ? 1 : 0;
             car.GetComponent<PlayerDetails>().playerID = cartype;
-            Debug.Log("biltyp: " + cartype);
+            //Debug.Log("biltyp: " + cartype);
             switch (id)
             {
                 case 1:

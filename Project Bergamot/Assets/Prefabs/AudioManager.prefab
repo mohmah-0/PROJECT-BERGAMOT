@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 812465488187997368}
   - component: {fileID: 812465488187997369}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
