@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CarMovment : MonoBehaviour
 {
@@ -9,17 +10,24 @@ public class CarMovment : MonoBehaviour
     private Transform[] meshes = new Transform[4];
     private Transform wheels, wheelColliders;
     public bool EnteredGoal = false, accelerating = false, decelerating = false;
+    public bool respawning = false;
     InputAction.CallbackContext accelerationPower, decelerationPower;
 
 
     public float topSpeed = 600, steeringPower = 0; //ta bort acceleration och fixa dens refferenser
-    public bool respawning = false;
 
     Vector3 tempPosition;
     Quaternion tempRotation;
 
-    private void Awake()
+
+    void Start()
     {
+        settingUpWheels();
+    }
+
+    void settingUpWheels()//Kinda looks inefficient but i dont se any better soloution
+    {
+        //Setting up the wheels(not relevant to the input system or anything)
         wheels = transform.Find("RigidBody").Find("wheels");
         meshes[0] = wheels.Find("wheel_frontLeft");
         meshes[1] = wheels.Find("wheel_frontRight");
@@ -54,15 +62,14 @@ public class CarMovment : MonoBehaviour
     }
 
 
-    public void accelerate(InputAction.CallbackContext i)
+    public void accelerate(InputAction.CallbackContext i, GameObject onject)
     {
-
         if (i.performed)// just to stop players from continuing after reach goal
         {
             accelerating = true;
             accelerationPower = i;
         }
-        else if(i.canceled)
+        else if (i.canceled)
         {
             accelerating = false;
         }
@@ -71,11 +78,8 @@ public class CarMovment : MonoBehaviour
     }
 
 
-
     public void decelerate(InputAction.CallbackContext i)
     {
-
-
 
         if (i.performed)// just to stop players from continuing after reach goal
         {
@@ -137,6 +141,7 @@ public class CarMovment : MonoBehaviour
 
     void uppdateAcceleration()
     {
+
         if (EnteredGoal)// just to stop players from continuing after reach goal
         {
             colliders[2].motorTorque = 0;
@@ -152,7 +157,6 @@ public class CarMovment : MonoBehaviour
             colliders[3].motorTorque = calculateMotorTourqe(colliders[3].rpm);
             colliders[2].brakeTorque = 0;
             colliders[3].brakeTorque = 0;
-            //Debug.Log(colliders[2].motorTorque + "  hårdhet: " + accelerationPower.ReadValue<float>());
 
         }
         else if(!accelerating && decelerating)
@@ -170,8 +174,8 @@ public class CarMovment : MonoBehaviour
 
             if (!respawning)
             {
-            colliders[2].brakeTorque = Mathf.Abs(colliders[2].rpm);
-            colliders[3].brakeTorque = Mathf.Abs(colliders[3].rpm);
+                colliders[2].brakeTorque = Mathf.Abs(colliders[2].rpm);
+                colliders[3].brakeTorque = Mathf.Abs(colliders[3].rpm);
             }
         }
     }
