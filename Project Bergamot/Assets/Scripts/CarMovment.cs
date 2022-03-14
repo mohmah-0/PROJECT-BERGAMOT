@@ -9,7 +9,7 @@ public class CarMovment : MonoBehaviour
     private WheelCollider[] colliders = new WheelCollider[4];
     private Transform[] meshes = new Transform[4];
     private Transform wheels, wheelColliders;
-    public bool EnteredGoal = false, accelerating = false, decelerating = false, readyForRace = false;
+    public bool EnteredGoal = false, accelerating = false, decelerating = false;
     InputAction.CallbackContext accelerationPower, decelerationPower;
 
 
@@ -19,7 +19,12 @@ public class CarMovment : MonoBehaviour
     Quaternion tempRotation;
 
 
-    public PlayerInput setupCar()
+    void Start()
+    {
+        settingUpWheels();
+    }
+
+    void settingUpWheels()//Kinda looks inefficient but i dont se any better soloution
     {
         //Setting up the wheels(not relevant to the input system or anything)
         wheels = transform.Find("RigidBody").Find("wheels");
@@ -33,27 +38,14 @@ public class CarMovment : MonoBehaviour
         colliders[1] = wheelColliders.Find("wheel_frontRight").GetComponent<WheelCollider>();
         colliders[2] = wheelColliders.Find("wheel_backLeft").GetComponent<WheelCollider>();
         colliders[3] = wheelColliders.Find("wheel_backRight").GetComponent<WheelCollider>();
-
-
-        //Setting up the scripts for inputsystem
-        //Debug.Log("player " + transform.parent.name + "  car: " + name);
-        transform.GetComponentInParent<PlayerScript>().playerCarMovment = GetComponent<CarMovment>();
-        PlayerInput tempInput = gameObject.GetComponentInParent<PlayerInput>();
-        tempInput.enabled = true;
-
-        return tempInput;
     }
-    
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (readyForRace)
-        {
-            WheelMovments();//uppdating wheel movments every frame
-            uppdateAcceleration();
-            uppdateSteering();
-        }
+        WheelMovments();//uppdating wheel movments every frame
+        uppdateAcceleration();
+        uppdateSteering();
 
     }
 

@@ -139,8 +139,7 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
     {
         if(whichButton == 0)//pressed on start
         {
-            GameObject.Find("b").GetComponent<PlayerInputManager>().DisableJoining();
-            settingUpCarControl();
+            disablingControlls();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else if(whichButton == 1)//pressed on back
@@ -169,17 +168,13 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
         }
     }
 
-    static void settingUpCarControl()
+    static void disablingControlls()
     {
         for(int i = 0; i < playerObject.Count; i++)
         {
             PlayerScript tempScript = playerObject[i].GetComponent<PlayerScript>();
-            PlayerInput temp = playerObject[i].GetComponent<PlayerInput>();
-            playerObject[i].GetComponent<PlayerScript>().playerCarMovment = playerObject[i].transform.GetComponentInChildren<CarMovment>(true);
-            playerObject[i].GetComponent<PlayerInput>().enabled = false;
-            //playerObject[i].GetComponent<PlayerInput>().SwitchCurrentActionMap("Player controll");//"Player controll"
+            tempScript.enableControlls = false;
         }
-
     }
 
     public static GameObject changeCar(int whichButton, GameObject whichPlayer, GameObject playerCurrentCar)
@@ -188,7 +183,7 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
         if (playerCurrentCar == null)
         {
             GameObject tempPlayerCar = Instantiate<GameObject>(carTypes[whichButton], whichPlayer.transform);
-            tempPlayerCar.name = tempPlayerCar.name + whichPlayer.GetComponent<PlayerInput>().playerIndex;
+            tempPlayerCar.name = tempPlayerCar.name + whichPlayer.GetComponent<PlayerInput>().playerIndex;//might remove----
             tempPlayerCar.SetActive(false);
             return tempPlayerCar;
         }
@@ -200,7 +195,7 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
         {
             Destroy(whichPlayer.transform.Find(playerCurrentCar.name).gameObject);
             GameObject tempPlayerCar = Instantiate<GameObject>(carTypes[whichButton], whichPlayer.transform);
-            tempPlayerCar.name = tempPlayerCar.name + whichPlayer.GetComponent<PlayerInput>().playerIndex;
+            tempPlayerCar.name = tempPlayerCar.name + whichPlayer.GetComponent<PlayerInput>().playerIndex;//might remove-----
             tempPlayerCar.SetActive(false);
             return tempPlayerCar;
         }

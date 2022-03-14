@@ -203,7 +203,7 @@ MonoBehaviour:
     m_ActionName: UI Controll/Pressing X[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 60a5bda3-72ac-4f63-9360-600ba88b6d67
+  m_DefaultActionMap: UI Controll
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &15156326735374212

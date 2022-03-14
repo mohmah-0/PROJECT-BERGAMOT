@@ -8,24 +8,32 @@ public class PlayerSpawnAction : MonoBehaviour
 {
     public Transform[] spawnPoints;
 
-    void Start()//switching controlls from ui controlls to car controll for the recently transfered cars
+    void Start()//Setting up the recently transfered cars
     {
-        GameObject[] tempAllPlayers = GameObject.FindGameObjectsWithTag("Player");
-        for(int i = 0; i < tempAllPlayers.Length; i++)
+        GameObject[] tempPlayer = GameObject.FindGameObjectsWithTag("Player controller");
+
+        for(int i = 0; i < tempPlayer.Length; i++)
         {
-            Debug.Log("playerobject: " + tempAllPlayers[i].gameObject.name + "");
-            CarMovment tempScript = tempAllPlayers[i].GetComponent<CarMovment>();
-            OnPlayerJoined(tempScript.setupCar());
-            tempScript.readyForRace = true;
+            GameObject tempPlayerCar = tempPlayer[i].transform.GetChild(0).gameObject;
+            PlayerScript tempScript = tempPlayer[i].GetComponent<PlayerScript>();
+
+            spawningCar(tempPlayerCar, tempPlayer[i].GetComponent<PlayerInput>().playerIndex + 1);
+            setupPlayerControll(tempPlayer[i], tempPlayerCar.GetComponent<CarMovment>());
         }
     }
 
-    public void OnPlayerJoined(PlayerInput playerInput)///positioning the car
-    {
 
-        playerInput.SwitchCurrentActionMap("Player controll");
-        
-        playerInput.transform.GetComponentInChildren<PlayerDetails>().playerID = playerInput.playerIndex + 1;
-        playerInput.transform.position = spawnPoints[playerInput.playerIndex].position;
+    void spawningCar(GameObject player, int playerNumber)
+    {
+        player.SetActive(true);
+        player.transform.position = spawnPoints[playerNumber].position;
+    }
+
+    void setupPlayerControll(GameObject player, CarMovment car)
+    {
+        player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player controll");
+        PlayerScript tempPlayerScript = player.GetComponent<PlayerScript>();
+        tempPlayerScript.playerCarMovment = car;
+        tempPlayerScript.enableControlls = true;
     }
 }

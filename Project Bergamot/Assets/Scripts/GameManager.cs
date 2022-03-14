@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cars = GameObject.FindGameObjectsWithTag("Player");
+        cars = GameObject.FindGameObjectsWithTag("Player");//maybe just use this directy from wherever it's useds
     }
 
     // Update is called once per frame
