@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4177195884783652091}
   m_Layer: 6
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: PlayerHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4177195884783652089}
-  m_Mesh: {fileID: -8545447256379345787, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
+  m_Mesh: {fileID: -8545447256379345787, guid: 2fa28ed21d98d5f4ca5ecce8c561a235, type: 3}
 --- !u!23 &4177195884783652084
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60,10 +60,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7576386722563338562, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
-  - {fileID: -7416217663357473095, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
-  - {fileID: -3963241562183589234, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
-  - {fileID: 3398073514908505954, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
+  - {fileID: 2100000, guid: d38f661c3b0be524a8556b97f6e2aeb7, type: 2}
+  - {fileID: 2100000, guid: 31ffbf560c9ff3945a96bb769082b676, type: 2}
+  - {fileID: 2100000, guid: 9c46c3435c65ada4d8dee45f6dcc8789, type: 2}
+  - {fileID: 2100000, guid: 9c46c3435c65ada4d8dee45f6dcc8789, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -158,9 +158,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1991239904168531565, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
-  - {fileID: 7576386722563338562, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
-  - {fileID: -6139386096153423777, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
+  - {fileID: 2100000, guid: 6e304b109e17b8b43aecbdaa6c30c71c, type: 2}
+  - {fileID: 2100000, guid: d38f661c3b0be524a8556b97f6e2aeb7, type: 2}
+  - {fileID: 2100000, guid: 63d85668769a2274f83cbec53d288b35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -272,9 +272,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1991239904168531565, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
-  - {fileID: 7576386722563338562, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
-  - {fileID: -6139386096153423777, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
+  - {fileID: 2100000, guid: 6e304b109e17b8b43aecbdaa6c30c71c, type: 2}
+  - {fileID: 2100000, guid: d38f661c3b0be524a8556b97f6e2aeb7, type: 2}
+  - {fileID: 2100000, guid: 63d85668769a2274f83cbec53d288b35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -486,9 +486,79 @@ MonoBehaviour:
   EnteredGoal: 0
   accelerating: 0
   decelerating: 0
-  readyForRace: 0
+  respawning: 0
   topSpeed: 600
   steeringPower: 0
+--- !u!114 &5714003224584177557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177195885661209291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: ac59ea77ccacee14b8b5c8ab9b5b148a, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ad4d3eb3-b7a3-4579-9dfc-f53cbf42072e
+    m_ActionName: Player controll/Drive forward[/XInputControllerWindows/rightTrigger,/XInputControllerWindows1/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2f890fc4-954c-4b98-910a-a5b64ff12292
+    m_ActionName: Player controll/Drive back[/XInputControllerWindows/leftTrigger,/XInputControllerWindows1/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c48e9626-d96c-42fd-afce-5e17c9697df2
+    m_ActionName: Player controll/Steer[/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 44f829fc-def5-4900-8fdf-baeb305fbe6f
+    m_ActionName: Player controll/Drift[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ea41eef1-361a-44c4-a9ff-502b01c8d64c
+    m_ActionName: UI Controll/Go right[/XInputControllerWindows/dpad/right,/XInputControllerWindows1/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a0e0b134-7890-41a6-aadb-25950b28ca06
+    m_ActionName: UI Controll/Go Left[/XInputControllerWindows/dpad/left,/XInputControllerWindows1/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cce52b0a-303a-4c1b-aae3-ba44aa520902
+    m_ActionName: UI Controll/Go down[/XInputControllerWindows/dpad/down,/XInputControllerWindows1/dpad/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 35877f44-05d7-4189-ac20-867daafb9ba2
+    m_ActionName: UI Controll/Go up[/XInputControllerWindows/dpad/up,/XInputControllerWindows1/dpad/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a921dca0-0297-43fe-94b2-e24b08409d36
+    m_ActionName: Player controll/UseItem[/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6b140fad-ae74-46b2-b329-63bf199b0221
+    m_ActionName: UI Controll/Pressing X[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player controll
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!114 &5558778568032999150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,9 +694,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1991239904168531565, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
-  - {fileID: 7576386722563338562, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
-  - {fileID: -6139386096153423777, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
+  - {fileID: 2100000, guid: 6e304b109e17b8b43aecbdaa6c30c71c, type: 2}
+  - {fileID: 2100000, guid: d38f661c3b0be524a8556b97f6e2aeb7, type: 2}
+  - {fileID: 2100000, guid: 63d85668769a2274f83cbec53d288b35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -894,9 +964,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1991239904168531565, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
-  - {fileID: 7576386722563338562, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
-  - {fileID: -6139386096153423777, guid: ea4b96233d458b84c8d49ea164362767, type: 3}
+  - {fileID: 2100000, guid: 6e304b109e17b8b43aecbdaa6c30c71c, type: 2}
+  - {fileID: 2100000, guid: d38f661c3b0be524a8556b97f6e2aeb7, type: 2}
+  - {fileID: 2100000, guid: 63d85668769a2274f83cbec53d288b35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

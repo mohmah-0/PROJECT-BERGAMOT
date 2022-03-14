@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PodiumPlacements : MonoBehaviour
 {
     [SerializeField] List<int> players;
+    float endtime = 1;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,7 +20,14 @@ public class PodiumPlacements : MonoBehaviour
 
     public void FinishGame()
     {
-        Destroy(FindObjectOfType<AudioManager>());
-        SceneManager.LoadScene("winnerPodium");
+        Time.timeScale = 0.5f;
+
+        endtime -= Time.deltaTime;
+        if (endtime < 0)
+        {
+            Time.timeScale = 1;
+            Destroy(FindObjectOfType<AudioManager>());
+            SceneManager.LoadScene("winnerPodium");
+        }
     }
 }
