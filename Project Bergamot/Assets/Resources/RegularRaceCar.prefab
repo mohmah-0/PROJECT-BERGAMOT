@@ -57,17 +57,19 @@ GameObject:
   m_Component:
   - component: {fileID: 2068577072927208982}
   - component: {fileID: 3179390722294146538}
-  - component: {fileID: 7374833967051081919}
   - component: {fileID: 6614622222384459215}
   - component: {fileID: 7174515448246646800}
-  - component: {fileID: -3788279353983169528}
+  - component: {fileID: -2376780608429921205}
+  - component: {fileID: 7629084875844893312}
+  - component: {fileID: -1543232936929584631}
+  - component: {fileID: 3594760914979893254}
   m_Layer: 0
   m_Name: RegularRaceCar
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2068577072927208982
 Transform:
   m_ObjectHideFlags: 0
@@ -76,7 +78,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068577072927208983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.31, y: 0.501, z: 4.56}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6668844013955594312}
@@ -99,6 +101,7 @@ MonoBehaviour:
   EnteredGoal: 0
   accelerating: 0
   decelerating: 0
+  readyForRace: 0
   topSpeed: 600
   steeringPower: 0
 --- !u!114 &7374833967051081919
@@ -206,6 +209,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 35877f44-05d7-4189-ac20-867daafb9ba2
     m_ActionName: UI Controll/Go up[/XInputControllerWindows/dpad/up,/XInputControllerWindows1/dpad/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6b140fad-ae74-46b2-b329-63bf199b0221
+    m_ActionName: UI Controll/Pressing X[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2376780608429921205}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a921dca0-0297-43fe-94b2-e24b08409d36
+    m_ActionName: Player controll/UseItem[/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest,/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player controll
@@ -239,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCheckpoint: 0
   currentLap: 0
---- !u!114 &-3788279353983169528
+--- !u!114 &-2376780608429921205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -253,6 +276,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   RBGameObject: {fileID: 6325216481594335986}
+--- !u!114 &7629084875844893312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6a5f121fc1a6342a72ae40c9cd8213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 3
+  hasRespawned: 1
+--- !u!114 &-1543232936929584631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a88b8ed038ccf4418db03ac8756e953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3594760914979893254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577072927208983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcaffb43afeaf7246b24c82c41eb62be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helmets:
+  - {fileID: 21300000, guid: 153cde298fbdfe94c956b5452f770c7e, type: 3}
+  - {fileID: 21300000, guid: 70460c9b5d7ef464bb0215f015edeb0b, type: 3}
+  - {fileID: 21300000, guid: e71d57aa55685ed4d98d26ff9b50f952, type: 3}
+  - {fileID: 21300000, guid: 69bfbec482d41774f8c91e07886d8a8c, type: 3}
+  helmetObj: []
+  itemBorder: {fileID: 21300000, guid: b73c373797feff84eb672e8cbba6cc2a, type: 3}
+  itemIcon: {fileID: 0}
+  borderItem: {fileID: 0}
 --- !u!1 &3661984357627778435
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +652,7 @@ GameObject:
   - component: {fileID: 7356747453699224678}
   m_Layer: 6
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: PlayerHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

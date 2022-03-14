@@ -7,10 +7,16 @@ TagManager:
   - Wall
   - Projectile
   - checkPoint
+  - PlayerHitbox
+  - PlayerManager
+  - CrossChecking
+  - Path
+  - RespawnPoint
   - ButtonTopRow
   - ButtonBottomRow
-  - PlayerHitbox
   - Canvas
+  - Player controller
+  - Player Mananger
   layers:
   - Default
   - TransparentFX

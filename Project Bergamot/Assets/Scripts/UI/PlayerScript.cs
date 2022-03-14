@@ -9,8 +9,10 @@ public class PlayerScript : MonoBehaviour
     int selectedButton = 0, previouslySelectedButton = -1;
     public int playerColor;
     bool previousIsTopRow = true, isTopRow = true;
+    public bool enableControlls = true;
     List<GameObject> currentButtonRow;//använd bara för kolla storlek(osäker om annat funkar)
     public GameObject playerCar;
+    public CarMovment playerCarMovment;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(action.performed)
         {
+            Debug.Log(GetComponent<PlayerInput>().playerIndex);
             if (selectedButton < currentButtonRow.Count - 1)
             {
                 previouslySelectedButton = selectedButton;
@@ -56,43 +59,50 @@ public class PlayerScript : MonoBehaviour
 
     public void moveLeft(InputAction.CallbackContext action)
     {
-        if (action.performed)
+        if (enableControlls)
         {
-            if (selectedButton > 0)//button 3 and 4 is in the bottom row
+            if (action.performed)
             {
-                previouslySelectedButton = selectedButton;
-                selectedButton--;
-
-                previousIsTopRow = isTopRow;
-                isTopRow = currentButtonRow == Marked.buttonsTopRow;
-
-                Marked.markButton(selectedButton, previouslySelectedButton, previousIsTopRow, isTopRow, playerColor);
-                if (isTopRow)
+                Debug.Log(GetComponent<PlayerInput>().playerIndex);
+                if (selectedButton > 0)//button 3 and 4 is in the bottom row
                 {
-                    playerCar = Marked.changeCar(selectedButton, gameObject, playerCar);
-                }
-            }
+                    previouslySelectedButton = selectedButton;
+                    selectedButton--;
 
+                    previousIsTopRow = isTopRow;
+                    isTopRow = currentButtonRow == Marked.buttonsTopRow;
+
+                    Marked.markButton(selectedButton, previouslySelectedButton, previousIsTopRow, isTopRow, playerColor);
+                    if (isTopRow)
+                    {
+                        playerCar = Marked.changeCar(selectedButton, gameObject, playerCar);
+                    }
+                }
+
+            }
         }
     }
 
     public void moveDown(InputAction.CallbackContext action)
     {
-        if(playerColor == 0)//endast förstaspelaren får selecta knapparna under.
+        if (enableControlls)
         {
-            if (action.performed)
+            if (playerColor == 0)//endast förstaspelaren får selecta knapparna under.
             {
-                if (currentButtonRow == Marked.buttonsTopRow)
+                if (action.performed)
                 {
-                    currentButtonRow = Marked.buttonsBottomRow;
+                    if (currentButtonRow == Marked.buttonsTopRow)
+                    {
+                        currentButtonRow = Marked.buttonsBottomRow;
 
-                    previousIsTopRow = isTopRow;
-                    isTopRow = currentButtonRow == Marked.buttonsTopRow;
+                        previousIsTopRow = isTopRow;
+                        isTopRow = currentButtonRow == Marked.buttonsTopRow;
 
-                    previouslySelectedButton = selectedButton;
-                    selectedButton = 0;
+                        previouslySelectedButton = selectedButton;
+                        selectedButton = 0;
 
-                    Marked.markButton(selectedButton, previouslySelectedButton, true, false, playerColor);
+                        Marked.markButton(selectedButton, previouslySelectedButton, true, false, playerColor);
+                    }
                 }
             }
         }
@@ -100,22 +110,25 @@ public class PlayerScript : MonoBehaviour
 
     public void moveUp(InputAction.CallbackContext action)
     {
-        if (playerColor == 0)//endast förstaspelaren får selecta knapparna under.
+        if (enableControlls)
         {
-            if (action.performed)
+            if (playerColor == 0)//endast förstaspelaren får selecta knapparna under.
             {
-                if (currentButtonRow == Marked.buttonsBottomRow)
+                if (action.performed)
                 {
-                    currentButtonRow = Marked.buttonsTopRow;
+                    if (currentButtonRow == Marked.buttonsBottomRow)
+                    {
+                        currentButtonRow = Marked.buttonsTopRow;
 
-                    previousIsTopRow = isTopRow;
-                    isTopRow = currentButtonRow == Marked.buttonsTopRow;
+                        previousIsTopRow = isTopRow;
+                        isTopRow = currentButtonRow == Marked.buttonsTopRow;
 
-                    previouslySelectedButton = selectedButton;
-                    selectedButton = 0;
+                        previouslySelectedButton = selectedButton;
+                        selectedButton = 0;
 
-                    Marked.markButton(selectedButton, previouslySelectedButton, false, true, playerColor);//kanske ersätt true och false med isTopRow och den andra
-                    playerCar = Marked.changeCar(selectedButton, gameObject, playerCar);
+                        Marked.markButton(selectedButton, previouslySelectedButton, false, true, playerColor);//kanske ersätt true och false med isTopRow och den andra
+                        playerCar = Marked.changeCar(selectedButton, gameObject, playerCar);
+                    }
                 }
             }
         }
@@ -123,12 +136,47 @@ public class PlayerScript : MonoBehaviour
 
     public void pressedX(InputAction.CallbackContext action)
     {
-        if (action.performed)
+        if (enableControlls)
         {
-            if(isTopRow == false)
+            if (action.performed)
             {
-                Marked.pressButton(selectedButton);
+                Debug.Log("Ftryckte x: " + GetComponent<PlayerInput>().playerIndex);
+                if (isTopRow == false)
+                {
+                    Marked.pressButton(selectedButton);
+                }
+                Debug.Log("Atryckte x: " + GetComponent<PlayerInput>().playerIndex);
             }
+        }
+    }
+
+
+    public void carDriveForward(InputAction.CallbackContext action)//only used by Player controll scheme
+    {
+        if (enableControlls)
+        {
+            playerCarMovment.accelerate(action, gameObject);
+        }
+    }
+    public void carDriveBack(InputAction.CallbackContext action)//only used by Player controll scheme
+    {
+        if (enableControlls)
+        {
+            playerCarMovment.decelerate(action);
+        }
+    }
+    public void carSteering(InputAction.CallbackContext action)//only used by Player controll scheme
+    {
+        if (enableControlls)
+        {
+            playerCarMovment.steer(action);
+        }
+    }
+    public void carPressedX(InputAction.CallbackContext action)//only used by Player controll scheme
+    {
+        if (enableControlls)
+        {
+            playerCarMovment.drift(action);
         }
     }
 
