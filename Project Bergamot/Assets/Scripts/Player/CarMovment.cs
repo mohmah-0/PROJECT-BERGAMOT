@@ -10,6 +10,7 @@ public class CarMovment : MonoBehaviour
     private Transform[] meshes = new Transform[4];
     private Transform wheels, wheelColliders;
     public bool EnteredGoal = false, accelerating = false, decelerating = false;
+    public bool respawning = false;
     InputAction.CallbackContext accelerationPower, decelerationPower;
 
 
@@ -171,8 +172,11 @@ public class CarMovment : MonoBehaviour
             colliders[2].motorTorque = 0;
             colliders[3].motorTorque = 0;
 
-            colliders[2].brakeTorque = Mathf.Abs(colliders[2].rpm);
-            colliders[3].brakeTorque = Mathf.Abs(colliders[3].rpm);
+            if (!respawning)
+            {
+                colliders[2].brakeTorque = Mathf.Abs(colliders[2].rpm);
+                colliders[3].brakeTorque = Mathf.Abs(colliders[3].rpm);
+            }
         }
     }
 
