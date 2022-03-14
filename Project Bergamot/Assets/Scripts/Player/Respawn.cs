@@ -57,7 +57,7 @@ public class Respawn : MonoBehaviour
             renderer.enabled = true;
         }
         GetComponent<Lives>().hasRespawned = true;
-        Debug.Log("YES");
+        //Debug.Log("YES");
 
         yield return new WaitForSeconds(1);
         GetComponent<CarMovment>().respawning = false;

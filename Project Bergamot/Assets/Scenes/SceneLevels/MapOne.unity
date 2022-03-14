@@ -695,6 +695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: 
+  carType: 
 --- !u!4 &79432651
 Transform:
   m_ObjectHideFlags: 0
@@ -2082,6 +2083,10 @@ PrefabInstance:
     - target: {fileID: 812465488187997370, guid: 523fe346478ae91468d788f64835e34c, type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 812465488187997370, guid: 523fe346478ae91468d788f64835e34c, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 812465488187997369, guid: 523fe346478ae91468d788f64835e34c, type: 3}
@@ -7216,63 +7221,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 51b23882e58020c498cd49ea84ca23a3, type: 3}
   m_PrefabInstance: {fileID: 641283048}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1791779879
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2068577072927208982, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068577072927208982, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -84.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068577072927208982, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.501
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068577072927208982, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068577072927208982, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068577072927208982, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068577072927208982, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068577072927208982, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068577072927208982, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068577072927208982, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068577072927208982, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068577072927208983, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
-      propertyPath: m_Name
-      value: RegularRaceCar
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f61a3b6475c9a924c98713c787e9f185, type: 3}
 --- !u!1001 &1824731826
 PrefabInstance:
   m_ObjectHideFlags: 0

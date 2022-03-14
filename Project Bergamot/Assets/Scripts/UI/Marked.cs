@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = gul, player 4 =grön
 {
-    public static List<GameObject> playerObject = new List<GameObject>();//try swiching to the players script it self or the playerColor(playerid)
-    public static List<GameObject> buttonsTopRow = new List<GameObject>();//fixa så den blir GameObject[][] buttons
-    public static List<GameObject> buttonsBottomRow = new List<GameObject>();
+    public static List<GameObject> playerObject;//try swiching to the players script it self or the playerColor(playerid)
+    public static List<GameObject> buttonsTopRow;//fixa så den blir GameObject[][] buttons
+    public static List<GameObject> buttonsBottomRow;
     public static List<int>[] topRowButtonMarkings, bottomRowButtonMarkings;
     public static Color[] playerColors = { Color.red, Color.blue, Color.yellow, Color.green, new Color(0, 0, 0, 0) };
     public static GameObject[] carTypes;
@@ -18,8 +18,16 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
     // Start is called before the first frame update
     void Awake()
     {
+        start();
         carTypes = new GameObject[4]{ Resources.Load("RegularRaceCar") as GameObject, Resources.Load("CoolerRaceCar") as GameObject, Resources.Load("RegularRaceCar") as GameObject, Resources.Load("RegularRaceCar") as GameObject };
         settingUpButtons();
+    }
+    private void start()//dfmkaösdjö
+    {
+
+        playerObject = new List<GameObject>();
+        buttonsTopRow = new List<GameObject>();
+        buttonsBottomRow = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -100,6 +108,8 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
         if (isTopRow)
         {
             //removing all markers
+            Debug.Log("knapp: " + whichButton);
+            Debug.Log(buttonsTopRow[whichButton].name);
             GameObject tempPanel = buttonsTopRow[whichButton].transform.parent.gameObject;
             tempPanel.GetComponent<Image>().color = playerColors[playerColors.Length - 1];
 

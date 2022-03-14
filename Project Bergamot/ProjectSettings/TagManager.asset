@@ -17,6 +17,8 @@ TagManager:
   - Canvas
   - Player controller
   - Player Mananger
+  - Container
+  - items
   layers:
   - Default
   - TransparentFX
@@ -27,7 +29,7 @@ TagManager:
   - body
   - wheels
   - Player
-  - 
+  - DontDestroy
   - 
   - 
   - 

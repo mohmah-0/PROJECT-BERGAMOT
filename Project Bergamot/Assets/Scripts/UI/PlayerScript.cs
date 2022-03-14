@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("startade");
         DontDestroyOnLoad(gameObject);
         playerColor = GetComponent<PlayerInput>().playerIndex;
         Marked.playerObject.Add(gameObject);
