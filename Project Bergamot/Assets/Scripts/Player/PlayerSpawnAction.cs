@@ -2,17 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerSpawnAction : MonoBehaviour
 {
     public Transform[] spawnPoints;
-    public void OnPlayerJoined(PlayerInput playerInput)
+
+    void Start()//Setting up the recently transfered cars
     {
-        Debug.Log("Player " + playerInput.playerIndex + " joined the game!");
+        GameObject[] tempPlayer = GameObject.FindGameObjectsWithTag("Player controller");
 
-        playerInput.gameObject.GetComponent<PlayerDetails>().playerID = playerInput.playerIndex + 1;
+        for(int i = 0; i < tempPlayer.Length; i++)
+        {
+            GameObject tempPlayerCar = tempPlayer[i].transform.GetChild(0).gameObject;
+            PlayerScript tempScript = tempPlayer[i].GetComponent<PlayerScript>();
 
-        playerInput.gameObject.GetComponent<PlayerDetails>().startPos = spawnPoints[playerInput.playerIndex].position;
-        FindObjectOfType<OutOfView>().cars.Add(playerInput.gameObject.transform.GetChild(0).GetChild(0).gameObject);
+            spawningCar(tempPlayerCar, tempPlayer[i].GetComponent<PlayerInput>().playerIndex + 1);
+            setupPlayerControll(tempPlayer[i], tempPlayerCar.GetComponent<CarMovment>());
+        }
+    }
+
+
+    void spawningCar(GameObject player, int playerNumber)
+    {
+        player.SetActive(true);
+        player.transform.position = spawnPoints[playerNumber].position;
+    }
+
+    void setupPlayerControll(GameObject player, CarMovment car)
+    {
+        player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player controll");
+        PlayerScript tempPlayerScript = player.GetComponent<PlayerScript>();
+        tempPlayerScript.playerCarMovment = car;
+        tempPlayerScript.enableControlls = true;
     }
 }

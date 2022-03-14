@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -136,9 +137,9 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
 
     public static void pressButton(int whichButton)//endast host bör ha åtkomst
     {
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);
         if(whichButton == 0)//pressed on start
         {
+            disablingControlls();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else if(whichButton == 1)//pressed on back
@@ -167,12 +168,22 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
         }
     }
 
+    static void disablingControlls()
+    {
+        for(int i = 0; i < playerObject.Count; i++)
+        {
+            PlayerScript tempScript = playerObject[i].GetComponent<PlayerScript>();
+            tempScript.enableControlls = false;
+        }
+    }
+
     public static GameObject changeCar(int whichButton, GameObject whichPlayer, GameObject playerCurrentCar)
     {
 
         if (playerCurrentCar == null)
         {
             GameObject tempPlayerCar = Instantiate<GameObject>(carTypes[whichButton], whichPlayer.transform);
+            tempPlayerCar.name = tempPlayerCar.name + whichPlayer.GetComponent<PlayerInput>().playerIndex;//might remove----
             tempPlayerCar.SetActive(false);
             return tempPlayerCar;
         }
@@ -184,6 +195,7 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
         {
             Destroy(whichPlayer.transform.Find(playerCurrentCar.name).gameObject);
             GameObject tempPlayerCar = Instantiate<GameObject>(carTypes[whichButton], whichPlayer.transform);
+            tempPlayerCar.name = tempPlayerCar.name + whichPlayer.GetComponent<PlayerInput>().playerIndex;//might remove-----
             tempPlayerCar.SetActive(false);
             return tempPlayerCar;
         }
@@ -192,9 +204,10 @@ public class Marked : MonoBehaviour//player 1 = röd, player 2 = blå, player 3 = 
 
     public static void resetAllMarkers()//dont use this unless you want to do car selection all ove again.
     {
-        //resett everything as if we just came from star menu.
+        //resett everything as if we just came from star menu. glöm inte ändra scheme och sätta playercarmovment till noll. håll koll på både den och spelarnas script version av reset
         //PlayerScript.resetAllPlayers();...
 
     }
+
 
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -33,11 +34,17 @@ public class mapManager : MonoBehaviour
     {
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(name);
         loadingScreen.SetActive(true);
-        while(!asyncOperation.isDone)
+
+
+
+        while (!asyncOperation.isDone)
         {
-           float loadingProgress = Mathf.Clamp01(asyncOperation.progress / .9f);
-           loadingSlider.value = loadingProgress;
-           yield return null;          
+            float loadingProgress = Mathf.Clamp01(asyncOperation.progress / .9f);
+            loadingSlider.value = loadingProgress;
+            yield return null;
+
         }
+
     }
+
 }
