@@ -3,20 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Wall
-  - Projectile
-  - checkPoint
-  - PlayerHitbox
-  - PlayerManager
-  - CrossChecking
-  - Path
-  - RespawnPoint
-  - ButtonTopRow
-  - ButtonBottomRow
-  - Canvas
-  - Player controller
-  - Player Mananger
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -24,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
-  - body
-  - wheels
-  - Player
+  - 
+  - 
+  - 
   - 
   - 
   - 
