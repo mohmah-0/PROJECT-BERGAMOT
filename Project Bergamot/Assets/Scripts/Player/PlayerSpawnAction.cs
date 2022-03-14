@@ -14,5 +14,7 @@ public class PlayerSpawnAction : MonoBehaviour
 
         playerInput.gameObject.GetComponent<PlayerDetails>().startPos = spawnPoints[playerInput.playerIndex].position;
         FindObjectOfType<OutOfView>().cars.Add(playerInput.gameObject.transform.GetChild(0).GetChild(0).gameObject);
+
+        FindObjectOfType<SetPlayerColor>().SetColor();
     }
 }

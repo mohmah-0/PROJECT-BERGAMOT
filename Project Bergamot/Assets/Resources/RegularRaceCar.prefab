@@ -102,6 +102,7 @@ MonoBehaviour:
   EnteredGoal: 0
   accelerating: 0
   decelerating: 0
+  respawning: 0
   topSpeed: 600
   steeringPower: 0
 --- !u!114 &7374833967051081919
@@ -698,7 +699,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 53d0a58ee56d87d46b053f79fff4bc6a, type: 2}
+  - {fileID: 2100000, guid: 31ffbf560c9ff3945a96bb769082b676, type: 2}
   - {fileID: 2100000, guid: d38f661c3b0be524a8556b97f6e2aeb7, type: 2}
   - {fileID: 2100000, guid: 7299443741f85fb48932d06869c3bf56, type: 2}
   - {fileID: 2100000, guid: eff3b1fcdd0f169448d049b8cc04ef1a, type: 2}

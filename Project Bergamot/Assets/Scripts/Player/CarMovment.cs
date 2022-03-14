@@ -9,11 +9,11 @@ public class CarMovment : MonoBehaviour
     private Transform[] meshes = new Transform[4];
     private Transform wheels, wheelColliders;
     public bool EnteredGoal = false, accelerating = false, decelerating = false;
+    public bool respawning = false;
     InputAction.CallbackContext accelerationPower, decelerationPower;
 
 
     public float topSpeed = 600, steeringPower = 0; //ta bort acceleration och fixa dens refferenser
-    public bool respawning = false;
 
     Vector3 tempPosition;
     Quaternion tempRotation;
