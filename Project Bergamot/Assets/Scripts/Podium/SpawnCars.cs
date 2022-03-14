@@ -5,7 +5,8 @@ using UnityEngine;
 public class SpawnCars : MonoBehaviour
 {
     public Transform[] spawnPoints;
-    public GameObject car;
+    public GameObject Racecar;
+    public GameObject Coolcar;
 
     // Start is called before the first frame update
     void Start()
@@ -13,15 +14,53 @@ public class SpawnCars : MonoBehaviour
         Spawn();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void Spawn()
     {
-        for (int i = 0; i < 3; i++)
-            Instantiate(car, spawnPoints[i]);    
+        List<int> players = FindObjectOfType<PodiumPlacements>().players;
+        List<int> cars = FindObjectOfType<PodiumPlacements>().carType;
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (cars[i] == 0)
+            {
+                GameObject car = Instantiate(Racecar, spawnPoints[i]);
+
+                switch (players[i])
+                {
+                    case 1:
+                        car.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().materials[cars[i]].color = Color.red;
+                        break;
+                    case 2:
+                        car.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().materials[cars[i]].color = Color.blue;
+                        break;
+                    case 3:
+                        car.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().materials[cars[i]].color = Color.yellow;
+                        break;
+                    case 4:
+                        car.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().materials[cars[i]].color = Color.green;
+                        break;
+                }
+            }
+
+            if (cars[i] == 1)
+            {
+                GameObject car = Instantiate(Coolcar, spawnPoints[i]);
+
+                switch (players[i])
+                {
+                    case 1:
+                        car.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().materials[cars[i]].color = Color.red;
+                        break;
+                    case 2:
+                        car.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().materials[cars[i]].color = Color.blue;
+                        break;
+                    case 3:
+                        car.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().materials[cars[i]].color = Color.yellow;
+                        break;
+                    case 4:
+                        car.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().materials[cars[i]].color = Color.green;
+                        break;
+                }
+            }
+        }
     }
 }

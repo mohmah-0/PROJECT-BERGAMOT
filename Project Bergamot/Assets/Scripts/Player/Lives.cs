@@ -22,9 +22,9 @@ public class Lives : MonoBehaviour
 
             GetComponent<PlayerUI>().RemoveLastImage();
             Destroy(GetComponent<PlayerUI>().borderItem);
-            FindObjectOfType<OutOfView>().cars.RemoveAt(GetComponent<PlayerDetails>().playerID - 1);
-   
-            Destroy(gameObject);
+            //FindObjectOfType<OutOfView>().cars.RemoveAt(GetComponent<PlayerDetails>().playerID);
+            Debug.Log(transform.name);
+            Destroy(transform.parent.gameObject);
         }
     }
 }

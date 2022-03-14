@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PodiumPlacements : MonoBehaviour
 {
-    [SerializeField] List<int> players;
+    public List<int> players;
+    public List<int> carType;
     float endtime = 1;
     // Start is called before the first frame update
     void Awake()
@@ -16,6 +17,7 @@ public class PodiumPlacements : MonoBehaviour
     public void UpdateList(PlayerDetails playerDetails)
     {
         players.Insert(0, playerDetails.playerID);
+        carType.Insert(0, playerDetails.carType);
     }
 
     public void FinishGame()

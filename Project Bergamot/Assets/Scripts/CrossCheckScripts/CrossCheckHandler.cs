@@ -162,7 +162,6 @@ public class CrossCheckHandler : MonoBehaviour
                         nextCheckPointList[i] = (nextCheckPoint + 1) % checkpoints.Length;
 
                     }
-                    Debug.Log(carData.getCurrentCheckpoint() + " / " + (checkpoints.Length-1));
                     //break;
                 }
             }

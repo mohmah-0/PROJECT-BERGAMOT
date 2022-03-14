@@ -14,14 +14,12 @@ public class SetPlayerColor : MonoBehaviour
         foreach (GameObject car in cars)
         {
             int id = car.GetComponent<PlayerDetails>().playerID;
-            int cartype = (car.name == "CoolerRaceCar(Clone)") ? 1 : 0;
-            Debug.Log(id);
+            int cartype = (car.name.StartsWith("CoolerRaceCar")) ? 1 : 0;
+            car.GetComponent<PlayerDetails>().playerID = cartype;
+            Debug.Log("biltyp: " + cartype);
             switch (id)
             {
                 case 1:
-                    //Debug.Log(car.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().materials[0]);
-                    //FindObjectOfType<colllors>().colors[0].color = Color.black;
-                    Debug.Log("biltyp: " + cartype);
                     car.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().materials[cartype].color = Color.red;
                     break;
                 case 2:

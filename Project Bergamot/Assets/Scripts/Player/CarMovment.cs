@@ -121,6 +121,12 @@ public class CarMovment : MonoBehaviour
         }
     }
 
+    public void Item(InputAction.CallbackContext i)
+    {
+        if (i.performed)
+            GetComponent<Inventory>().UseItem();
+    }
+
 
     float calculateMotorTourqe(float wheelRpm)
     {

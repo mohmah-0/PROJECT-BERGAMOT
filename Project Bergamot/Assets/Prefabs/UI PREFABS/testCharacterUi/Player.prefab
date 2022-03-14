@@ -109,7 +109,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 15156326735374212}
         m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
-        m_MethodName: carPressedX
+        m_MethodName: carPressedA
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -201,6 +201,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6b140fad-ae74-46b2-b329-63bf199b0221
     m_ActionName: UI Controll/Pressing X[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 15156326735374212}
+        m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
+        m_MethodName: carPressedX
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a921dca0-0297-43fe-94b2-e24b08409d36
+    m_ActionName: Player controll/UseItem[/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest,/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI Controll
@@ -219,5 +235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerColor: 0
+  enableControlls: 1
   playerCar: {fileID: 0}
   playerCarMovment: {fileID: 0}

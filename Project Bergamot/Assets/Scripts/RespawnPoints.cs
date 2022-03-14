@@ -21,14 +21,15 @@ public class RespawnPoints : MonoBehaviour
     private GameObject leadCar;
 
     private Vector3 pathPoint;
-    private void Awake()
+    private void Start()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 1; i < 5; i++)
         {
             GameObject point = Instantiate(RespawnPoint, transform);
             point.transform.localPosition = new Vector3(-3 + i * 1.5f, 0, 0) ;
             point.name = "point" + i;
         }
+
     }
     // Update is called once per frame
     void Update()

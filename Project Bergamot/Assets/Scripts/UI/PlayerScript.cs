@@ -172,11 +172,19 @@ public class PlayerScript : MonoBehaviour
             playerCarMovment.steer(action);
         }
     }
-    public void carPressedX(InputAction.CallbackContext action)//only used by Player controll scheme
+    public void carPressedA(InputAction.CallbackContext action)//only used by Player controll scheme
     {
         if (enableControlls)
         {
             playerCarMovment.drift(action);
+        }
+    }
+
+    public void carPressedX(InputAction.CallbackContext action)
+    {
+        if (enableControlls)
+        {
+            playerCarMovment.Item(action);
         }
     }
 

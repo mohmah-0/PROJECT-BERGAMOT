@@ -26,7 +26,10 @@ public class PlayerSpawnAction : MonoBehaviour
     void spawningCar(GameObject player, int playerNumber)
     {
         player.SetActive(true);
-        player.transform.position = spawnPoints[playerNumber].position;
+        player.transform.position = spawnPoints[playerNumber-1].position;
+        player.GetComponent<PlayerDetails>().playerID = playerNumber;
+        player.GetComponent<PlayerUI>().Spawn();
+        FindObjectOfType<OutOfView>().cars.Add(player.gameObject.transform.GetChild(0).GetChild(0).gameObject);
     }
 
     void setupPlayerControll(GameObject player, CarMovment car)
@@ -35,8 +38,6 @@ public class PlayerSpawnAction : MonoBehaviour
         PlayerScript tempPlayerScript = player.GetComponent<PlayerScript>();
         tempPlayerScript.playerCarMovment = car;
         tempPlayerScript.enableControlls = true;
-        playerInput.gameObject.GetComponent<PlayerDetails>().startPos = spawnPoints[playerInput.playerIndex].position;
-        FindObjectOfType<OutOfView>().cars.Add(playerInput.gameObject.transform.GetChild(0).GetChild(0).gameObject);
 
         FindObjectOfType<SetPlayerColor>().SetColor();
     }

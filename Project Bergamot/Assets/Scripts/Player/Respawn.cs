@@ -12,7 +12,6 @@ public class Respawn : MonoBehaviour
 
     private void Awake()
     {
-        playerID = GetComponent<PlayerDetails>().playerID-1;
         wheelRenderers = new Renderer[4];
         for (int i = 0; i < 4; i++)
             wheelRenderers[i] = transform.GetChild(0).GetChild(1).GetChild(i).GetChild(0).GetComponent<Renderer>();
@@ -20,8 +19,9 @@ public class Respawn : MonoBehaviour
 
     private void Update()
     {
+        playerID = GetComponent<PlayerDetails>().playerID;
         if (GameObject.Find("point"+playerID) != null)
-        respawnPoint = GameObject.Find("point" + playerID).transform.position;
+            respawnPoint = GameObject.Find("point" + playerID).transform.position;
     }
 
     public IEnumerator CarRespawn()
@@ -44,6 +44,7 @@ public class Respawn : MonoBehaviour
         yield return null;
 
         //set all values back to default
+        
         flashTime = 60;
 
         Rigidbody leadRB = FindObjectOfType<CrossCheckHandler>().leadCar.transform.GetChild(0).GetComponent<Rigidbody>();

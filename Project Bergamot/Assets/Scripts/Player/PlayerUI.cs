@@ -15,33 +15,34 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] Sprite itemIcon;
     public GameObject borderItem;
 
-    private void Awake()
+    public void Spawn()
     {
+        Debug.Log(GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>());
         playerDetails = GetComponent<PlayerDetails>();
         canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
 
         switch (playerDetails.playerID-1)
         {
             case 0:
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 1; i++)
                     helmetObj.Add(AddImage(helmets[playerDetails.playerID-1], new Vector3(150*i+75, 1005, 0)));
-
                 borderItem = AddImage(itemBorder, new Vector3(150, 855, 0));
+                Debug.Log(borderItem);
                 break;
             case 1:
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 1; i++)
                     helmetObj.Add(AddImage(helmets[playerDetails.playerID-1], new Vector3(1845 - (150 * i), 1005, 0)));
 
                 borderItem = AddImage(itemBorder, new Vector3(1770, 855, 0));
                 break;
             case 2:
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 1; i++)
                     helmetObj.Add(AddImage(helmets[playerDetails.playerID-1], new Vector3(150 * i + 75, 75, 0)));
 
                 borderItem = AddImage(itemBorder, new Vector3(150, 225, 0));
                 break;
             case 3:
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 1; i++)
                     helmetObj.Add(AddImage(helmets[playerDetails.playerID-1], new Vector3(1845 - (150 * i), 75, 0)));
 
                 borderItem = AddImage(itemBorder, new Vector3(1770, 225, 0));

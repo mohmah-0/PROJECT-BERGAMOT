@@ -8,28 +8,24 @@ public class OutOfView : MonoBehaviour
     public List<GameObject> cars;
     float startTime = 3;
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
+        for(int i = 0; i < cars.Count; i++)
+        {
+            cars.Remove(null);
+        }
         startTime -= Time.deltaTime;
-        foreach (GameObject car in cars.ToArray())
+        foreach (GameObject car in cars)
         {
             //bool hasRespawned = car.transform.parent.parent.GetComponent<Lives>().hasRespawned;
             if (car != null)
-            if (!IsVisible(car) && startTime < 0)
+            if (!car.GetComponent<Renderer>().isVisible && startTime < 0)
             {
-                Debug.Log(car.transform.parent.parent.GetComponent<PlayerDetails>().playerID + "is out of view");
+                //Debug.Log(car.transform.parent.parent.GetComponent<PlayerDetails>().playerID + "is out of view");
                 car.transform.parent.parent.GetComponent<Lives>().OutOfView();
             }
         }
         if (FindObjectOfType<CrossCheckHandler>().cars.Length == 1 && startTime < 0)
             FindObjectOfType<PodiumPlacements>().FinishGame();
-    }
-
-    bool IsVisible(GameObject car)
-    {
-        if (car != null)
-        return car.GetComponent<Renderer>().isVisible;
-
-        return false;
     }
 }
