@@ -506,6 +506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   carType: 0
+  placement: 0
   startPos: {x: 0, y: 0, z: 0}
 --- !u!114 &-3721555971453503608
 MonoBehaviour:

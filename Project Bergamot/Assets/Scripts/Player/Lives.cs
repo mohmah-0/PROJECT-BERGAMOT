@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lives : MonoBehaviour
 {
-    [SerializeField] int lives = 3;
+    public int lives = 3;
     public bool hasRespawned = true;
     public void OutOfView()
     {
