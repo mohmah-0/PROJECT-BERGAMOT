@@ -6,6 +6,7 @@ public class OutOfView : MonoBehaviour
 {
 
     public List<GameObject> cars;
+    public int playersOut = 0;
     float startTime = 3;
     // Update is called once per frame
     void Update()

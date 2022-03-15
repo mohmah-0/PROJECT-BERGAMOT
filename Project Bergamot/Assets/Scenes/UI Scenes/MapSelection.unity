@@ -601,10 +601,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 896449529}
+    - target: {fileID: 3336295059367581915, guid: 4ec341a4caa12334c809c46a6af2e475, type: 3}
+      propertyPath: m_Text
+      value: '
+
+        Map 2
+
+        (DLC)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336295059367581915, guid: 4ec341a4caa12334c809c46a6af2e475, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336295059367581915, guid: 4ec341a4caa12334c809c46a6af2e475, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336295059367581915, guid: 4ec341a4caa12334c809c46a6af2e475, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3336295059369425085, guid: 4ec341a4caa12334c809c46a6af2e475, type: 3}
       propertyPath: m_VideoClip
       value: 
       objectReference: {fileID: 32900000, guid: 7049213441bb9314b877e0d21fa72452, type: 3}
+    - target: {fileID: 3336295059658014767, guid: 4ec341a4caa12334c809c46a6af2e475, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3336295060302344304, guid: 4ec341a4caa12334c809c46a6af2e475, type: 3}
       propertyPath: m_Name
       value: MapUIPrefab

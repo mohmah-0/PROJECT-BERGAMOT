@@ -20,7 +20,7 @@ public class SpawnCars : MonoBehaviour
 
     void Spawn()
     {
-        //List<int> players = FindObjectOfType<PodiumPlacements>().players;
+        List<int> players = FindObjectOfType<PodiumPlacements>().players;
         //List<int> cars = FindObjectOfType<PodiumPlacements>().carType;
         GameObject[] activeItems = GameObject.FindGameObjectsWithTag("items");
         foreach( GameObject item in activeItems)
@@ -30,12 +30,11 @@ public class SpawnCars : MonoBehaviour
 
         for (int i = 0; i < cars.Length; i++)
         {
-            Debug.Log(cars[i].name);
-            cars[i].transform.position = spawnPoints[i].transform.position;
-            cars[i].transform.rotation = spawnPoints[i].transform.rotation;
-            cars[i].transform.GetChild(0).position = spawnPoints[i].transform.position;
-            cars[i].transform.GetChild(0).rotation = spawnPoints[i].transform.rotation;
-            Debug.Log("  kkkkk " + cars[i].transform.position + "  rigids: " + cars[i].transform.GetChild(0).GetComponent<Rigidbody>().position);
+
+            cars[i].transform.position = spawnPoints[cars[i].GetComponent<PlayerDetails>().placement].transform.position;
+            cars[i].transform.rotation = spawnPoints[cars[i].GetComponent<PlayerDetails>().placement].transform.rotation;
+            cars[i].transform.GetChild(0).position = spawnPoints[cars[i].GetComponent<PlayerDetails>().placement].transform.position;
+            cars[i].transform.GetChild(0).rotation = spawnPoints[cars[i].GetComponent<PlayerDetails>().placement].transform.rotation;
 
             //if (cars[i] == 0)
             //{

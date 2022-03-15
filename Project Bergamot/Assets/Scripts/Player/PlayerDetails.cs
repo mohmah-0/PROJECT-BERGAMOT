@@ -6,6 +6,7 @@ public class PlayerDetails : MonoBehaviour//may be removed
 {
     public int playerID;
     public int carType;
+    public int placement;
     public Vector3 startPos;
     // Start is called before the first frame update
     void Awake()//Maybe just use car position directly---

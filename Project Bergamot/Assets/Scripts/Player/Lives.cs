@@ -17,7 +17,27 @@ public class Lives : MonoBehaviour
         }
         if (lives <= 0)
         {
+            int playersOut = FindObjectOfType<OutOfView>().playersOut;
             FindObjectOfType<PodiumPlacements>().UpdateList(GetComponent<PlayerDetails>());
+
+            switch(playersOut)
+            {
+                case 0:
+                    FindObjectOfType<OutOfView>().playersOut++;
+                    GetComponent<PlayerDetails>().placement = FindObjectOfType<OutOfView>().cars.Count-1;
+                    break;
+                case 1:
+                    FindObjectOfType<OutOfView>().playersOut++;
+                    GetComponent<PlayerDetails>().placement = FindObjectOfType<OutOfView>().cars.Count-1;
+                    break;
+                case 2:
+                    FindObjectOfType<OutOfView>().playersOut++;
+                    GetComponent<PlayerDetails>().placement = FindObjectOfType<OutOfView>().cars.Count-1;
+                    break;
+                default:
+                    FindObjectOfType<CrossCheckHandler>().getLeadCar().GetComponent<PlayerDetails>().placement = 0;
+                    break;
+            }
 
 
             GetComponent<PlayerUI>().RemoveLastImage();
