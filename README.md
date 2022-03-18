@@ -38,7 +38,12 @@ There you will find a folder called "Game", open that and then run the "Rally-Ma
 ## FEATURES
  - Camera targeting the lead car and everyone else need to catchup with the leader.
  - If you go out of camera view, you loose a life
- - ADD MORE!!!
+ - Pickup Items and destroy for your opponents/friends/family, or protect yourself against the bad things out there.
+ - 2-4 players local multiplayer
+ - Drifting, on (A), to get the curves!
+ - One Level, more to come
+ - Two Cars to choose from
+ - A Nice victory screen 
 
 ## ITEMS
 Woundering about the items in the game? Well then you found the right place! Here we have listed all the nice info about the items!
@@ -47,7 +52,7 @@ Woundering about the items in the game? Well then you found the right place! Her
  - Droppable:
    - Caltrops: Dropp this and anyone who rides on this slows down
  - Throwable/Projectile:
-   - ???: The car you hit will slow down
+   - Shell/Shuruken: The car you hit will slow down
  - Protective:
    - Sheild: Use this to be protected agains any attack from the other players!
 
