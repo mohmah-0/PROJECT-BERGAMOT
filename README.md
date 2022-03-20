@@ -15,13 +15,11 @@ Members: Alexander, Mohammed, Edwin and Emil
 Roles:
  - Programmers: Everyone (Primary Mohammed and Emil)
  - LeadDesigner: Alexander
- - Manager: Edwin  
-
+ - Manager: Edwin 
 
 ## ABOUT THE GAME
 Rally Maniac will be an elimination rally party game which focuses on the genre of racing, multiplayer and fantasy aspects. We also highly focus on gameplay for casual and competitive players to enjoy with a group of friends or family.  
 This concept creates a highly destructive environment for players to show off their skills and creates an enjoyable gameplay experience with friends. As for the competitive players, they will be able to find game breaking strategies and provide highly intensive gameplay for others to watch and enjoy. 
-
 
 ## USAGE INSTRUCTIONS
 Here you will find information about how to install and play the game.  
@@ -52,10 +50,9 @@ Woundering about the items in the game? Well then you found the right place! Her
  - Droppable:
    - Caltrops: Dropp this and anyone who rides on this slows down
  - Throwable/Projectile:
-   - Shell/Shuruken: The car you hit will slow down
+   - Gyro-saw: The car you hit will slow down
  - Protective:
    - Sheild: Use this to be protected agains any attack from the other players!
-
 
 ## USED ASSETS
  - https://kenney.nl/assets?q=3d
